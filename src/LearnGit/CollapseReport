@@ -1,0 +1,8 @@
+Collapse report
+1.	Open http://v3.test.itpmgroup.com/login
+2.	In field Email enter “Student”
+3.	In field Password enter “909090”
+4.	 Press button “Enter”
+5.	 On left menu “tap” Report
+6.	Press on icon “-“  collapse (in the right corner)
+Expected Result: report is not present

@@ -1,0 +1,6 @@
+Un Valid Login
+1.	Open http://v3.test.itpmgroup.com/login
+2.	In field Email enter “Student”
+3.	In field Password enter “901090”
+4.	Press button “Enter”
+Expected Result: Avatar is not present

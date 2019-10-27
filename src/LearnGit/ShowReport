@@ -1,0 +1,7 @@
+Show Report
+1.	Open http://v3.test.itpmgroup.com/login
+2.	In field Email enter “Student”
+3.	In field Password enter “909090”
+4.	 Press button “Enter”
+5.	 On left menu “tap” Report
+Expected Result: report is present
