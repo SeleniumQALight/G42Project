@@ -1,0 +1,15 @@
+Add New Employee
+1.	Open http://v3.test.itpmgroup.com/login
+2.	In field Email enter “Student”
+3.	In field Password enter “909090”
+4.	Press button “Enter”
+5.	On left menu “tap” on Dictionary
+6.	Select Collaborator
+7.	Select button “Add” (in the right corner)
+8.	Enter next data:
+-	Worker surname: Ivanov
+-	Worker name: Ivan
+-	Worker middle name: Ivanovych
+-	Worker phone : 095010203040506
+9.	Press button “Create”
+Expected Result: a list of all employees is displayed
