@@ -1,0 +1,7 @@
+Valid Login
+Steps:
+1.	Open http://v3.test.itpmgroup.com/login
+2.	In field Email enter “Student”
+3.	In field Password enter “909090”
+4.	Press button “Enter”
+Expected Result: Avatar is present
