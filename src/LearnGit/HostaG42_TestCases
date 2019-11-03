@@ -1,0 +1,75 @@
+1. Check adding of the new employee.
+
+    Preconditions:
+    * User (UserName = Student; Password = 909090) is logged on.
+
+    Steps:
+    1. Navigate to the dictionary/workers page. => Page called 'Сотрудники' is opened, table with list of employees is
+    displayed.
+    2. Click 'Add' button. => Dictionary/workers/edit page with title 'Словарь' is opened, inputs ('Worker surname',
+    'Worker name', 'Worker middle name', 'Worker phone') are empty.
+    3. Fill out all the fields with a valid data. => Entered text is displayed in the fields.
+    4. Click 'Создать' button. => Dictionary/workers/edit page is closed, user is redirected to the dictionary/workers
+    page called 'Сотрудники', new added contact is displayed as the last record in the table.
+
+2. Check edition of the created employee.
+
+    Preconditions:
+    * User (UserName = Student; Password = 909090) is logged on.
+    * At least one employee has been added.
+
+    Steps:
+    1. Navigate to the dictionary/workers page. => Page called 'Сотрудники' is opened, table with list of employees is
+    displayed.
+    2. Click the first record in the table. => Dictionary/workers/edit page with title 'Словарь' is opened, inputs
+    ('Worker surname', 'Worker name', 'Worker middle name', 'Worker phone') are pre-populated with the values of
+    selected contact.
+    3. Change values of 'Worker surname' and 'Worker phone' fields. => Updated text is displayed in the fields ('Worker
+    surname' and 'Worker phone'). Values in other fields are displayed without changes.
+    4. Click 'Сохранить' button. => Dictionary/workers/edit page is closed, user is redirected to the dictionary/workers
+    page called 'Сотрудники', the first record is displayed with updated surname and phone. Other values are displayed
+    without changes.
+
+3. Check removal of the created employee.
+
+    Preconditions:
+    * User (UserName = Student; Password = 909090) is logged on.
+    * At least one employee has been added.
+
+    Steps:
+    1. Navigate to the dictionary/workers page. => Page called 'Сотрудники' is opened, table with list of employees is
+    displayed.
+    2. Click the first record in the table. => Dictionary/workers/edit page with title 'Словарь' is opened, inputs
+    ('Worker surname', 'Worker name', 'Worker middle name', 'Worker phone') are pre-populated with the values of
+    selected contact.
+    3. Click 'Удалить' button. =>  Dictionary/workers/edit page is closed, user is redirected to the dictionary/workers
+    page called 'Сотрудники', amount of contacts in the table has been reduced on one. Removed contact is not displayed
+    in the table.
+
+4. Check edition of the user's profile.
+
+    Preconditions:
+    * User (UserName = Student; Password = 909090) is logged on.
+    * Main page (http://v3.test.itpmgroup.com/) is opened.
+
+    Steps:
+    1. Click username dropdown from the top right corner => 'User Details' dropdown with two buttons ('Профиль' and
+    'Выход') is opened.
+    3. Click 'Профиль' button. => /users/profile/13 page with title Профиль is opened. Fields ('Адрес email',
+    'Пользователь', 'Логин') are pre-populated with values ('i1nfo@qalight.com', 'Student_37', 'Student'), other fields
+    ('Пароль', 'Подттверждение пароля') are empty.
+    4. Change the value in the 'Пользователь' field. => Updated value is displayed in the 'Пользователь' field. Values
+    in the other fields are not changed.
+    5. Click 'Сохранить' button. => /users/profile/13 page is still opened, subtitle of the page and title of 'User
+    Details' dropdown contain updated userName.
+
+5. Check logout from user's account.
+    Preconditions:
+    * User (UserName = Student; Password = 909090) is logged on.
+    * Main page (http://v3.test.itpmgroup.com/) is opened.
+
+    Steps:
+    1. Click username dropdown from the top right corner => 'User Details' dropdown with two buttons ('Профиль' and
+    'Выход') is opened.
+    3. Click 'Выход' button. => User is redirected to /login page with 'Учет запчастей' title, fields ('Email' and
+    'Password') are empty.
