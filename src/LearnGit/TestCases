@@ -1,0 +1,34 @@
+Test Case 1 (Positive)
+1. Open page http://v3.test.itpmgroup.com/login -> page opened
+2. Enter valid credentials (Student, 909090) -> Entered
+3. Click "Вход" button -> http://v3.test.itpmgroup.com/ page is opened. Student_37 username is displayed in top right header
+
+Test Case 2 (Positive)
+Preconditions: - user is logged in
+
+1. Open page http://v3.test.itpmgroup.com/ -> page opened
+2. Click on username from top right corner -> user details pop-up is displayed
+3. Click "Выход" button -> user is redirected to login page http://v3.test.itpmgroup.com/login
+
+Test Case 3 (Negative)
+1. Open page http://v3.test.itpmgroup.com/login -> page opened
+2. Enter invalid password (Student, 9090909) -> Entered
+3. Click "Вход" button -> user is not logged in. http://v3.test.itpmgroup.com/login page is opened. Password field cleared
+4. Repeat steps 2-3 for invalid Email(name) -> user is not logged in. http://v3.test.itpmgroup.com/login page is opened. Password field cleared
+
+Test Case 4 (Positive)
+Preconditions: - user is logged in
+
+1. Open page http://v3.test.itpmgroup.com/ -> page opened
+2. Click on username from top right corner -> user details pop-up is displayed
+3. Click "Профиль" button -> Profile details are displayed
+4. Check profile details  -> email: i1nfo@qalight.com, user: Student_37, login: Student, pswrd fields are empty
+
+Test Case 5 (Positive)
+Preconditions: - user is logged in
+
+1. Open page http://v3.test.itpmgroup.com/ -> page opened
+2. Navigate to "Сделки" from left nav menu -> "Сделки" page (http://v3.test.itpmgroup.com/deal) is opened
+3. Click "+" button from top right corner -> http://v3.test.itpmgroup.com/deal/edit page is opened
+4. Fill in all required fields and click "Создать" button -> "Сделки" page (http://v3.test.itpmgroup.com/deal) is opened with all available deals
+5. Check already created deal -> Deal is displayed with all previously entered data
