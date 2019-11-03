@@ -10,14 +10,14 @@ loginWithemptyPassword
 1. Add valid user name
 2. Click "Enter" button
 
-ER: validation error "Password field is required. Please enter a password"
+ER: User is on the login page. User name is still displayed
 
 
 loginWithemptyLogin
 1. Add valid password
 2. Click "Enter" button
 
-ER: validation error "User name field is required. Please enter a user name"
+ER: User is on the login page
 
 
 loginWithInvalidPassword
@@ -25,7 +25,7 @@ loginWithInvalidPassword
 2. Add invalid password
 3. Click "Enter" button
 
-ER: validation error "Incorrect login or password"
+ER: User is on the login page. User name is still displayed
 
 
 loginWithInvalidUserName
@@ -33,7 +33,7 @@ loginWithInvalidUserName
 2. Add valid password
 3. Click "Enter" button
 
-ER: validation error "Incorrect login or password"
+ER: User is on the login page. User name is still displayed
 
 
 loginWithInvalidCredentials
@@ -41,7 +41,7 @@ loginWithInvalidCredentials
 2. Add invalid password
 3. Click "Enter" button
 
-ER: validation error "Incorrect login or password"
+ER: User is on the login page. User name is still displayed
 
 
 loginWithViceVersaCredentials
@@ -49,4 +49,4 @@ loginWithViceVersaCredentials
 2. Add valid password to user name field
 3. Click "Enter" button
 
-ER: validation error "Incorrect login or password"
+ER: User is on the login page. User name is still displayed.
