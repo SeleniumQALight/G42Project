@@ -1,0 +1,52 @@
+loginWithValidUser
+1. Add valid user name
+2. Add valid password
+3. Click "Enter" button
+
+ER: User has been successfully logged in. Main page is displayed
+
+
+loginWithemptyPassword
+1. Add valid user name
+2. Click "Enter" button
+
+ER: User is on the login page. User name is still displayed
+
+
+loginWithemptyLogin
+1. Add valid password
+2. Click "Enter" button
+
+ER: User is on the login page
+
+
+loginWithInvalidPassword
+1. Add valid user name
+2. Add invalid password
+3. Click "Enter" button
+
+ER: User is on the login page. User name is still displayed
+
+
+loginWithInvalidUserName
+1. Add invalid user name
+2. Add valid password
+3. Click "Enter" button
+
+ER: User is on the login page. User name is still displayed
+
+
+loginWithInvalidCredentials
+1. Add invalid user name
+2. Add invalid password
+3. Click "Enter" button
+
+ER: User is on the login page. User name is still displayed
+
+
+loginWithViceVersaCredentials
+1. Add valid user name to password field
+2. Add valid password to user name field
+3. Click "Enter" button
+
+ER: User is on the login page. User name is still displayed.
