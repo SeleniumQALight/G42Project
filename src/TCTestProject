@@ -35,7 +35,7 @@ TC 05 -  delete a type of deal
 Precondition: user is loged in
 1. go to slovari - Tipy sdelok
 2. Open any deal type details
-3.Click on Удалить
+3.Click on Удалить.
 Expected result: deal type is deleted and does not appear in "тип сделки" dropdown (create new deal functionality)
 
 
