@@ -1,0 +1,143 @@
+ID:      001
+Summary: Page title check (Positive)
+
+Description:
+
+1. Enter the site address in the address bar: http://v3.test.itpmgroup.com/
+2. Press Enter on the keyboard
+3. Check page title
+
+Actual result:
+
+"Account of spare:Aвторизация"
+
+ID:      002
+Summary: Page url check (Positive)
+
+Description:
+
+1. Enter the site address in the address bar: http://v3.test.itpmgroup.com/
+2. Press Enter on the keyboard
+3. Check page title
+
+Actual result:
+
+"http://v3.test.itpmgroup.com/login"
+
+Test suite 1 "Login":
+
+Preconditions:
+
+1. Open Chrome browser
+2. Enter in the address bar: http://v3.test.itpmgroup.com/
+
+ID:      003
+Summary: Log in with valid data (Positive)
+
+Description:
+
+1. Enter 'Student' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+
+ID:      004
+Summary: Log in with valid data - uppercase(Positive)
+
+Description:
+
+1. Enter 'STUDENT' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+
+ID:      005
+Summary: Log in with valid data - lower case(Positive)
+
+Description:
+
+1. Enter 'student' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+
+ID:      006
+Summary: Log in with empty data (Negative)
+
+Description:
+
+1. Click "Вход" btn.
+2. Check page title
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+
+ID:      007
+Summary: Log in with correct Email, incorrect Password (Negative)
+
+Description:
+
+1. Enter 'Student' in the "Email" field
+2. Enter '11111' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+
+ID:      007
+Summary: Log in with incorrect Email, correct Password (Negative)
+
+Description:
+
+1. Enter 'Student123' in the "Email" field
+2. Enter '909090' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+
+ID:      008
+Summary: Log in with incorrect Email, incorrect Password (Negative)
+
+Description:
+
+1. Enter 'Student123' in the "Email" field
+2. Enter '1111111' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+
+Postconditions:
+Logout
+close browser
