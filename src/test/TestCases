@@ -1,0 +1,59 @@
+Id: 1
+Summary: Login with valid login and password.
+Preconditions: Open http://v3.test.itpmgroup.com/login.
+Steps:
+1.	Enter “Student” in the "Login" field
+2.	Enter “909090” in the "Password" field
+3.	Click the "Login" button
+Expected result:
+1.	The entered value is displayed in the "Login" field.
+2.	The entered value is displayed in the "Password" field in encrypted form.
+3.	The system page with the menu is displayed.
+Postconditions:
+1.	Click profile
+2.	Click the “Exit” button.
+
+Id: 2
+Summary: Login with valid login and not valid password.
+Preconditions: Open http://v3.test.itpmgroup.com/login.
+Steps:
+1.	Enter “Student” in the "Login" field
+2.	Enter “909091” in the "Password" field
+3.	Click the "Login" button
+Expected result:
+1.	The entered value is displayed in the "Login" fieldю
+2.	The entered value is displayed in the " Password " field.
+3.	The password field is cleared.
+Postconditions: Delete the value of the login field.
+
+Id: 3
+Summary: Login with valid login and space instead of password.
+Preconditions: Open http://v3.test.itpmgroup.com/login.
+Steps:
+1.	Enter “Student” in the "Login" field
+2.	Enter spase in the "Password" field
+3.	Click the "Login" button
+Expected result:
+1.	The entered value is displayed in the "Login" field.
+2.	The entered value is displayed in the " Password " field.
+3.	The password field is cleared.
+Postconditions: Delete the value of the login field.
+
+Id: 4
+Summary: Login with valid login and unfilled “Password” field.
+Preconditions: Open http://v3.test.itpmgroup.com/login.
+Steps:
+1.	Enter “Student” in the "Login" field
+2.	Click the "Login" button
+Expected result:
+1.	The entered value is displayed in the "Login" field.
+2.	The password field is cleared.
+Postconditions: Delete the value of the login field.
+
+Id: 5
+Summary: Login with unfilled “Login” field and unfilled “Password” field.
+Preconditions: Open http://v3.test.itpmgroup.com/login.
+Steps:
+1.	Click the "Login" button
+Expected result:
+1.	Login form is displayed with fields not filled.
