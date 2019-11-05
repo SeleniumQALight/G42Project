@@ -1,0 +1,45 @@
+A. Login with valid email and pass
+
+1. Open http://v3.test.itpmgroup.com/login
+2. Input valid email into field "Email"
+3. Input valid password for email from step 2 to field "Password"
+4. Click "Вход" button
+
+Expected result: the user is logged in. Main page is displayed.
+
+B. Attempt to login with empty email and pass
+
+1. Open http://v3.test.itpmgroup.com/login
+2. Click "Вход" button
+
+Expected result: the user is not logged in. Login page is displayed.
+
+C. Sign out personal account
+
+Preconditions: user must be logged in at http://v3.test.itpmgroup.com, the main page is opened.
+
+1. Click on user's name at the top right corner of the page (a dropdown list is displayed)
+2. Click on "Выход" button
+
+Expected result: the user is logged out. Login page is displayed.
+
+D. Change an email address on personal user's information page
+
+Preconditions: user must be logged in at http://v3.test.itpmgroup.com, the profile information page is opened.
+
+1. Click on "Адрес email" field
+2. Input an email, which differs from email at field "Адрес email"
+3. Click on "Сохранить" button
+
+Expected result: the new email is displayed on user's information page at the field "Адрес email".
+
+E. Change user's name on personal user's information page
+
+Preconditions: user must be logged in at http://v3.test.itpmgroup.com, the profile information page is opened.
+
+1. Click on "Пользователь" field
+2. Input name, which differs from name at field "Пользователь"
+3. Click on "Сохранить" button
+
+Expected result: the new name is displayed on user's information page at the field "Пользователь",
+at the top right corner of the page and on user's panel.
