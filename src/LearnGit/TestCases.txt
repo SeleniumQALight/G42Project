@@ -1,0 +1,53 @@
+Case 1.
+Summary: Menu closes if you click on it.
+Link:http://v3.test.itpmgroup.com/dashboard
+Preconditions: login site.
+Steps:
+1. Click on menu icon.
+Expected results: Menu closes. Site`s layout stay widened.
+
+Case 2.
+Summary: Open profile editor.
+Link: http://v3.test.itpmgroup.com/dashboard
+Preconditions: login site.
+Steps:
+1. Click on icon with username.
+2. Click on "Профиль" button.
+Expected results: Open page with fields with user data.
+
+Case 3.
+Summary: Profile editor. User can save data changes.
+Link: http://v3.test.itpmgroup.com/dashboard
+Preconditions:
+1. Login site.
+2. Click on icon with username.
+3. Click on "Профиль" button.
+Steps:
+1. Change data in any fields.
+2. Click on "Сохранить" button.
+Expected results: Changed data saved in user profile. All changes are visible in site.
+
+Case 4.
+Summary: Breadcrumbs are working in oll pages.
+Link: http://v3.test.itpmgroup.com/dashboard
+Preconditions: login site.
+Steps:
+1. Go to any page.
+2. Click on the previous page in breadcrumbs.
+Expected results: Jumped to the selected page..
+
+Case 5.
+Summary: User can create new deals.
+Link: http://v3.test.itpmgroup.com/deal
+Preconditions:
+1. Login site.
+2. Go to "Deals" page.
+Steps:
+1. Click on "Add" button(plus icon).
+2. Choose "Deal date" in drop-down menu.
+3. Choose "Тип сделки" in drop-down menu.
+4. Choose "Покупатель" in drop-down menu.
+5. Choose "Поставщик" in drop-down menu.
+6. Click on "Создать" button.
+Expected results: A new deal with the selected parameters has been added to the system.
+This deal is displayed in the list of records on the deals page.
