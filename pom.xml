@@ -23,6 +23,20 @@
       <module>kiriiPlatonProj</module>
       <module>kiriiAnastasijaProj</module>
       <module>akinfiievaProject</module>
+      <module>malushynaProj</module>
+      <module>moiseyenkoProj</module>
+        <module>perskayaProj</module>
+      <module>popelnukhProj</module>
+      <module>prokopenkoProj</module>
+      <module>starukhinProj</module>
+      <module>sushyiProj</module>
+      <module>tatarinaProj</module>
+      <module>skibaProj</module>
+      <module>kuzmichJanchukProj</module>
+      <module>nakonechnaProj</module>
+      <module>mosencovaProj</module>
+      <module>marcehovProj</module>
+      <module>gushhinaProj</module>
     </modules>
 
     <name>G42Proj</name>
