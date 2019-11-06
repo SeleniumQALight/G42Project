@@ -10,6 +10,18 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>overAll</module>
+      <module>beztuzhevProj</module>
+      <module>boykoProj</module>
+      <module>vetrichenkoProj</module>
+      <module>gitinaProj</module>
+      <module>hoshtaProj</module>
+      <module>guglyaProj</module>
+      <module>dubynaProj</module>
+      <module>yerastovaProj</module>
+      <module>zhalbaProj</module>
+      <module>kapitonProj</module>
+      <module>kiriiPlatonProj</module>
+      <module>kiriiAnastasijaProj</module>
     </modules>
 
     <name>G42Proj</name>
