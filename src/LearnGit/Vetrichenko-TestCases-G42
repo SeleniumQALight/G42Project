@@ -1,0 +1,51 @@
+        Id: 1
+		Summary: Login with valid login and password.
+		Steps:
+		1.	Go to http://v3.test.itpmgroup.com/login
+		2.	Enter “Student” in the "Login" field
+		3.	Enter “909090” in the "Password" field
+		4.	Click on "Login" button
+		Expected result:
+		1.	The entered value is displayed in the "Login" field.
+		2.	The entered value is displayed in the "Password" field in encrypted form.
+		3.	The system page with the menu is displayed.
+		Id: 2
+		Summary: Login with valid login and not valid password.
+		Steps:
+		1.	Go to http://v3.test.itpmgroup.com/login
+		2.	Enter “Student” in the "Login" field
+		3.	Enter “909091” in the "Password" field
+		4.	Click on "Login" button
+		Expected result:
+		1.	The entered value is displayed in the "Login" field
+		2.	The entered value is displayed in the " Password " field.
+		3.	The password field is cleared.
+		Id: 3
+		Summary: Login with valid login and space instead of password.
+		Steps:
+		1. 	Go to http://v3.test.itpmgroup.com/login
+		2.	Enter “Student” in the "Login" field
+		3.	Enter space in the "Password" field
+		4.	Click on "Login" button
+		Expected result:
+		1.	The entered value is displayed in the "Login" field.
+		2.	The entered value is displayed in the " Password " field.
+		3.	The password field is cleared.
+		Id: 4
+		Summary: Login with valid login and unfilled “Password” field.
+		Steps:
+		1. 	Go to http://v3.test.itpmgroup.com/login
+		1.	Enter “Student” in the "Login" field
+		2.	Click the "Login" button
+		Expected result:
+		1.	The entered value is displayed in the "Login" field.
+		2.	The password field is cleared.
+		Id: 5
+		Summary: Login with unfilled “Login” field and unfilled “Password” field.
+		Preconditions: Open http://v3.test.itpmgroup.com/login.
+		Steps:
+		1. 	Go to http://v3.test.itpmgroup.com/login
+		1.	Click the "Login" button
+		Expected result:
+		1.	Login form is displayed without values.
+
