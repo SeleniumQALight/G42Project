@@ -1,0 +1,42 @@
+TC 01 - log in
+
+1. Go to http://v3.test.itpmgroup.com/
+2. Fill in Email field : Student
+3. Fill in Password field : 909090
+4. Click on "Вход"
+Expected result: Home page is shown, user is logged in as Student_37
+
+
+TC 02 - add new item to apparat dictionnary
+Precondition: user is loged in
+1. go to Slovari->Apparat
+2. Click on + icon
+3.Fill in  Apparat number : 1234
+4. Fill in Apparat comment: test
+Click on Создать
+Expected result: new apparat with correct number and coomment is created in apparat list
+
+TC 03 - create new deal
+Precondition: user is loged in
+1. go to Sdelki
+2. Click on + icon
+3.Fill in Deal date, Тип сделки, Покупатель,Поставщик
+4.Click on Создать
+Expected result: new deal is created
+
+TC 04 -  try creating new deal with empty values
+Precondition: user is loged in
+1. go to Sdelki
+2. Click on + icon
+3.Click on Создать
+Expected result: new deal is  not created, warning message is shown - "Please fill in Deal date, Тип сделки, Покупатель,Поставщик"
+
+TC 05 -  delete a type of deal
+Precondition: user is loged in
+1. go to slovari - Tipy sdelok
+2. Open any deal type details
+3.Click on Удалить
+Expected result: deal type is deleted and does not appear in "тип сделки" dropdown (create new deal functionality)
+
+
+
