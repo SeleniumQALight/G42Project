@@ -1,0 +1,20 @@
+Login page:
+
+1. Email placeholder - //input[@name='_username' and @placeholder='Email' and @type='text']
+2. Password placeholder - //input[@name='_password' and @placeholder='Password' and @type='password']
+3. Button 'Вход' - //button[@type='submit' and @class='btn btn-primary btn-block btn-flat']
+
+Main page:
+
+1. Online identifier - //a[@href='#' and i[@class='fa fa-circle text-success']]
+2. Dropdown user menu open - //a[@href='#' and @class='dropdown-toggle' and @data-toggle='dropdown']
+3. Button 'Выход' - //a[@href='/logout'and @class='btn btn-default btn-flat']
+4. Button 'Профиль' - //a[@href='/users/profile/13' and @class='btn btn-default btn-flat']
+
+User's profile page (http://v3.test.itpmgroup.com/users/profile/13)
+
+1. Edit user email field - //input[@type='email' and @id='userProfileEdit_user_email' and @name='userProfileEdit[user][email]']
+2. Edit user name field - //input[@name = 'userProfileEdit[user][name]' and @type='text' and @id='userProfileEdit_user_name']
+3. Save button - //button[@name = 'save' and @type='submit' and @class='btn btn-info']
+4. Name on user's menu - //span[@class = 'hidden-xs']
+5. Name on user's left side info bar - //div[@class = 'pull-left info']/p
