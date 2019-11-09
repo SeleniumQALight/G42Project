@@ -1,0 +1,37 @@
+#Authorization
+
+Authorization.Login.input=xpath("..//input[@type='text']")
+Authorization.Password.input=xpath(".//input[@type='password']")
+Authorization.Enter.button=xpath(".//button")
+Authorization.User.name=xpath(".//span[@class = 'hidden-xs']")
+
+#Deal
+
+Menu.Deal.link=xpath(".//a[@href = '/deal']")
+Add.Deal.button=xpath(".//a[@class='btn btn-info btn-sm']")
+Type.Deal.droplist=xpath(".//select[@id='deal_dealType']")
+Select.Deal.option=xpath(".//select[@id='deal_dealType']//option[contains(text(), 'Obmen')]")
+Сustomer.droplist=xpath(".//select[@id='deal_customer']")
+Select.customer.option=xpath(".//select[@id='deal_customer']//option[contains(text(), '2Вася')]")
+Provider.droplist=xpath(".//select[@id='deal_provider'] ")
+Select.provider.option=xpath(".//select[@id='deal_provider']//option[@value ='54' and contains (text(), 'test')]")
+Create.deal.button=xpath(".//button")
+Check.deal.exist=xpath(".//tbody//tr[last()]//td[2][contains(text(), 'Obmen')]")
+
+#Edit deal
+Select.Deal.link=xpath(".//tbody//tr[last()]")
+Newtype.Deal.option=xpath(".//select[@id='deal_dealType']//option[contains(text(), 'Бонус')]")
+Check.newdeal.exist=xpath(".//tbody//tr[last()]//td[2][contains(text(), 'Бонус')]")
+
+#Deal with spare part
+Add.Spare.button=xpath(".//a[@class='btn btn-info btn-sm']")
+Enter.Count.input=xpath(".//input[@type='text']")
+Deal.droplist=xpath(".//select[@id='spare_operation_deal']")
+Select.deal.droplist=xpath(".//select//option[last()]")
+Spare.droplist=xpath(".//select[@id='spare_operation_spare']")
+Select.spare.option=xpath(".//select[@id='spare_operation_spare']//option[contains(text(), 'pastSpare')]")
+Create.Spare.button=xpath(".//button")
+Check.newspare,exist=xpath(".//body//tr[2]//td[2][contains(text(), 'pastSpare')]")
+Delete.button=xpath(".//button[@name='delete']")
+Return.mainpage.link=xpath(".//a")
+Tooltip.invaliddata=xpath(".//span[@class='help-block']//li")
