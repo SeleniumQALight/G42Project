@@ -1,6 +1,6 @@
-TC #1
+Testcase 1
 
-Summary: User login.
+Summary: User Email.
 
 Steps to reproduce:
   1. Enter valid values in field "Email" .
@@ -8,11 +8,11 @@ Steps to reproduce:
   3. Click the button "Вход".
 
  Expected result:
- Under each field appears text "Поле не может быть пустым".
+ Login completed successfully (go to the main page of the site).
 
- __________________________________________________________________________________
 
- TC #2
+
+ Testcase 2
 
  Summary: User login.
 
@@ -24,9 +24,9 @@ Steps to reproduce:
   Expected result:
    Login completed successfully (go to the main page of the site).
 
-   ____________________________________________________________________________________
 
- TC #3
+
+ Testcase 3
 
  Summary: Create spare part.
 
@@ -46,10 +46,10 @@ Steps to reproduce:
   Expected result:
     Spare part created.
 
-   ____________________________________________________________________________________________
 
 
- TC #4
+
+ Testcase 4
 
  Summary: User log out.
 
@@ -66,9 +66,9 @@ Steps to reproduce:
   Expected result:
     Log out was successful.
 
-   _______________________________________________________________________________________
 
-    TC #5
+
+    Testcase 5
 
      Summary: Сreate a deal.
 
