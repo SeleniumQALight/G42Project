@@ -1,9 +1,48 @@
-Login -//a[@class='js_show_log_in auth-btn invert']
-Email address "ovagohip-4469@yopmail.com"  - //input[@id='auth_email']
-Password "123456" - //input[@id='trader_login-password']
-Login - //button[@id='auth_submit']
-Trade Now - //a[@class='auth-btn']
-Asset Silver - //*[@ticker='SILVER']
-Sell  - //*[@id='tab1']/div[2]/div[1]/div[2]/div[1]/div[1]
-Invest - //*[@id='tab1']/div[2]/div[1]/div[4]/div[1]
-Pop-up - .//*[text()='Position was opened']
+Autorization:
+
+Email - .//input[@name='_username']
+Password - .//input[@id='password']
+Submit - .//button[@type='submit']
+
+ LeftSidebarMenu:
+
+Dictionary - .//ui/li[@id='dictionary']
+Spares - .//ui/li[@id='dictionary']//li[@id='spares']
+ServiceApparat - .//ul/li[@id='service_apparat'
+Deal - .//ul/li[@id='deal']
+
+ Spares:
+
+1.Spares.Add.button=xpath (.//a[@class='btn btn-info btn-sm']);
+2.Spares.SpareName.input=xpath(.//input[@id='spares_spareName']);
+3.Spares.SpareType.input=xpath (.//select[@id='spares_spareType']);
+4.Spares.Create.button=xpath (.//button[@type='submit']);
+
+ Service:
+
+ServiceChanges - .//input[@id='service_apparat_serviceChanges']
+ServiceOperations - .//input[@id='service_apparat_serviceOperations']
+ServiceDateDay - .//select[@id='service_apparat_serviceDate_date_day']
+ServiceDateMonth - .//select[@id='service_apparat_serviceDate_date_month']
+ServiceDateYear - .//select[@id='service_apparat_serviceDate_date_year']
+ServiceDateTimeHour - .//select[@id='service_apparat_serviceDate_time_hour']
+ServiceDateTimeMinute - .//select[@id='service_apparat_serviceDate_time_minute']
+ServiceApparat - .//select[@id='service_apparat_apparat']
+ServiceApparatWorker - .//select[@id='service_apparat_worker']
+Create - .//button[@type='submit']
+
+  Deal:
+
+DealDateDay - .//select[@id='deal_dealDate_date_day']
+DealDateMonth - .//select[@id='deal_dealDate_date_month']
+DealDateYear - .//select[@id='deal_dealDate_date_year']
+DealDateTimeHour - .//select[@id='deal_dealDate_time_hour']
+DealDateTimeMinute - .//select[@id='deal_dealDate_time_minute']
+DealType - .//select[@id='deal_dealType']
+Customer - .//select[@id='deal_customer']
+Provider - .//select[@id='deal_provider']
+Create - .//button[@type='submit']
+
+ Logout:
+Avatar - .//li[@class='dropdown user user-menu']
+Logout - .//a[@href='/logout']
