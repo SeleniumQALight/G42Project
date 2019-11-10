@@ -1,0 +1,91 @@
+TC #1
+
+Summary: User login.
+
+Steps to reproduce:
+  1. Enter valid values in field "Email" .
+  2. Enter valid values in field  "Password".
+  3. Click the button "Вход".
+
+ Expected result:
+ Under each field appears text "Поле не может быть пустым".
+
+ __________________________________________________________________________________
+
+ TC #2
+
+ Summary: User login.
+
+ Steps to reproduce:
+   1. Enter valid values in field "Email" .
+   2. Enter valid values in field  "Password".
+   3. Click the button "Вход".
+
+  Expected result:
+   Login completed successfully (go to the main page of the site).
+
+   ____________________________________________________________________________________
+
+ TC #3
+
+ Summary: Create spare part.
+
+ Pre-conditions:
+   1. Go to http://v3.test.itpmgroup.com.
+   2. Enter valid values in field "Email" .
+   3. Enter valid values in field  "Password".
+   4. Click the button "Вход".
+
+ Steps to reproduce:
+   1. In left panel choice "Словари" => "Запчасти".
+   2. Click  button "+".
+   3. In field "Spare name" enter valid name.
+   4. In field "Тип детали"  in pop-up menu choice any detail.
+   5. Click the button "Создать".
+
+  Expected result:
+    Spare part created.
+
+   ____________________________________________________________________________________________
+
+
+ TC #4
+
+ Summary: User log out.
+
+ Pre-conditions:
+    1. Go to http://v3.test.itpmgroup.com.
+    2. Enter valid values in field "Email" .
+    3. Enter valid values in field  "Password".
+    4. Click the button "Вход".
+
+ Steps to reproduce:
+   1. Click on avatar in the right corner.
+   2. In pop-up menu click on the button "Выход".
+
+  Expected result:
+    Log out was successful.
+
+   _______________________________________________________________________________________
+
+    TC #5
+
+     Summary: Сreate a deal.
+
+     Pre-conditions:
+         1. Go to http://v3.test.itpmgroup.com.
+         2. Enter valid values in field "Email" .
+         3. Enter valid values in field  "Password".
+         4. Click the button "Вход".
+
+    Steps to reproduce:
+      1. In left panel choice "Сделка" .
+      2. Click  button "+".
+      3. Enter in field "Deal date" valid values .
+      4. In pop up menu field "Тип сделки" choice any deal.
+      5. In pop up menu field "Покупатель" choice any name.
+      6. In pop up menu field "Поставщик" choice any name.
+      5. Click the button "Создать".
+
+     Expected result:
+      Deal  created.
