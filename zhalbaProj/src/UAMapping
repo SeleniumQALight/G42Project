@@ -1,5 +1,3 @@
-Login form
-
 Email: //input[@name='_username']
 Password: //input[@name='_password']
 "Вход": .//button[@type='submit']
