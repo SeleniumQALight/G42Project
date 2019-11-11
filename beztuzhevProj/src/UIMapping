@@ -1,0 +1,23 @@
+#Preconditions
+
+Login.LoginPage.isDisplayed=xpath(".//div[@class= 'login-box-body']//p[contains(text() , 'Авторизация')]")
+
+#LoginPositiveTests
+
+Login.EmailField.input=xpath(".//input[@name='_username']")
+Login.PasswordField.input=xpath(".//input[@name='_password']")
+Login.Enter.button=xpath(".//button[@type= 'submit']")
+MainPage.MainPage.isLoaded=xpath(".//div[@class='box-header with-border']//*[contains(text(), 'Добро пожаловать в систему учета запчастей!')]")
+MainPage.AuthorizedUser.isDisplayed=xpath(".//div[@class='pull-left info']//*[contains(text(), 'Student_378')]")
+
+#LoginNegativeTests
+
+Login.EmailField.input=xpath(".//input[@name='_username']")
+Login.PasswordField.input=xpath(".//input[@name='_password']")
+Login.Enter.button=xpath(".//button[@type= 'submit']")
+Login.LoginPage.isReloaded=xpath(".//div[@class= 'login-box-body']//p[contains(text() , 'Авторизация')]")
+
+#Postconditions
+
+MainPage.AuthorizedUser.dropdownMenu=xpath(".//span[@class='hidden-xs']")
+MainPage.AuthorizedUser.dropdownMenu.button=xpath(".//a[@href='/logout']")
