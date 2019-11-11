@@ -1,0 +1,123 @@
+TC #1
+
+Authorization check
+
+Precondition:
+1. Open the browser.
+2. Type in address line: http://v3.test.itpmgroup.com/login
+3. Click enter
+
+Steps:
+1. Find the "Авторизация" block
+2. Click on "Email" field
+3. Type: Student
+4. Click on "Password" field
+5. Type: 909090
+6. Check that data displayed
+7. Click "Вход"
+
+Expected result:
+You're logged as Student_378
+
+TC#2
+
+Check ability to add new item in menu "Обслуживание"
+
+Precondition:
+1. Open browser
+2. Type in address line: http://v3.test.itpmgroup.com/login
+3. Click enter
+4. Type "Student" in "Email" field
+5. Type "909090" in "Password" field
+6. Authorize
+
+Steps:
+1. Find the item "Обслуживание" in the left menu.
+2. Click on "Обслуживание".
+3. Check that link in address line is http://v3.test.itpmgroup.com/dictionary/service
+4. Check that page is displaying
+5. Find "+" button
+6. Click on "+" button
+
+Expected result:
+http://v3.test.itpmgroup.com/dictionary/service/edit opened without Error 404
+
+TC#3
+
+Check collapsing of report in menu "Отчет"
+
+Precondition:
+1. Open browser
+2. Type in address line: http://v3.test.itpmgroup.com/login
+3. Click enter
+4. Type "Student" in "Email" field
+5. Type "909090" in "Password" field
+6. Authorize
+
+Steps:
+1. Find item "Отчет" in the left menu.
+2. Click on "Отчеты"
+3. Check that link in address line is http://v3.test.itpmgroup.com/statistic
+4. Check that report is displaying.
+5. Find the "-" button
+6. Click on the "-"
+
+Expected result:
+The button became "+". Report not displayed.
+
+TC#4
+
+Check adding new item in menu "Сделки" with default values
+
+Precondition:
+1. Open browser
+2. Type in address line: http://v3.test.itpmgroup.com/login
+3. Click enter
+4. Type "Student" in "Email" field
+5. Type "909090" in "Password" field
+6. Authorize
+
+Steps:
+1. Find item "Сделки" in the lef menu
+2. Click on "Сделки"
+3. Check that link in address line is http://v3.test.itpmgroup.com/deal
+4. Check that page is displaying
+5. Find the button "+"
+6. Click on "+"
+7. Check that form for adding have opened
+8. Click "Создать"
+
+Expected result
+New item added.
+
+TC#5
+
+Check adding new item in dictionary "Аппарат" in menu "Словари"
+
+Precondition:
+1. Open browser
+2. Type in address line: http://v3.test.itpmgroup.com/login
+3. Click enter
+4. Type "Student" in "Email" field
+5. Type "909090" in "Password" field
+6. Authorize
+7. Find item "Словари" on the left menu
+8. Click on "Словари"
+9. Check that drop-down menu appeared
+10. Find item "Аппарат"
+11. Click on it
+12. Check that page http://v3.test.itpmgroup.com/dictionary/apparat loaded
+
+Steps:
+1. Find button "+"
+2. Click on it
+3. Check that http://v3.test.itpmgroup.com/dictionary/apparat/edit loaded
+4. Find field "Apparat number"
+5. Type "Test number" in field "434241"
+6. Find field "Apparat comment"
+7. Type "Test comment" in field "Apparat comment"
+8. Find button "Создать"
+9. Click on it.
+
+Expected result:
+New item "434241 - Test comment" is displaying on the page page http://v3.test.itpmgroup.com/dictionary/apparat
