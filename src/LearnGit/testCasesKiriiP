@@ -3,7 +3,7 @@ loginWithValidUser
 2. Add valid password
 3. Click "Enter" button
 
-ER: User has been successfully logged in. Main page is displayed
+ER: User has been successfully logged in. Main page with logo is displayed
 
 
 loginWithemptyPassword
