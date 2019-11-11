@@ -32,7 +32,7 @@ Precondition:
 6. Authorize
 
 Steps:
-1. Find the item "Обслуживание" in the left menu.
+1. Find the item "Обслуживание" on the left menu.
 2. Click on "Обслуживание".
 3. Check that link in address line is http://v3.test.itpmgroup.com/dictionary/service
 4. Check that page is displaying
@@ -55,7 +55,7 @@ Precondition:
 6. Authorize
 
 Steps:
-1. Find item "Отчет" in the left menu.
+1. Find item "Отчет" on the left menu.
 2. Click on "Отчеты"
 3. Check that link in address line is http://v3.test.itpmgroup.com/statistic
 4. Check that report is displaying.
@@ -78,7 +78,7 @@ Precondition:
 6. Authorize
 
 Steps:
-1. Find item "Сделки" in the lef menu
+1. Find item "Сделки" on the lef menu
 2. Click on "Сделки"
 3. Check that link in address line is http://v3.test.itpmgroup.com/deal
 4. Check that page is displaying
