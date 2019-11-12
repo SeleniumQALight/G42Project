@@ -1,0 +1,73 @@
+--Login--
+1. Open http://v3.test.itpmgroup.com/login
+2. In field Email enter 'Student'
+3. In field Password enter '909090'
+4. Click 'Вход' button
+Expected result:
+http://v3.test.itpmgroup.com/ page is opened
+
+---Return to main page---
+Preconditions:
+1. User should be logged in
+2. http://v3.test.itpmgroup.com/ should be open
+Steps:
+1. Click ‘Обслуживание’ оn the sidebar
+2. Click on ‘Home’ in the breadcrumb navigation
+Expected result:
+Redirect to main page http://v3.test.itpmgroup.com/
+
+
+---Logout---
+Preconditions:
+1. User should be logged in
+2. http://v3.test.itpmgroup.com/ should be open
+Steps:
+5. Click on username in the top right corner
+6. Click ‘Выход’ button
+Expected result:
+Redirect to login page http://v3.test.itpmgroup.com/login
+
+
+---Add employee with valid data---
+Preconditions:
+1. User should be logged in
+2. http://v3.test.itpmgroup.com/ should be open
+Steps:
+1. Click ‘Словари’ оn the sidebar
+2. Click ‘Сотрудники’ in the expanded list
+3. Click ‘+’ button in the top right corner
+4. In field ‘Worker surname’ enter ‘Ivanov’
+5. In field ‘Worker name’ enter ‘Ivan’
+6. In field ‘Worker middle name’ enter ‘Ivanovich’
+7. In field ‘Worker phone’ enter ‘0987654321’
+8. Click ‘Создать’ button
+Expected result:
+Redirect to http://v3.test.itpmgroup.com/dictionary/workers. All info about employee is displayed at the end of the list.
+
+
+---Add employee without data---
+Preconditions:
+1. User should be logged in
+2. http://v3.test.itpmgroup.com/ should be open
+Steps:
+1. Click ‘Словари’ оn the sidebar
+2. Click ‘Сотрудники’ in the expanded list
+3. Click ‘+’ button in the top right corner
+4. Click ‘Создать’ button
+Expected result:
+Tooltip ‘Please fill out this field.’ points to ‘Worker surname’  field.
+Employee hasn't been added to the list.
+
+---Add employee with empty ‘Worker name’ field---
+Preconditions:
+1. User should be logged in
+2. http://v3.test.itpmgroup.com/ should be open
+Steps:
+1. Click ‘Словари’ оn the sidebar
+2. Click ‘Сотрудники’ in the expanded list
+3. Click ‘+’ button in the top right corner
+4. In field ‘Worker surname’ enter ‘Ivanov’
+5. Click ‘Создать’ button
+Expected result:
+Tooltip ‘Please fill out this field.’ points to ‘Worker name’ field.
+Employee hasn't been added to the list.

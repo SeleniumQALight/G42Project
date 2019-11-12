@@ -1,1 +1,50 @@
-Will add test cases soon ;-)
+
+Case 1 - Successful login (happy flow)
+
+1. Perform verification of Auth screen.
+    a.Authorization form title is displayed.
+    b.Restore password link is displayed.
+    c.Register link is displayed.
+2. Fill in valid login <Student>.
+3. Fill in valid password <909090>.
+4. Click submit - "Вход" button.
+5. Perform verification of Main Page.
+    a. Main page title logo is displayed.
+    b. Sidebar toggle button is displayed.
+    c. Footer copyright link is displayed.
+*6. Perform logout
+
+
+Case 2 - Unsuccessful login (negative)
+
+1. Perform verification of Sign In screen.
+    a.Authorization form title is displayed.
+    b.Restore password link is displayed.
+    c.Register link is displayed.
+2. Fill in invalid login <Student123>.
+3. Fill in valid password <909090>.
+4. Check if Password textinput is cleared -- "Password" tip is displayed.
+5. Fill in valid login <Student>.
+6. Fill in invalid password <1234567>.
+7. Check if Password textinput is cleared -- "Password" tip is displayed.
+
+Case 3 - Add apparatus "Аппарат"
+
+Precondition - User is already logged in.
+
+1. Click Dictionaries - "Словари" on sidebar.
+2. Click Apparatus - "Аппарат" in opened drop-down.
+3. Perform verification of Apparatus list page
+    a. Apparatus list page main title is displayed.
+    b. Apparatus list page box title is displayed.
+4. Click Add apparatus button.
+5. Fill in apparatus number <2362>.
+6. Fill in apparatus comment <Fuel flow controller>.
+7. Click Create -- "Создать" button.
+8. Scroll to the bottom of the list.
+9. Check if apparatus record is created.
+10. Click on apparatus record.
+11. Remove apparatus.
+12. Scroll to the bottom of the list.
+13. Check if apparatus record is removed.
+*14. Perform logout
