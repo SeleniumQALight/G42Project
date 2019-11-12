@@ -24,7 +24,7 @@ TC#2
 Check ability to add new item in menu "Обслуживание"
 
 Precondition:
-1. Implement TC#1
+1. Performed TC#1
 
 Steps:
 1. Find the item "Обслуживание" on the left menu.
@@ -42,7 +42,7 @@ TC#3
 Check collapsing of report in menu "Отчет"
 
 Precondition:
-1. Implement TC#1
+1. Performed TC#1
 
 Steps:
 1. Find item "Отчет" on the left menu.
@@ -60,7 +60,7 @@ TC#4
 Check adding new item in menu "Сделки" with default values
 
 Precondition:
-1. Implement TC#1
+1. Performed TC#1
 
 Steps:
 1. Find item "Сделки" on the lef menu
@@ -80,7 +80,7 @@ TC#5
 Check adding new item in dictionary "Аппарат" in menu "Словари"
 
 Precondition:
-1. Implement TC#1
+1. Performed TC#1
 2. Find item "Словари" on the left menu
 3. Click on "Словари"
 4. Check that drop-down menu appeared
