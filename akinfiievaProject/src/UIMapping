@@ -30,6 +30,10 @@ Expected result:
 TC#5
 Precondition:
 2-3. //ul[@class='sidebar-menu']//li[@id='dictionary']
-4. //ul[@class= 'sidebar-menu']//li[@id= 'dictionary']//ul[@class= 'treeview-menu menu-open xh-highlight']
+4. //ul[@class= 'sidebar-menu']//li[@id= 'dictionary']//ul[@class= 'treeview-menu menu-open']
+5-6. //ul[@class= 'sidebar-menu']//li[@id= 'dictionary']//ul[@class= 'treeview-menu menu-open']//li[@id='apparat']
 
+Steps:
+1-2. //div[@class='box-tools']//a[@class='btn btn-info btn-sm']//i[@class='fa fa-plus']
+3-4.
 
