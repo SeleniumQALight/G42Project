@@ -1,0 +1,189 @@
+Login page
+
+#1  Positive login case
+1. Follow the kink: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find textbox element "_username"
+4. Check that "Email" is present in this textbox
+5. Check that "Envelope Image" is present in this textbox
+6. Enter this text to textbox: Student
+7. Check that there is a "Student" in the textbox
+8. Find textbox element "_password"
+9.  Check that text "Password" is presetn in this textbox
+10. Check that "Lock Image" is present in this textbox
+11. Enter this text to textbox: 909090
+12. Check that there is a "******" in the textbox
+13. Find button element with “Login” text on it
+14. Check button colour "blue" button text colour "white"
+15. Click on "Login" button
+16. Check URL : http://v3.test.itpmgroup.com/
+17. In the upper right corner find dropdown with Student text and /bundles/ap/adminlte/dist/img/avatar.png on it
+
+# 2 Checking the link "Remind password" on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element link with “Remind password” text
+4. Click on the link element with "Remind password" text
+5. Check URL: http://v3.test.itpmgroup.com/login#
+(further actions are specified with Task Manager)
+
+# 3 Checking the "Register" link on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element link with "Register" text in it
+4. Click on the element link with "Register" text in it
+5. Check URL: http://v3.test.itpmgroup.com/register.html
+(further actions are specified with Task Manager)
+
+# 4 Checking main elements on the login page
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find text "parts accounting"
+4. Find element table "login-box-body"
+5. In the element table "login-box-body" find the text: "Authorization"
+6. In the element of the table "login-box-body" find the input field "_username"
+7. In the element of the table "login-box-body" find the input field "_password"
+8. In the element table "login-box-body" find the button with the text "Login"
+9. In the element table "login-box-body" find a link with the text in it "Remind password"
+10. In the element table "login-box-body" find a link with the text in it "Register"
+
+# 5 Negative case with empty input fields when pressing the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find a button with the text "Login"
+4. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+# 6 Negative case with empty input fields "Email" click on "Login"
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find a button with the text "Login"
+9. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+# 7 Negative case with empty input fields "Password" click on "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_password"
+4. Check that in this line there is a text hint "Password"
+5. Check that the line contains a picture element in the form of a lock.
+6. Enter the following characters in the line "909090"
+7. Check that in this line there are "******" characters
+8. Find a button with the text "Login"
+9. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+# 8 Negative case with incorrect username and password, pressing the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the string "90909"
+12. Check that in this line there are "*****" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+# 9 Negative Case with Incorrect Login Pressing the "Login" Button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the line "909090"
+12. Check that in this line there are "******" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+# 10 Negative case with wrong password clicking the "Login" button
+1. Follow the link: http://v3.test.itpmgroup.com/login
+2. Check URL: http://v3.test.itpmgroup.com/login
+3. Find element input line with the name "_username"
+4. Check that in this line there is a text hint "Email"
+5. Check that in this line there is an element of the picture in the form of an envelope.
+6. Enter the following characters in the line "Student"
+7. Check that the line contains the text "Student"
+8. Find element input line with the name "_password"
+9. Check that in this line there is a text hint "Password"
+10. Check that the line contains a picture element in the form of a lock.
+11. Enter the following characters in the line "90909"
+12. Check that in this line there are "*****" characters
+13. Find a button with the text "Login"
+14. Click on the button with the text "Login"
+(further actions are specified with Task Manager)
+
+Main Page
+# 1 Main page elements
+1. Go to the main page (logged in)
+2. Find element "main-header"
+3. Find the "User Account" button in the upper right corner
+4. Find a picture in the "User Account"
+5. Find element drop-down list (burger) in the upper left corner
+6. Find element left menu "main-sidebar sidebar-offcanvas"
+7. Find the text of the title page "Home"
+8. At the top of the page, find the button with the text “Home”
+9. At the top of the page find the text “Home”
+10. Find the text “Welcome to the parts accounting system!”
+11. Find the line with the text “In order to enter data about suppliers, customers, employees, machines and reference data, go to the“ References ”.”
+12. Find the line with the text “If you want to enter data on the installation of new parts, go to the“ Installation ”section.”
+13. Find the line with the text “If you need to fill in the service data of the vending machine, go to the“ Maintenance ”section.”
+14. Find the line with the text “To enter data on the purchase, sale or return of spare parts, go to the“ Transactions ”section.”
+15. Find the line with the text “Reports on data on maintenance and storage of spare parts you can build in the“ Reports ”section.”
+16. In the footer, find the text “Copyright © 2016”
+17. In the footer, find a link with the text “ITPM Group”
+
+# 2 Account Item (burger)
+1. Go to the main page (log in)
+2. Find element left menu "main-sidebar sidebar-offcanvas"
+3. Find element drop-down list (burger) in the upper left corner
+4. Click on (burger)
+5. Check item left menu "main-sidebar sidebar-offcanvas"
+
+# 3 Account Items
+1. Go to the main page (log in)
+2.Find element left menu "main-sidebar sidebar-offcanvas"
+3. Find the text of the title of the left menu "Accounting for spare parts"
+4. Find the picture (user avatar) in the left menu
+5. Find user name (text Student)
+6.Check user status
+7.Check the presence of an element tab with the text “Home” in the left menu
+8.Check the presence of an element tab with a picture near the text “Home” in the left menu
+9.Check the presence of an element tab with the text “Dictionaries” in the left menu
+10.Check the presence of an element tab with a picture near the text “Dictionaries” in the left menu
+11.Check the presence of an element tab with the text “Maintenance” in the left menu
+12.Check the presence of an element tab with a picture next to the text “Maintenance” in the left menu
+13.Check the presence of the element tab with the text "Installation" in the left menu
+14.Check the presence of an element tab with a picture near the text “Installation” in the left menu
+15.Check the presence of an element tab with the text “Transactions” in the left menu
+16.Check the presence of an element tab with a picture near the text “Transactions” in the left menu
+17.Check the presence of an element tab with the text “Report” in the left menu
+18.Check the presence of an element tab with a picture near the text “Report” in the left menu
+
+# 4 User information
+1. Go to the main page (logged in)
+2. Find the “User Account” button in the upper right corner
+3. Find a picture in the “User Account” block (user avatar)
+3. Click on the “User Account” button
+4. Check that a drop-down menu opens with brief information about the user.
+5. Check the availability of pictures (avatars) in the drop-down menu
+6. find the text of the user name "Student"
+7. find the text “Registered 06.2016”
+8. Find the “Profile” button
+9. Find the “Exit” button
