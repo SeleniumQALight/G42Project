@@ -1,0 +1,45 @@
+#LoginPage
+LoginPage.LoginBox.find=xpath("//div[@class="login-box-body"]")
+LoginPage.Email.input=xpath("//input[@placeholder="Email"]")
+LoginPage.Password.input=xpath("//input[@id="password"]")
+LoginPage.Button.push=xpath("//button[@type="submit"]")
+
+#MainPage
+MainPage.Dashboard.find=xpath("//li[@id="dashboard"]")
+MainPage.Dictionary.find=xpath("//li[@id="dictionary"]")
+MainPage.Service_apparat.find=xpath("//li[@id="service_apparat"]")
+MainPage.Installation.find=xpath("//li[@id="installation"]")
+MainPage.Deal.find=xpath("//li[@id="deal"]")
+MainPage.Report.find=xpath("//li[@id="report"]")
+
+#Dictionary
+Dictionary.Apparat.find=xpath("//li[@id="apparat"]")
+Dictionary.Workers.find=xpath("//li[@id="workers"]")
+Dictionary.SpareType.find=xpath("//li[@id="spareType"]")
+Dictionary.Spares.find=xpath("//li[@id="spares"]")
+Dictionary.Prov_cus.find=xpath("//li[@id="prov_cus"]")
+Dictionary.Deal_type.find=xpath("//li[@id="deal_type"]")
+
+#DictionaryWorkers
+DictionaryWorkers.TableWorkers.find=xpath("//div[@class="box"]")
+
+#ServiceApparat
+ServiceApparat.NumberApp.find=xpath("//table[@id="device_list"]//th[contains(text(),'Номер аппарата')]")
+ServiceApparat.MadeChanges.find=xpath("//table[@id="device_list"]//th[contains(text(),'Проведенные изменения')]")
+ServiceApparat.PerformedOps.find=xpath("//table[@id="device_list"]//th[contains(text(),'Проведенные операции')]")
+ServiceApparat.Employee.find=xpath("//table[@id="device_list"]//th[contains(text(),'Сотрудник')]")
+ServiceApparat.Date.find=xpath("//table[@id="device_list"]//th[contains(text(),'Дата')]")
+
+#Installation
+Installation.ColDate.find=xpath("//table[@id="device_list"]//th[contains(text(),'Дата и время')]")
+Installation.ColApp.find=xpath("//table[@id="device_list"]//th[contains(text(),'Аппарат')]")
+Installation.Col.Employee.find=xpath("//table[@id="device_list"]//th[contains(text(),'Сотрудник')]")
+
+#InstallationAdd
+InstallationAdd.TableInstall.find=xpath("//div[@class="box"]")
+InstallationAdd.PlusButton.button=xpath("//a[@data-original-title="Add"]")
+
+
+
+
+

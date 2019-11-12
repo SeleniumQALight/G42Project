@@ -1,0 +1,92 @@
+Test case 1, Authorization.
+
+1. Open browser Chrome
+2. Open page http://v3.test.itpmgroup.com/login. - page is opened
+3. Enter "Student" to "Email" field. - "Student" is displayed in "Email" field
+4. Enter "909090" to "Password" field. - "******" is displayed in "Password" field
+5. Click on "Вход" button. - redirect to page http://v3.test.itpmgroup.com/
+6. Check that: user is equal "Student_378"
+7. Close browser Chrome
+
+Test case 2, Add new deal.
+1. Open browser Chrome
+2. Open page http://v3.test.itpmgroup.com/login. - page is opened
+3. Enter "Student" to "Email" field. - "Student" is displayed in "Email" field
+4. Enter "909090" to "Password" field. - "******" is displayed in "Password" field
+5. Click on "Вход" button. - redirect to page http://v3.test.itpmgroup.com/
+6. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+7. Click on "+" button - redirect to page http://v3.test.itpmgroup.com/deal/edit.
+8. Choose "Obmen" in dropdown list "Тип сделки" - "Obmen" is displayed in "Тип сделки" field
+9. Choose "2Вася" in dropdown list "Покупатель" - "2Вася" is displayed in "Покупатель" field
+10. Choose "test" in dropdown list "Поставщик" - "test" is displayed in "Поставщик" field
+11. Click on "Создать" button -> page http://v3.test.itpmgroup.com/deal is opened.
+12. In the last bottom field: second cell is equal "Obmen".
+13. Close browser Chrome
+
+Test case 3, Edit "Тип сделки" field in a deal.
+Pre-conditions: new deal is added.
+1. Open browser Chrome
+2. Open page http://v3.test.itpmgroup.com/login. - page is opened
+3. Enter "Student" to "Email" field. - "Student" is displayed in "Email" field
+4. Enter "909090" to "Password" field. - "******" is displayed in "Password" field
+5. Click on "Вход" button. - redirect to page http://v3.test.itpmgroup.com/
+6. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+7. Click on "+" button - redirect to page http://v3.test.itpmgroup.com/deal/edit.
+8. Choose "Obmen" in dropdown list "Тип сделки" - "Obmen" is displayed in "Тип сделки" field
+9. Choose "2Вася" in dropdown list "Покупатель" - "2Вася" is displayed in "Покупатель" field
+10. Choose "test" in dropdown list "Поставщик" - "test" is displayed in "Поставщик" field
+11. Click on "Создать" button -> page http://v3.test.itpmgroup.com/deal is opened.
+12. Click on the last bottom field - page with deal is opened.
+13. Choose "Бонус" in dropdown list "Тип сделки" - "Бонус" is displayed in "Тип сделки" field
+14. Click "Сохранить" button -> page http://v3.test.itpmgroup.com/deal is opened.
+15. In the last bottom field: second cell is equal "Бонус".
+16. Close browser Chrome
+
+Test case 4, Deal with spare part cannot be deleted.
+1. Open browser Chrome
+2. Open page http://v3.test.itpmgroup.com/login. - page is opened
+3. Enter "Student" to "Email" field. - "Student" is displayed in "Email" field
+4. Enter "909090" to "Password" field. - "******" is displayed in "Password" field
+5. Click on "Вход" button. - redirect to page http://v3.test.itpmgroup.com/
+6. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+7. Click on "+" button - redirect to page http://v3.test.itpmgroup.com/deal/edit.
+8. Choose "Obmen" in dropdown list "Тип сделки" - "Obmen" is displayed in "Тип сделки" field
+9. Choose "2Вася" in dropdown list "Покупатель" - "2Вася" is displayed in "Покупатель" field
+10. Choose "test" in dropdown list "Поставщик" - "test" is displayed in "Поставщик" field
+11. Click "Создать" button. -  redirect to page http://v3.test.itpmgroup.com/deal.
+12. Click on the last bottom field -  page with deal is opened.
+13. Click "+" button - page with spare is opened.
+14. Enter "1" in "Spare count" field - "1" is displayed in "Spare count" field.
+15. Choose "Obmen 01.01.2014 00:00" in the last bottom string of dropdown list "Сделка" - "Obmen 01.01.2014 00:00" is displayed in "Сделка" field.
+16. Choose "lastSpare" in dropdown list "Деталь" - "lastSpare" is displayed in "Деталь" field.
+17. Click on "Создать" button -> redirect to page http://v3.test.itpmgroup.com/spare_operation
+18. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+19. Click on the last bottom field -  page with deal is opened.
+20. The last bottom string of "Список запчастей" form is exist "pastSpare" in the second cell.
+21. Click "Удалить" button -> redirect to page with message "404 Страница не найдена".
+22. Click on "на главную страницу" link. - redirect to page http://v3.test.itpmgroup.com/
+23. Click on menu item "Сделки".
+24. Click on the last bottom field -  page with deal is opened.
+25. The last bottom field of "Список запчастей" form exist in the second cell "lastSpare".
+26. Close browser.
+
+Test case 5, Add spare part with invalid value to deal (negative test).
+1. Open browser Chrome
+2. Open page http://v3.test.itpmgroup.com/login. - page is opened
+3. Enter "Student" to "Email" field. - "Student" is displayed in "Email" field
+4. Enter "909090" to "Password" field. - "******" is displayed in "Password" field
+5. Click on "Вход" button. - redirect to page http://v3.test.itpmgroup.com/
+6. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+7. Click on "+" button - redirect to page http://v3.test.itpmgroup.com/deal/edit.
+8. Choose "Obmen" in dropdown list "Тип сделки" - "Obmen" is displayed in "Тип сделки" field
+9. Choose "2Вася" in dropdown list "Покупатель" - "2Вася" is displayed in "Покупатель" field
+10. Choose "test" in dropdown list "Поставщик" - "test" is displayed in "Поставщик" field
+11. Click "+" button. -  redirect to page http://v3.test.itpmgroup.com/deal/edit.
+12. Click on menu item "Сделки" -> page http://v3.test.itpmgroup.com/deal is opened.
+13. Click on the last bottom field -  page with deal is opened.
+14. Click "+" button - page with spare is opened.
+15. Enter "*" in "Spare count" field - "*" is displayed in "Spare count" field.
+16. Choose "Obmen 01.01.2014 00:00" in the last bottom string of dropdown list "Сделка" - "Obmen 01.01.2014 00:00" is displayed in "Сделка" field.
+17. Choose "lastSpare" in dropdown list "Деталь" - "lastSpare" is displayed in "Деталь" field.
+18. Click on "Создать" button -> "Spare count" field is highlighted in red and error message is displayed.
+19. Close browser.
