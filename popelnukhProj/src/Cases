@@ -1,0 +1,95 @@
+1)
+ValidLogin
+Steps:
+1. Open http://v3.test.itpmgroup.com
+2. Find Login-form (form with two input and "Вход"-button)
+3. FindElement "Email"-field (one of two field on Login-form)
+4. Type "student"
+5. FindElement "Password"-field (under "Email"-field )
+6. Type "909090"
+7. FindElement "Вход"-button (blue and square)
+8. Click on the "Вход"-button
+Expected result: You can see "Добро пожаловать в систему учета запчастей!"
+
+2)
+AddNewApparat
+Pre-Condition: ValidLogin
+Steps:
+1. FindElement "Словари" on left-side menu
+2. Click on
+3. on left-side menu
+4. Click on
+5. FindElement "Add" (small blue square in right-up corner under profile's avatar)
+6. Click on
+Expected result: You can see edit-form for apparats.
+7. FindElement "Apparat number"
+8. Type in input-field "2410"
+9. FindElement "Apparat comment"
+10. Type "BTR-80"
+11. FindElement "Создать"-button (blue square button in left-down corner)
+12. Click on
+13. Scroll down page and find string "2410 BTR-80"
+Expected result: string is present
+
+3)
+DeleteApparat
+Pre-Condition: ValidLogin, AddNewApparat
+Steps:
+1. Scroll down page and find string "2410 BTR-80"
+2. Click on
+Expected result: You can see edit-form for your apparat.
+3. FindElement "Удалить"-button(red square button on right-down corner of form)
+4. Click on
+5. Scroll down page and find string "2410 BTR-80"
+Expected result: String isn't present
+
+4)
+AddNewSideOfDeal
+Pre-Condition: ValidLogin
+Steps:
+1. FindElement "Словари" on left-side menu
+2. Click on
+3. FindElement "Стороны сделок"
+4. Click on
+5. FindElement "Add" (small blue square in right-up corner under profile's avatar)
+6. Click on
+Expected result: You can see edit-form for providers
+7. FindElement "Pro cust name"
+8. Type "Hobbit"
+9. FindElement "Pro cust address"
+10. Type "KyivNotKiev"
+11. FindElement "Pro cust phone"
+12. Type "0506428236"
+13. FindElement "Private person"
+14. Click on
+15. FindElement "Is our firm"
+16. Click on
+17. FindElement "Создать"-button (blue square button in left-down corner)
+18. Click on
+19. Scroll down page and find string "Hobbit KyivNotKiev 0506428236"
+Expected result: String is present
+
+5)
+NewDeal
+Pre-Condition: ValidLogin, AddNewSideOfDeal
+Steps:
+1. FindElement "Сделки" on left-side menu
+2. Click on
+3. FindElement "Add" (small blue square in right-up corner under profile's avatar)
+4. Click on
+Expected result: You can see edit-form for deals
+5. FindElement "Deal date"
+6. Set current date (my current = 12/november/2019 15:15)
+7. FindElement "Тип сделки"
+8. DropDown and find "contract"
+9. Click on
+10. FindElement "Покупатель"
+11. DropDown and find "Hobbit"
+12. Click on
+13. FindElement "Поставщик"
+14. DropDown and find "Hobbit"
+15. Click on
+16. FindElement "Создать"-button. (blue square button in left-down corner)
+17. Click on
+18. Scroll down page and find string "Contract  Hobbit  Hobbit"
+Expected result: String is present
