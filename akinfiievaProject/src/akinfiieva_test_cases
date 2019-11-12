@@ -17,24 +17,19 @@ Steps:
 7. Click "Вход"
 
 Expected result:
-You're logged as Student_378
+You're logged as Student_378 on http://v3.test.itpmgroup.com
 
 TC#2
 
 Check ability to add new item in menu "Обслуживание"
 
 Precondition:
-1. Open browser
-2. Type in address line: http://v3.test.itpmgroup.com/login
-3. Click enter
-4. Type "Student" in "Email" field
-5. Type "909090" in "Password" field
-6. Authorize
+1. Implement TC#1
 
 Steps:
 1. Find the item "Обслуживание" on the left menu.
 2. Click on "Обслуживание".
-3. Check that link in address line is http://v3.test.itpmgroup.com/dictionary/service
+3. Check that url is http://v3.test.itpmgroup.com/dictionary/service
 4. Check that page is displaying
 5. Find "+" button
 6. Click on "+" button
@@ -47,17 +42,12 @@ TC#3
 Check collapsing of report in menu "Отчет"
 
 Precondition:
-1. Open browser
-2. Type in address line: http://v3.test.itpmgroup.com/login
-3. Click enter
-4. Type "Student" in "Email" field
-5. Type "909090" in "Password" field
-6. Authorize
+1. Implement TC#1
 
 Steps:
 1. Find item "Отчет" on the left menu.
 2. Click on "Отчеты"
-3. Check that link in address line is http://v3.test.itpmgroup.com/statistic
+3. Check that url is http://v3.test.itpmgroup.com/statistic
 4. Check that report is displaying.
 5. Find the "-" button
 6. Click on the "-"
@@ -70,17 +60,12 @@ TC#4
 Check adding new item in menu "Сделки" with default values
 
 Precondition:
-1. Open browser
-2. Type in address line: http://v3.test.itpmgroup.com/login
-3. Click enter
-4. Type "Student" in "Email" field
-5. Type "909090" in "Password" field
-6. Authorize
+1. Implement TC#1
 
 Steps:
 1. Find item "Сделки" on the lef menu
 2. Click on "Сделки"
-3. Check that link in address line is http://v3.test.itpmgroup.com/deal
+3. Check that url is http://v3.test.itpmgroup.com/deal
 4. Check that page is displaying
 5. Find the button "+"
 6. Click on "+"
@@ -95,18 +80,13 @@ TC#5
 Check adding new item in dictionary "Аппарат" in menu "Словари"
 
 Precondition:
-1. Open browser
-2. Type in address line: http://v3.test.itpmgroup.com/login
-3. Click enter
-4. Type "Student" in "Email" field
-5. Type "909090" in "Password" field
-6. Authorize
-7. Find item "Словари" on the left menu
-8. Click on "Словари"
-9. Check that drop-down menu appeared
-10. Find item "Аппарат"
-11. Click on it
-12. Check that page http://v3.test.itpmgroup.com/dictionary/apparat loaded
+1. Implement TC#1
+2. Find item "Словари" on the left menu
+3. Click on "Словари"
+4. Check that drop-down menu appeared
+5. Find item "Аппарат"
+6. Click on it
+7. Check that page http://v3.test.itpmgroup.com/dictionary/apparat loaded
 
 Steps:
 1. Find button "+"
