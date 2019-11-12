@@ -1,0 +1,32 @@
+#Login
+Login.Email.Input = xpath(".//input[@name = '_username']")
+Login.Password.Input = xpath(".//input[@name = '_password']")
+Login.Submit.Button = xpath(".//button[@type = 'submit']")
+
+
+#Sidebar
+Sidebar.Service.Button = xpath(".//a[@href = "/dictionary/service"]")
+Sidebar.Dictionary.Button = xpath(".//li[@id = 'dictionary']/a/span")
+Sidebar.Workers.Button = xpath(".//a[@href = "/dictionary/workers"]")
+
+#Breadcrumbs
+Breadcrumbs.Home.Button = xpath(".//a[@href = "/"]") ???
+                          xpath(".//ol[@class = 'breadcrumb']/li[1]/a/text()[2]") ???
+
+
+#UserMenu
+UserMenu.Username.Button = xpath(".//span[@class = 'hidden-xs']")
+UserMenu.Exit.Button = xpath(".//a[@href = "/logout"]")
+
+
+#Workers
+Workers.Add.Button = xpath(".//div[@class = 'box-tools']")
+Workers.WorkerSurname.Input = xpath(".//input[@id = 'workers_workerSurname']")
+Workers.WorkerName.Input = xpath(".//input[@id = 'workers_workerName']")
+Workers.WorkerMiddleName.Input = xpath(".//input[@id = 'workers_workerMiddleName']")
+Workers.WorkerPhone.Input = xpath(".//input[@id = 'workers_workerPhone']")
+Workers.Create.Button = xpath(".//button[@name = 'add']")
+Workers.List.Table = xpath(".//table[@id = 'device_list']/tbody")
+Workers.List.LastItem = xpath(".//tbody/tr[last()]")
+Workers.List.LastItemName = xpath(".//tbody/tr[last()]/td[1]")
+Workers.List.LastItemPhone = xpath(".//tbody/tr[last()]/td[2]")

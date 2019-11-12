@@ -1,0 +1,155 @@
+TEST CASES:
+
+PRECONDITIONS:
+
+1. Open Chrome browser
+2. Enter in the address bar: http://v3.test.itpmgroup.com/
+3. Click Enter (keyboard)
+
+ID:      001
+Summary: The login page is loaded(Positive)
+
+Description:
+
+1. Check page url
+2. Check page title
+3. Check that login page is loaded and text in the login-box is displayed (text "Авторизация")
+
+Actual result:
+
+Page url ("http://v3.test.itpmgroup.com/login")
+Page title ("Account of spare:Aвторизация")
+The login page is loaded and Login box contains the text "Авторизация"
+
+ID:      002
+Summary: Log in with valid data (Positive)
+
+Description:
+
+1. Enter 'Student' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+4. Check that main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+5. Check that authorized user is displayed ("Student_378" is displayed)
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+Main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+Authorized user is displayed ("Student_378" is displayed)
+
+
+ID:      003
+Summary: Log in with valid data - uppercase(Positive)
+
+Description:
+
+1. Enter 'STUDENT' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+4. Check that main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+5. Check that authorized user is displayed ("Student_378" is displayed)
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+Main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+Authorized user is displayed ("Student_378" is displayed)
+
+ID:      004
+Summary: Log in with valid data - lower case(Positive)
+
+Description:
+
+1. Enter 'student' in the "Email" field
+2. Enter '909090' in the "Password" field
+2. Click "Вход" btn.
+3. Check page title
+4. Check that main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+5. Check that authorized user is displayed ("Student_378" is displayed)
+
+Actual result:
+
+User logged in successfully
+Page title: "Учет запчастей"
+Main page is loaded (contains text "Добро пожаловать в систему учета запчастей!")
+Authorized user is displayed ("Student_378" is displayed)
+
+ID:      005
+Summary: Log in with empty data (Negative)
+
+Description:
+
+1. Click "Вход" btn.
+2. Check page title
+3. Check that login page is reloaded and text in the login-box is displayed (text "Авторизация")
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+The login page is reloaded and Login box contains the text "Авторизация"
+
+ID:      006
+Summary: Log in with correct Email, incorrect Password (Negative)
+
+Description:
+
+1. Enter 'Student' in the "Email" field
+2. Enter '11111' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+3. Check that login page is reloaded and text in the login-box is displayed (text "Авторизация")
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+The login page is reloaded and Login box contains the text "Авторизация"
+
+ID:      007
+Summary: Log in with incorrect Email, correct Password (Negative)
+
+Description:
+
+1. Enter 'Student123' in the "Email" field
+2. Enter '909090' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+3. Check that login page is reloaded and text in the login-box is displayed (text "Авторизация")
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+The login page is reloaded and Login box contains the text "Авторизация"
+
+ID:      008
+Summary: Log in with incorrect Email, incorrect Password (Negative)
+
+Description:
+
+1. Enter 'Student123' in the "Email" field
+2. Enter '1111111' in the "Password" field
+3. Click "Вход" btn.
+4. Check page title
+3. Check that login page is reloaded and text in the login-box is displayed (text "Авторизация")
+
+Actual result:
+
+No error messages
+The user is not authorized. Page Refresh
+Page title: "Account of spare:Aвторизация"
+The login page is reloaded and Login box contains the text "Авторизация"
+
+POSTCONDITIONS:
+
+Logout
+close browser

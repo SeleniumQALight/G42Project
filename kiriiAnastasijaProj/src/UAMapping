@@ -1,0 +1,37 @@
+#Authorization
+
+Authorization.Login.input=xpath(".//input[@type='text']")
+Authorization.Password.input=xpath(".//input[@type='password']")
+Authorization.Enter.button=xpath(".//button")
+Authorization.Username.check=xpath(".//span[@class = 'hidden-xs']")
+
+#Deal
+
+Deal.Menu.link=xpath(".//a[@href = '/deal']")
+Deal.Add.button=xpath(".//a[@class='btn btn-info btn-sm']")
+Deal.Type.droplist=xpath(".//select[@id='deal_dealType']")
+Deal.Select.option=xpath(".//select[@id='deal_dealType']//option[contains(text(), 'Obmen')]")
+Deal.Сustomer.droplist=xpath(".//select[@id='deal_customer']")
+Deal.Select.customer.option=xpath(".//select[@id='deal_customer']//option[contains(text(), '2Вася')]")
+Deal.Provider.droplist=xpath(".//select[@id='deal_provider']")
+Deal.Select.provider.option=xpath(".//select[@id='deal_provider']//option[@value ='54' and contains (text(), 'test')]")
+Deal.Create.button=xpath(".//button")
+Deal.Check.exist=xpath(".//tbody//tr[last()]//td[2][contains(text(), 'Obmen')]")
+
+#Edit deal
+Edit.SelectDeal.link=xpath(".//tbody//tr[last()]")
+Edit.TypeDeal.option=xpath(".//select[@id='deal_dealType']//option[contains(text(), 'Бонус')]")
+Edit.CheckEdits.exist=xpath(".//tbody//tr[last()]//td[2][contains(text(), 'Бонус')]")
+
+#Deal with spare part
+SparePart.Add.button=xpath(".//a[@class='btn btn-info btn-sm']")
+SparePart.Count.input=xpath(".//input[@type='text']")
+SparePart.Deal.droplist=xpath(".//select[@id='spare_operation_deal']")
+SparePart.Select.deal.droplist=xpath(".//select[@id='spare_operation_deal']//option[last()]")
+SparePart.Spare.droplist=xpath(".//select[@id='spare_operation_spare']")
+SparePart.Select.spare.option=xpath(".//select[@id='spare_operation_spare']//option[contains(text(), 'pastSpare') ][1]")
+SparePart.Create.button=xpath(".//button")
+SparePart.CheckNewspare,exist=xpath(".//body//tr[2]//td[2][contains(text(), 'pastSpare')]")
+SparePart.Delete.button=xpath(".//button[@name='delete']")
+SparePart.Return.link=xpath(".//a")
+SparePart.Tooltip.invaliddata=xpath(".//span[@class='help-block']//li")
