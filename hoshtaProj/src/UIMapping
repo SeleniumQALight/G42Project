@@ -1,0 +1,9 @@
+Login page
+
+email - //input[@name='_username']
+password - //input[@id='password']
+Вход - //button[@type='submit']
+
+'Сотрудники' page
+page header - //section[@class='content-header']/h1
+table of employees = //table[@class = 'table table-hover']
