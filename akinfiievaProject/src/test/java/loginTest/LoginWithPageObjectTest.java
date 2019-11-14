@@ -4,7 +4,7 @@ import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 import pages.LoginPage;
 
-public class LoginWithPageObject extends AbstractParentTest {
+public class LoginWithPageObjectTest extends AbstractParentTest {
 
     @Test
     public void validLogin () {
