@@ -14,7 +14,7 @@ public class LoginPage extends ParentPage{
         try{
             webDriver.get("http://v3.test.itpmgroup.com/");
         }catch (Exception e){
-            Assert.fail("Can not work with browser");
+            Assert.fail("Can not work with browser  ");
         }
     }
 }
