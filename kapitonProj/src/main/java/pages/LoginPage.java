@@ -45,7 +45,7 @@ public class LoginPage extends ParentPage {
 
     public void clickInToButtonVhod() {
        // WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.clear();
+        buttonVhod.click();
         logger.info("Button was clicked");
     }
 }
