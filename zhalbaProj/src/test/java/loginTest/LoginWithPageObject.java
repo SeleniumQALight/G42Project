@@ -5,9 +5,9 @@ import org.junit.Test;
 
 public class LoginWithPageObject extends AbstractParentTest {
 
-    @Test
-    public void validLogin(){
-        loginPage.openPage();
-    }
+  @Test
+  public void validLogin() {
+    loginPage.openPage();
+  }
 
 }
