@@ -9,12 +9,13 @@ import pages.LoginPage;
 public class LoginWithPageObjectTest extends AbstractParentTest{
     @Test
     public void validLogin(){
-        loginPage.openPage();
-
+        loginPage.openPage(); //открывает нужную страницу
+        loginPage.enterLoginInToInputLogin("Student");
+        loginPage.enterPassInToInputPassword("909090");
+        loginPage.clickInToButtonVhod();
+        checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed());
 
 
     }
-
-
 
 }
