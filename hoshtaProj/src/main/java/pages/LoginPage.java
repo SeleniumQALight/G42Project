@@ -46,6 +46,18 @@ public class LoginPage extends ParentPage {
     }
 
     public boolean isVhodButtonVisible() {
-        return buttonVhod.isDisplayed();
+        try {
+            return buttonVhod.isDisplayed();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void tryToLoginAsStudentWithPassword(String password){
+        openPage();
+        enterLoginIntoInputLogin("Student");
+        enterPassIntoInputPassword(password);
+        clickOnButtonVhod();
     }
 }
