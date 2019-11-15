@@ -10,12 +10,11 @@ public class HomePage extends ParentPage {
         super(webDriver);
     }
 
-    public boolean isAvatarDisplayed (){
-        try{
+    public boolean isAvatarDisplayed() {
+        try {
             WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
             return avatar.isDisplayed();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
