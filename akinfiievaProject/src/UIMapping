@@ -1,0 +1,39 @@
+TC #1
+Steps:
+1. //div[@class= 'login-box-body']
+2. //input[@placeholder="Email"]
+3. //input[@id="password"]
+Expected result:
+//div[@class= 'pull-left info'] //p[contains(text() , 'Student_378')]
+
+TC#2
+Steps:
+1-2. //*[@class= 'xh-highlight']
+5-6. //div[@class= 'box-tools']//a[@class= 'btn btn-info btn-sm']//i[@class= 'fa fa-plus xh-highlight']
+
+TC#3
+Steps:
+1-2. //li[@id='report']
+5-6. //div[@class= 'box-tools pull-right']//button[@class= 'btn btn-box-tool']//i[@class= 'fa fa-minus xh-highlight']
+Expected result:
+//div[@class= 'box-tools pull-right']//button[@class= 'btn btn-box-tool']//i[@class= 'fa fa-plus']
+
+TC#4
+Steps:
+1-2. //i[@class= 'fa fa-money']
+5-6. //div[@class='box-tools']//a[@class='btn btn-info btn-sm']//i[@class='fa fa-plus xh-highlight']
+7. //div[@class= 'col-xs-12']
+8. //div[@class= 'col-xs-12']//button[@type= 'submit']
+Expected result:
+//*[contains(text(),'404 Страница не найдена')]
+
+TC#5
+Precondition:
+2-3. //ul[@class='sidebar-menu']//li[@id='dictionary']
+4. //ul[@class= 'sidebar-menu']//li[@id= 'dictionary']//ul[@class= 'treeview-menu menu-open']
+5-6. //ul[@class= 'sidebar-menu']//li[@id= 'dictionary']//ul[@class= 'treeview-menu menu-open']//li[@id='apparat']
+
+Steps:
+1-2. //div[@class='box-tools']//a[@class='btn btn-info btn-sm']//i[@class='fa fa-plus']
+3-4.
+
