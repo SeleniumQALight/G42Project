@@ -1,0 +1,5 @@
+Email text field xpath = //*[@name='_username']
+Password text field xpath = //*[@id='password']
+"Enter" button xpath = //button[@type='submit']
+Main page text xpath = //h1[contains(text(),'Главная')]
+"Учет запчастей" logo xpath = //a[@href='#']

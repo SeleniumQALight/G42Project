@@ -1,0 +1,32 @@
+Login
+"Email": //input[@name='_username']
+"Password": //input[@id='password']
+"Submit": .//button[@type='submit']
+
+Profile
+"Username": .//span[@class='hidden-xs']
+"Logout": .//a[@href='/logout']
+"Ptofile": .//a[@href='/users/profile/13']
+"Email on profile details": .//input[@id='userProfileEdit_user_email']
+"User on profile details": .//input[@id='userProfileEdit_user_name']
+"Login on profile details": .//input[@id='userProfileEdit_user_username']
+"Pswrd on profile details": .//input[@id='userProfileEdit_user_password_password']
+"Pswrd confirmation on profile details": .//input[@id='userProfileEdit_user_password_password_confirm']
+
+Deal creation
+"Deals": .//UL[@class="sidebar-menu"]/LI[5] or .//a[@href='/deal']
+"Add button": .//a[@href='http://v3.test.itpmgroup.com/deal/edit'] or .//a[@class='btn btn-info btn-sm']
+"Deal date_day" .//select[@id='deal_dealDate_date_day']
+"Deal date_month" .//select[@id='deal_dealDate_date_month']
+"Deal date_year" .//select[@id='deal_dealDate_date_year']
+"Deal date_hour" .//select[@id='deal_dealDate_date_hour']
+"Deal date_minute" .//select[@id='deal_dealDate_date_minute']
+"Deal type": //select[@id='deal_dealType'] and //select[@id='deal_dealType']/option[3]
+"Deal customer": //select[@id='deal_customer']/option[4]
+"Deal provider": //select[@id='deal_provider']/option[2]
+"Create btn": .//button[@name='add']
+
+Deal finding
+"Find created deal": date: .//td[contains (text(), '03.03.2023 03:33')] and deal type: .//td[contains (text(), 'Pokupka -43432')]
+"Open created deal": //tr[@onclick="location.href='http://v3.test.itpmgroup.com/deal/edit/158'"]
+"Delete created deal": //button[@name='delete']
