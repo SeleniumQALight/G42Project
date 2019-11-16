@@ -18,7 +18,7 @@ public class AbstractParentTest {
     protected HomePage homePage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         File file = new File("./src/drivers/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver(); //версия хрома должна быть последней
@@ -31,13 +31,24 @@ public class AbstractParentTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         webDriver.quit();
     }
 
-    protected void checkExpectedResult(String message, boolean actualREsult) {
-        Assert.assertEquals(message, true, actualREsult);
+    protected void checkExpectedResult(String message, boolean actualResult) {
+        Assert.assertEquals(message, true, actualResult);
     }
 
+    protected boolean checkCurrentUrl(String expectedUrl) {
+        String actualUrl = webDriver.getCurrentUrl();
+        if (actualUrl.equals(expectedUrl)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
+
+
+
