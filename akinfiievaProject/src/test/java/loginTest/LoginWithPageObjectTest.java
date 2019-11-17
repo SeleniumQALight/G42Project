@@ -17,5 +17,14 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
 
     }
 
+    @Test
+    public void notValidLogin() {
+        loginPage.openPage();
+        loginPage.enterLoginIntoInputLogin("Student");
+        loginPage.enterPasswordIntoInputPassword("905090");
+        loginPage.clickOnButtonVhod();
+
+        checkExpectedResult("Login page hasn't loaded", homePage.isLoginBoxRefreshed());
+    }
 
 }
