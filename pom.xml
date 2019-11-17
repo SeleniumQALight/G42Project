@@ -36,8 +36,8 @@
 
       <module>nakonechnaProj</module>
       <module>mosencovaProj</module>
-      <module>martsekhovProject</module>
       <module>gushhinaProj</module>
+      <module>martsekhovProj</module>
     </modules>
 
     <name>G42Proj</name>
