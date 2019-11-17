@@ -1,0 +1,100 @@
+Id-1: Login with valid email and pass
+
+Steps:
+1. Open http://v3.test.itpmgroup.com/login
+2. Find "Email" field
+3. Input "Student" into "Email" field
+4. Find "Password" field
+5. Input "909090" into "Password" field
+6. Find "Вход" button
+7. Click on "Вход" button
+
+Expected result: Main page is displayed. Valid avatar is displayed in the top left corner of the page
+
+
+Id-2: Logout from account
+
+Precondition: User must be logged in (use Id-1 test case)
+
+Steps:
+1. Find dropdown user menu at the top right corner of the page
+2. Click on dropdown user menu
+3. Find "Выход" button
+4. Click on "Выход" button
+
+Expected result: Login page is displayed
+
+
+Id-3: Create new item in "Аппарат"
+
+Precondition: User must be logged in (use Id-1 test case)
+
+Steps:
+1. Find "Словари" item at the sidebar menu
+2. Click on "Словари" item
+3. Find "Аппарат" item at the treeview menu
+4. Click on "Аппарат" item
+5. Find "Add" button
+6. Click on "Add" button
+7. Find "Apparat number" field
+8. Input in "Apparat number" field "test" value
+9. Find "Apparat comment" field
+10. Input in "Apparat comment" field "comment" value
+11. Find "Создать" button
+12. Click on "Создать" button
+
+Expected result: New apparat "test" with comment "comment" is created
+
+
+Id-4: Delete item from "Тип запчастей"
+
+Precondition: User must be logged in (use Id-1 test case)
+
+Steps:
+1. Find "Словари" item at the sidebar menu
+2. Click on "Словари" item
+3. Find "Тип запчастей" item at the treeview menu
+4. Click on "Тип запчастей" item
+5. Find "Add" button
+6. Click on "Add" button
+7. Find "Spare type name" field
+8. Input in "Spare type name" field "test" value
+9. Find "Создать" button
+10. Click on "Создать" button
+11. Find "test" item in the table "Device list"
+12. Click on "test" item in the table "Device list"
+13. Find "Удалить" button
+14. Click on "Удалить" button
+
+Expected result: "test" item was deleted from table "Device list"
+
+
+Id-5: Delete item from "Тип запчастей"
+
+Precondition: User must be logged in (use Id-1 test case)
+
+Steps:
+1. Find "Словари" item at the sidebar menu
+2. Click on "Словари" item
+3. Find "Сотрудники" item at the treeview menu
+4. Click on "Сотрудники" item
+5. Find "Add" button
+6. Click on "Add" button
+7. Find "Worker surname" field
+8. Input in "Worker surname" field "Surname" value
+9. Find "Worker name" field
+10. Input in "Worker name" field "Name" value
+11. Find "Worker middle name" field
+12. Input in "Worker middle name" field "Middle-name" value
+13. Find "Worker phone" field
+14. Input in "Worker phone" field "111111111" value
+15. Find "Создать" button
+16. Click on "Создать" button
+17. Find "Surname Name Middle-name" item with phone "111111111" from "Сотрудники" list
+18. Click "Surname Name Middle-name" item with phone "111111111" from "Сотрудники" list
+19. Find "Worker phone" field
+20. Input in "Worker phone" field "000000000" value
+21. Find "Сохранить" button
+22. Click on "Сохранить" button
+
+Expected result: "Surname Name Middle-name" item now is with phone "000000000"

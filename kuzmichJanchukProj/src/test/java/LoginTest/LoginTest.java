@@ -1,22 +1,35 @@
 package LoginTest;
 
+import abstractparenttest.AbstractParentTest;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class LoginTest {
+public class LoginTest extends AbstractParentTest {
+
     @Test
     public void validLogin() {
-        File file = new File("./src/drivers/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        WebDriver driver = new ChromeDriver();
+        driver.get("http://v3.test.itpmgroup.com");
+        driver.findElement(By.name("_username")).clear();
+        driver.findElement(By.name("_username")).sendKeys("Student");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("909090");
+        driver.findElement(By.tagName("button")).click();
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.get("http://v3.test.itpmgfoup.com");
+        Assert.assertTrue("Avatar is not present", isAvatarPresent());
         driver.quit();
+    }
+
+    private boolean isAvatarPresent() {
+        try {
+            return driver.findElement(By.xpath(".//*[@class = 'pull-left image']")).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
