@@ -52,12 +52,5 @@ public class LoginPage extends ParentPage {
         return buttonVhod.isDisplayed();
     }
 
-    public String getCurrentUrl() {
-        return webDriver.getCurrentUrl();
-    }
 
-
-    public String getTitle() {
-        return webDriver.getTitle();
-    }
 }
