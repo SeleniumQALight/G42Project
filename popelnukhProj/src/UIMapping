@@ -1,0 +1,40 @@
+1) ValidLogin
+1. "Email"-field - name="_username"
+2. "Password"-field - id="password"
+3. button "Vhod" - tagName = "button"
+
+2) AddNewApparat
+1. Slovary - //*[@id="dictionary"]
+2. Apparat - //*/li[@id="apparat"]
+3. "Add" - //*[@class = "box-tools"]
+4. ApparatNumber - //*[@id = "apparat_apparatNumber"]
+5. ApparatComment - //*[@name="apparat[apparatComment]"]
+6. ButtonSozdat' - //*[@name = "add"]
+
+3) DeleteApparat
+1. Delete-button - //*[@name = "delete"]
+
+4) AddNewSideOfDeal
+1. Slovary - //*[@id="dictionary"]
+2. StoronySdelock - //*/li[@id="prov_cus"]
+3. "Add" - //*[@class = "box-tools"]
+4. ProCustName - id="prov_cus_proCustName"
+5. Adress - id="prov_cus_proCustAddress"
+6. Phone - id="prov_cus_proCustPhone"
+7. PrivatPerson - //*/input[@id = "prov_cus_proCustIsFl"]
+8. IsOurFirm - //*/input[@id="prov_cus_isOurFirm"]
+9. Sozdat' - //*/button[@name="add"]
+
+5) NewDeal
+1. Sdelki - //*[@id="deal"]
+2. "Add" - //*[@class = "box-tools"]
+3. DealDate:
+    a) Day - //*[@id="deal_dealDate_date_day"]/option[12]
+    b) Month - //*[@id="deal_dealDate_date_month"]/option[11]
+    c) Year - //*[@id="deal_dealDate_date_year"]/option[6]
+    d) Hour - //*[@id="deal_dealDate_time_hour"]/option[16]
+    e) Minutes - //*[@id="deal_dealDate_time_minute"]/option[16]
+4. TypeOfDeal - //*[@id="deal_dealType"]/option[@value="144"]
+5. Pokupatel - //*[@id="deal_customer"]/option[@value="455"]
+6. Prodavets - //*[@id="deal_customer"]/option[@value="455"]
+7. Sozdat' - //*/button[@name="add"]
