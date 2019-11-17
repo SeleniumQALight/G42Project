@@ -1,4 +1,4 @@
-package martsekhovProject;
+package G42Proj;
 
 import static org.junit.Assert.assertTrue;
 

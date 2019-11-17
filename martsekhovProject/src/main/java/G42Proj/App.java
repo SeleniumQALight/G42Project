@@ -1,4 +1,4 @@
-package martsekhovProject;
+package G42Proj;
 
 /**
  * Hello world!
