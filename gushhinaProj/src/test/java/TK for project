@@ -1,0 +1,29 @@
+TK for http://v3.test.itpmgroup.com/login
+
+TK1:
+Open http://v3.test.itpmgroup.com/login
+Enter "Student" to the field "Email"
+Enter "909090" to the field "Password"
+Click on button "Вход"
+
+TK2:
+Open http://v3.test.itpmgroup.com/login
+Enter " " to the field "Email"
+Enter "909090" to the field "Password"
+Click on button "Вход"
+
+TK3:
+Open http://v3.test.itpmgroup.com/login
+Enter "909090" to the field "Password"
+Click on button "Вход"
+
+TK4:
+Open http://v3.test.itpmgroup.com/login
+Enter "Student" to the field "Email"
+Click on button "Вход"
+
+TK5:
+Open http://v3.test.itpmgroup.com/login
+Enter "Student" to the field "Email"
+Enter "90909" to the field "Password"
+Click on button "Вход"
