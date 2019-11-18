@@ -16,19 +16,19 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     // ожидаемый результат - на homePage отображается аватарка
 }
 @Test
-        public void notValidLogin1() {
+        public void notValidPassword1() {
     loginPage.openPage();
-    loginPage.enterLoginInToInputLogin(" ");
-    loginPage.enterPassInToInputPassword("909090");
+    loginPage.enterLoginInToInputLogin("Student");
+    loginPage.enterPassInToInputPassword("9");
     loginPage.clickOnButtonVhod();
 
     checkExpectedResult("Avatar is present", !homePage.isAvatarDisplayed()); // ввод значений в готовый метод (реализован в AbstractParentTest) isAvatarDisplayed - метод класса homePage
     }
 @Test
-    public void notValidLogin2(){
+    public void notValidPassword2(){
     loginPage.openPage();
-    loginPage.enterLoginInToInputLogin("1");
-    loginPage.enterPassInToInputPassword("909090");
+    loginPage.enterLoginInToInputLogin("Student");
+    loginPage.enterPassInToInputPassword(" ");
     loginPage.clickOnButtonVhod();
 
     checkExpectedResult("The button Vhod not displayed", loginPage.isButtonVhodDisplayed());
