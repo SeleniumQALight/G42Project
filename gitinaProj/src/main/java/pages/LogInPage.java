@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +47,43 @@ public class LogInPage extends ParentPage {
     public void clickOnButtonVhod() {
         buttonVhod.click();
         logger.info("Button was clicked");
+    }
+
+    public boolean isButtonVhodDisplayed(){
+        try{
+            WebElement avatar = webDriver.findElement(By.xpath(".//button"));
+            logger.info("Button Vhod is displayed");
+            return buttonVhod.isDisplayed();
+
+        }catch (Exception e){
+            logger.info("Button Vhod is not displayed");
+            return  false;
+        }
+    }
+
+
+    public boolean isEmailFieldDisplayed(){
+        try{
+            WebElement avatar = webDriver.findElement(By.xpath(".//input[@name='_username']"));
+            logger.info("Email field is displayed");
+            return inputLogin.isDisplayed();
+
+        }catch (Exception e){
+            logger.info("Email field  is not displayed");
+            return  false;
+        }
+    }
+
+    public boolean isPasswordFieldDisplayed(){
+        try{
+            WebElement avatar = webDriver.findElement(By.xpath(".//input[@type='password']"));
+            logger.info("Password field is displayed");
+            return inputPass.isDisplayed();
+
+        }catch (Exception e){
+            logger.info("Password field  is not displayed");
+            return  false;
+        }
     }
 
 
