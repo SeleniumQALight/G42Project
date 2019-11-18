@@ -20,4 +20,12 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
+    public boolean isLogginSuccess(){
+        try{
+            WebElement successLoggin = webDriver.findElement(By.xpath("//*/li[text()='Главная']"));
+            return successLoggin.isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
+    }
 }
