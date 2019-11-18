@@ -1,17 +1,21 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
-// тут будет описание всех элементов этой страницы и все действия.
+// тут будет описание всех элементов этой страницы и все действия и методы
 public class LoginPage extends ParentPage { // когда введем слово extends строка подчеркнется красным - нужно создать конструктор
-    @FindBy(name = "_username")
-    private WebElement inputLogin;
+    //описываем все элементы класса LoginPage
+    @FindBy(name = "_username") // указываем по какому признаку, а именно _username, мы ищем элемент
+    private WebElement inputLogin; // объявление переменной куда будет записан найденный элемент
+
     @FindBy(id = "password")
     private WebElement inputPass;
+
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
 
@@ -28,22 +32,32 @@ public class LoginPage extends ParentPage { // когда введем слов�
     }
 
     public void enterLoginInToInputLogin(String login) { // login - название переменной
-        //WebElement inputLogin = webdriver.findElement(By.name("_username")); уже не нужно, так как написали сверху файнд бай
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed in to input Login");
+        //WebElement inputLogin = webdriver.findElement(By.name("_username")); - мы просим вебдрайвер найти элемент по этому локатору и
+        // его записать в эту переменную inputLogin// уже не нужно, так как написали сверху файнд бай
+        inputLogin.clear(); // находим элемент, который сохранен в переменной inputLogin и очищаем это поле
+        inputLogin.sendKeys(login); // ввести в инпут login из метода
+        logger.info(login + " was inputed in to input Login"); // подключаем логирования, это будет информирование о введенном логине
     }
 
     public void enterPassInToInputPassword(String password) {
-        //WebElement inputPass = webdriver.findElement(By.id("password"));
+        //WebElement inputPass = webdriver.findElement(By.id("password")); уже не нужно, так как написали сверху файнд бай
         inputPass.clear();
         inputPass.sendKeys(password);
         logger.info(password + " was inputed into input PassWord");
     }
 
-    public void clickOnButtonVhod() {
-        //WebElement buttonVhod = webdriver.findElement(By.tagName("button"));
+    public void clickOnButtonVhod() { // параметр в методе не нужен, это просто клик поэтому () пустые
+        //WebElement buttonVhod = webdriver.findElement(By.tagName("button")); уже не нужно, так как написали сверху файнд бай
         buttonVhod.click();
         logger.info("Button was clicked");
+    }
+
+    public boolean isButtonVhodDisplayed() {
+        try {
+            WebElement buttonVhod = webdriver.findElement(By.tagName("button")); //поиск кнопки
+            return buttonVhod.isDisplayed(); // возвращаем значение, показана ли аватарка в браузере, а не в доме. Это случай отображения
+        } catch (Exception e) {
+            return false; // здесь кнопка не отобразилась в браузере
+        }
     }
 }
