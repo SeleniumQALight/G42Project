@@ -1,0 +1,44 @@
+Login page
+
+email - //input[@name='_username']
+password - //input[@id='password']
+Вход - //button[@type='submit']
+
+'Главная' page
+Profile link - //a[@class='dropdown-toggle']
+'Профиль' button - //a[.='Профиль']
+'Выход' button - //a[.='Выход']
+
+'Сотрудники' page
+
+page header - //section[@class='content-header']/h1
+table of employees = //table[@class = 'table table-hover']
+Add link - //a[@data-original-title='Add']
+first table's row - //tbody/tr[1]
+last table's row - //tbody/tr[last()]
+last user's full name = //tbody/tr[last()]/td[1]
+last user's phone = //tbody/tr[last()]/td[2]
+
+
+'Словарь' page
+
+page header - //section[@class='content-header']/h1
+'Worker surname' input - //input[@id='workers_workerSurname']
+'Worker name' input - //input[@id='workers_workerName']
+'Worker middle name' input - //input[@id='workers_workerMiddleName']
+'Worker phone' input - //input[@id='workers_workerPhone']
+'Создать' button - //button[@name='add']
+'Сохранить' button - //button[@name='save']
+'Удалить' button - //button[@name='delete']
+Amount of rows in table - count(//tbody/tr)
+
+'Профиль' page
+page header - //section[@class='content-header']/h1
+'Адрес email' field - //input[@id='userProfileEdit_user_email']
+'Пользователь' field - //input[@id='userProfileEdit_user_name']
+'Логин' field - //input[@id='userProfileEdit_user_username']
+'Пароль' field - //input[@id='userProfileEdit_user_password_password']
+'Подтверждение пароля' field - //input[@id='userProfileEdit_user_password_password_confirm']
+'Сохранить' button - //button[@name='save']
+UserName - //a[@class='dropdown-toggle']/span
+Box subtitle - //div[@class='box-header']/h3
