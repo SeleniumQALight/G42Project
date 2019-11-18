@@ -22,8 +22,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterloginInToInputLogin("sudent");
         loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonVhod();
-        Assert.assertEquals(                "http://v3.test.itpmgroup.com/lon",
-                currentUrl());
-
+        Assert.assertEquals(                "Wrong current Page", "http://v3.test.itpmgroup.com/login",
+                loginPage.currentUrl());
     }
 }

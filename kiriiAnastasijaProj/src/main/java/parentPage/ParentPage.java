@@ -15,4 +15,8 @@ public class ParentPage {
         PageFactory.initElements(webDriver, this);
     }
 
+    public String currentUrl()
+    {return webDriver.getCurrentUrl();
+    }
+
 }
