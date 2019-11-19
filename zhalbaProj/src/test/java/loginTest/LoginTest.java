@@ -14,7 +14,7 @@ public class LoginTest {
   WebDriver webDriver;
 
   @Test
-  public void validLoin() {
+  public void validLogin() {
     File file = new File("./src/drivers/chromedriver.exe");
     System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
     WebDriver webDriver = new ChromeDriver();
