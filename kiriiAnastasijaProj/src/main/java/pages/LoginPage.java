@@ -46,6 +46,12 @@ public class LoginPage extends ParentPage {
         //WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
         buttonVhod.click();
         logger.info("Button was clicked");
-
     }
+
+    public String currentPage ()
+    {
+        return currentPage();
+    }
+
+
 }

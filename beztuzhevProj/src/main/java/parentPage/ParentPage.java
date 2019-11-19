@@ -9,10 +9,17 @@ public class ParentPage {
     protected Logger logger = Logger.getLogger(getClass());
 
 
-
     public ParentPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
+    }
+
+    public String getCurrentUrl() {
+        return webDriver.getCurrentUrl();
+    }
+
+    public String getTitle() {
+        return webDriver.getTitle();
     }
 
 }

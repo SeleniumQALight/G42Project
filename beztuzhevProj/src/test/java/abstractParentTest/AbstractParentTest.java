@@ -17,7 +17,7 @@ public class AbstractParentTest {
     protected HomePage homePage;
 
     @Before
-    public void setUp () {
+    public void setUp() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
@@ -25,14 +25,15 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(webDriver);
-        homePage = new HomePage (webDriver);
+        homePage = new HomePage(webDriver);
     }
+
     @After
-    public void tearDown () {
+    public void tearDown() {
         webDriver.quit();
     }
 
-    protected void checkExpectedResult (String message, boolean actualResult){
+    protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     }
 }

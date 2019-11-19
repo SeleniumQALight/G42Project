@@ -18,4 +18,13 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
+
+    public boolean isButtonVhodDisplayed() {
+        try{
+            WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
+            return buttonVhod.isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
+    }
 }
