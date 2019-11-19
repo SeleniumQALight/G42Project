@@ -6,7 +6,7 @@ Login.Submit.Button = xpath(".//button[@type = 'submit']")
 
 #Sidebar
 Sidebar.Service.Button = xpath(".//a[@href = "/dictionary/service"]")
-Sidebar.Dictionary.Button = xpath(".//li[@id = 'dictionary']/a/span")
+Sidebar.Dictionary.Button = xpath(".//li[@id = 'dictionary']")
 Sidebar.Workers.Button = xpath(".//a[@href = "/dictionary/workers"]")
 
 #Breadcrumbs
