@@ -1,5 +1,6 @@
 package pages;
 
+import libs.ActionsWithOurElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,13 @@ public class LoginPage extends ParentPage {
 
     }
 
+    public void fillingLoginFormAndSubmit(String login, String pass){
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPassIntoInputPassword(pass);
+        clickOnButtonVhod();
+    }
+
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/");
@@ -33,23 +41,21 @@ public class LoginPage extends ParentPage {
     public void enterLoginIntoInputLogin(String login) {
         //WebElement inputLogin = webDriver.findElement(By.name("_username"));
 
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed into input login");
+        //inputLogin.clear();
+        //inputLogin.sendKeys(login);
+        //logger.info(login + " was inputed into input login");
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
 
     }
 
     public void enterPassIntoInputPassword(String password) {
         // WebElement inputPass = webDriver.findElement(By.id("password"));
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " password was inputed");
+        actionsWithOurElements.enterTextIntoInput(inputPass, password);
     }
 
     public void clickOnButtonVhod() {
         // WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+        actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
     public boolean buttonVhodIsDisplayed() {
@@ -61,4 +67,5 @@ public class LoginPage extends ParentPage {
         }
 
     }
+
 }
