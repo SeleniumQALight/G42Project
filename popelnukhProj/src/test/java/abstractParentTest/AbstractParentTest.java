@@ -17,7 +17,7 @@ public class AbstractParentTest {
     protected HomePage homePage;
     @Before
     public void setUp(){
-        File file = new File("./src/drivers/chromedriver.exe");
+        File file = new File("./src/drivers/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
