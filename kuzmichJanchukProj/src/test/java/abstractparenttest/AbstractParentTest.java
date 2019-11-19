@@ -39,6 +39,6 @@ public class AbstractParentTest {
     };
 
     protected void expectElementNotPresent(String message, boolean actualResult) {
-        Assert.assertFalse(message, actualResult);
+        Assert.assertEquals(message, false, actualResult);
     }
 }
