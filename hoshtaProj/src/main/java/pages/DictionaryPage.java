@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,21 +12,37 @@ public class DictionaryPage extends ParentPage {
         super(webDriver);
     }
 
+    @FindBy(id = "spares_spareType")
+    private WebElement spareTypeDropdown;
+
     @FindBy(id = "spares_spareName")
     private WebElement spareName;
 
     @FindBy(xpath = "//button[@name='add']")
     private WebElement createButton;
 
-    public void checkIfCreateButtonIsDisplayed() {
-        Assert.assertTrue("\"Create\" button is not displayed", isCreateButtonDisplayed());
+    private WebElement getDropdownValueElement(String value){
+        return webDriver.findElement(By.xpath(String.format("//option[text()='%s']", value)));
     }
 
     private boolean isCreateButtonDisplayed() {
         return actionsWithOurElements.isElementDisplayed(createButton);
     }
 
+    public void checkIfCreateButtonIsDisplayed() {
+        Assert.assertTrue("\"Create\" button is not displayed", isCreateButtonDisplayed());
+    }
+
     public void inputSpareName(String text){
         actionsWithOurElements.enterTextIntoInput(spareName, text);
+    }
+
+    public void expandSpareTypeDropdownAndSelectValue(String value) {
+        actionsWithOurElements.clickElement(spareTypeDropdown);
+        actionsWithOurElements.clickElement(getDropdownValueElement(value));
+    }
+
+    public void clickCreateButton() {
+        actionsWithOurElements.clickElement(createButton);
     }
 }

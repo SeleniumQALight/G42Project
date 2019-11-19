@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -49,5 +50,15 @@ public class ActionsWithOurElements {
         String errorText = "Can not work with element ";
         logger.error(errorText);
         Assert.fail(errorText);
+    }
+
+    public int getNumberOfElements(By by) {
+        logger.info("Get number of elements");
+        return webDriver.findElements(by).size();
+    }
+
+    public String getText(WebElement webElement) {
+        logger.info("Get text of the element");
+        return webElement.getText();
     }
 }
