@@ -37,4 +37,8 @@ public class AbstractParentTest {
     protected  void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     };
+
+    protected void expectElementNotPresent(String message, boolean actualResult) {
+        Assert.assertFalse(message, actualResult);
+    }
 }
