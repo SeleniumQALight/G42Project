@@ -30,9 +30,11 @@ public class LoginTest {
         webDriver.findElement(By.name("_username")).sendKeys("Student");
 
         webDriver.findElement(By.id("password")).clear();
-        webDriver.findElement(By.id("password")).sendKeys("90909");
+        webDriver.findElement(By.id("password")).sendKeys("909090");
 
         webDriver.findElement(By.tagName("button")).click();
+
+        Assert.assertTrue("Login Failed!", checkRedirectOnMainPage());
 
         Assert.assertTrue("Avatar is not present!", isAvatarPresent());
 
@@ -49,5 +51,14 @@ public class LoginTest {
         }
     }
 
+    private boolean checkRedirectOnMainPage(){
+        try{
+            return webDriver.findElement(By.xpath(".//*/li[text()='Главная']")).isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
+    }
+
 
 }
+

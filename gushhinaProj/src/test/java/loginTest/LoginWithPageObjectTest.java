@@ -11,6 +11,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterPassInToInputPassword("909090");
         loginPage.clickOnButtonVhod();
 
+        correctLogin("Login Failed!", homePage.isLogginSuccess());
         //if isAvatarDisplayed is false, the message will be shown
         checkExpectedResult("Avatar is not present.", homePage.isAvatarDisplayed());
 
