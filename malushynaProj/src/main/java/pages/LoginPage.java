@@ -18,6 +18,7 @@ public class LoginPage extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
 
+    public String Url = "http://v3.test.itpmgroup.com/login";
 
 
     public LoginPage(WebDriver webDriver) {
@@ -50,6 +51,14 @@ public class LoginPage extends ParentPage {
 //        WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
         buttonVhod.click();
         logger.info("Button was clicked");
+    }
+
+    public boolean isButtonVhodDisplayed(){
+        try{
+            return buttonVhod.isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }

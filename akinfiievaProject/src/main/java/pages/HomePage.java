@@ -9,11 +9,22 @@ public class HomePage extends ParentPage {
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
-    public boolean isAvatarDisplayed () {
+
+    public boolean isAvatarDisplayed() {
         try {
             WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
+        } catch (Exception e) {
+            return false;
         }
-        catch (Exception e) {
+        return true;
+    }
+
+    public boolean isLoginBoxRefreshed() {
+
+        try {
+            WebElement loginLogo = webDriver.findElement(By.xpath(".//div[@class='login-box-body']"));
+
+        } catch (Exception e) {
             return false;
         }
         return true;

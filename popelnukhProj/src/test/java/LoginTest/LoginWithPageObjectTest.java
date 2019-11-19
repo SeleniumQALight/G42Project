@@ -13,6 +13,14 @@ public class LoginWithPageObjectTest extends AbstractParentTest{
         AbstractParentTest.checkExpectedResult("Avatar is not present"
                 , homePage.isAvatarDisplayed());
     }
-
+    @Test
+    public void unvalidLogin(){
+        loginPage.openPage();
+        loginPage.enterLoginInToInputLogin("student");
+        loginPage.enterPassInToInputPassword("90909");
+        loginPage.clickOnButtonVhod();
+        AbstractParentTest.checkExpectedResult("Login proshel"
+                , homePage.isButtonVhodDisplayed());
+    }
 
 }

@@ -18,4 +18,9 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
+
+    public String currentPage()
+    {
+        return currentPage();
+    }
 }
