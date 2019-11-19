@@ -48,7 +48,6 @@ public class LoginPage extends ParentPage {
 
   public boolean isVhodButtonDispalyed() {
     try {
-      WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
       return buttonVhod.isDisplayed();
     } catch (Exception e) {
       return false;
