@@ -34,22 +34,32 @@ public class LoginPage extends ParentPage { // когда введем слов�
     public void enterLoginInToInputLogin(String login) { // login - название переменной
         //WebElement inputLogin = webdriver.findElement(By.name("_username")); - мы просим вебдрайвер найти элемент по этому локатору и
         // его записать в эту переменную inputLogin// уже не нужно, так как написали сверху файнд бай
-        inputLogin.clear(); // находим элемент, который сохранен в переменной inputLogin и очищаем это поле
-        inputLogin.sendKeys(login); // ввести в инпут login из метода
-        logger.info(login + " was inputed in to input Login"); // подключаем логирования, это будет информирование о введенном логине
+
+        actionsWithOurElements.enterTextInToInput (inputLogin, login); // добавлено вместо 3х строк ниже
+
+//        inputLogin.clear(); // находим элемент, который сохранен в переменной inputLogin и очищаем это поле
+//        inputLogin.sendKeys(login); // ввести в инпут login из метода
+//        logger.info(login + " was inputed in to input Login"); // подключаем логирования, это будет информирование о введенном логине
     }
 
     public void enterPassInToInputPassword(String password) {
         //WebElement inputPass = webdriver.findElement(By.id("password")); уже не нужно, так как написали сверху файнд бай
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " was inputed into input PassWord");
+
+        actionsWithOurElements.enterTextInToInput(inputPass, password); // добавлено вместо 3х строк ниже
+
+//        inputPass.clear();
+//        inputPass.sendKeys(password);
+//        logger.info(password + " was inputed into input PassWord");
     }
 
     public void clickOnButtonVhod() { // параметр в методе не нужен, это просто клик поэтому () пустые
         //WebElement buttonVhod = webdriver.findElement(By.tagName("button")); уже не нужно, так как написали сверху файнд бай
-        buttonVhod.click();
-        logger.info("Button was clicked");
+
+        // если элемент грузится больше 5 секунд, нужно добавить логику в это место
+        actionsWithOurElements.clickOnElement(buttonVhod);
+
+//        buttonVhod.click();
+//        logger.info("Button was clicked");
     }
 
     public boolean isButtonVhodDisplayed() {
@@ -59,5 +69,12 @@ public class LoginPage extends ParentPage { // когда введем слов�
         } catch (Exception e) {
             return false; // здесь кнопка не отобразилась в браузере
         }
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String password) { // авторизация в кабинет
+        openPage();
+        enterLoginInToInputLogin(login);
+        enterPassInToInputPassword(password);
+        clickOnButtonVhod();
     }
 }

@@ -33,5 +33,4 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
 
     checkExpectedResult("The button Vhod not displayed", loginPage.isButtonVhodDisplayed());
 }
-
 }
