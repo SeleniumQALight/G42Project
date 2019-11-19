@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SparePage;
+import parentpage.ParentPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -15,6 +17,7 @@ public class AbstractParentTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected SparePage sparePage;
 
     @Before
     public void setUp() {
@@ -27,6 +30,7 @@ public class AbstractParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        sparePage = new SparePage(driver);
     }
 
     @After
