@@ -14,9 +14,13 @@ public class SparesTest extends AbstractParentTest {
         homePage.clickOnSubMenuSpares();
 
         sparePage.clickOnAddButton();
+        sparePage.openDropDown();
+        sparePage.fillInSpareName("G42Project_Kuzmych-Ianchuk");
+        sparePage.selectFromDropDownOptions("Датчики");
+        sparePage.clickOnCreateButton();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
