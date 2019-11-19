@@ -30,22 +30,25 @@ public class LoginPage extends ParentPage {
 
     public void enterLoginIntoInputLogin(String login) {
 //        WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed into input Login");
+//        inputLogin.clear();
+//        inputLogin.sendKeys(login);
+//        logger.info(login + " was inputed into input Login");
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
     public void enterPasswordIntoInputPassword(String password) {
 //        WebElement inputPassword = webDriver.findElement(By.id("password"));
-        inputPassword.clear();
-        inputPassword.sendKeys(password);
-        logger.info(password + " was inputed into input Password");
+//        inputPassword.clear();
+//        inputPassword.sendKeys(password);
+//        logger.info(password + " was inputed into input Password");
+        actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
 
     public void clickOnButtonVhod() {
 //        WebElement vhodButton = webDriver.findElement(By.tagName("button"));
-        vhodButton.click();
-        logger.info(" Button Vhod was clicked");
+//        vhodButton.click();
+//        logger.info(" Button Vhod was clicked");
+        actionsWithOurElements.clickOnElement(vhodButton);
     }
 
     public boolean isLoginFieldDisplayed() {
@@ -57,4 +60,10 @@ public class LoginPage extends ParentPage {
     }
 
 
+    public void fillingLoginFormAndSubmit(String login, String password) {
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPasswordIntoInputPassword(password);
+        clickOnButtonVhod();
+    }
 }
