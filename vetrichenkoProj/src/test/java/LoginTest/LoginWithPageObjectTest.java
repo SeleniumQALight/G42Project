@@ -14,4 +14,14 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         checkExpectedResult("Avatar isn`t present", homePage.isAvatarDisplayed());
     }
 
+    @Test
+    public void unValidLoginTest() {
+        loginPage.openPage();
+        loginPage.enterLoginIntoLogin("Student");
+        loginPage.enterPassIntoPass("909099");
+        loginPage.clickOnButtonVhod();
+
+        checkExpectedResult("Avatar isn`t present", !homePage.isAvatarDisplayed());
+    }
+
 }
