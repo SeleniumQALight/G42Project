@@ -30,23 +30,27 @@ public class LoginPage extends ParentPage {
 
     public void enterLoginInToInputLogin(String login) {
         // WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed to input Login");
+        //inputLogin.clear();
+        //inputLogin.sendKeys(login);
+        //logger.info(login + " was inputed to input Login");
+        actionWithOurElements.enterTextInToInput(inputLogin, login);
 
     }
 
     public void enterPassInToInputPassWord(String password) {
-        //WebElement inputPass = webDriver.findElement(By.id("password"));
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " was inputed into input PassWord");
+        actionWithOurElements.enterTextInToInput(inputPass, password);
 
     }
 
     public void clickOnButtonVhod() {
         //WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+        actionWithOurElements.clickOnElement(buttonVhod);
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        enterLoginInToInputLogin(login);
+        enterPassInToInputPassWord(pass);
+        clickOnButtonVhod();
     }
 }
