@@ -1,5 +1,6 @@
 package pages;
 
+import libs.ActionsWithOurElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,60 +32,58 @@ public class LogInPage extends ParentPage {
         }
     }
 
-    public void enterLoginInToinputlogin(String login) {
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed into Input login");
+    public void enterLoginInToInputlogin(String login) {
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
     public void enterPassInToInputPassWord(String password) {
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " was inputed into Input password");
-
+        actionsWithOurElements.enterTextIntoInput(inputPass, password);
     }
 
     public void clickOnButtonVhod() {
-        buttonVhod.click();
-        logger.info("Button was clicked");
+   actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
-    public boolean isButtonVhodDisplayed(){
-        try{
-            WebElement avatar = webDriver.findElement(By.xpath(".//button"));
+    public boolean isButtonVhodDisplayed() {
+        try {
             logger.info("Button Vhod is displayed");
             return buttonVhod.isDisplayed();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("Button Vhod is not displayed");
-            return  false;
+            return false;
         }
     }
 
 
-    public boolean isEmailFieldDisplayed(){
-        try{
-            WebElement avatar = webDriver.findElement(By.xpath(".//input[@name='_username']"));
+    public boolean isEmailFieldDisplayed() {
+        try {
             logger.info("Email field is displayed");
             return inputLogin.isDisplayed();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("Email field  is not displayed");
-            return  false;
+            return false;
         }
     }
 
-    public boolean isPasswordFieldDisplayed(){
-        try{
-            WebElement avatar = webDriver.findElement(By.xpath(".//input[@type='password']"));
+    public boolean isPasswordFieldDisplayed() {
+        try {
             logger.info("Password field is displayed");
             return inputPass.isDisplayed();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("Password field  is not displayed");
-            return  false;
+            return false;
         }
     }
 
 
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        enterLoginInToInputlogin(login);
+        enterPassInToInputPassWord(pass);
+        clickOnButtonVhod();
+
+    }
 }
