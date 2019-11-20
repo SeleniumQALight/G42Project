@@ -1,16 +1,26 @@
 package libs;
 
+
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
+
+
 
 public class ActionsWithOurElements {
-    WebDriver webDriver;
-    Logger logger = Logger.getLogger(getClass());
+    private WebDriver webDriver;
+    private Logger logger = Logger.getLogger(getClass());
+    private WebDriverWait webDriverWait;
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait = new WebDriverWait(webDriver, 5);
+
     }
 
     public void enterTextInToInput(WebElement webElement
@@ -18,7 +28,7 @@ public class ActionsWithOurElements {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + " was inputted in to input");
+            logger.info(text + " was inputted in to input " + getElementNameIfNameExist(webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
@@ -26,8 +36,8 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement){
         try {
-            webElement.click();
-            logger.info("Element was clicked");
+            webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement)).click();
+            logger.info("Element was clicked " + getElementNameIfNameExist(webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
@@ -42,6 +52,12 @@ public class ActionsWithOurElements {
            logger.info("Is element displayed -> false");
            return false;
         }
+    }
+
+    private String getElementNameIfNameExist(WebElement webElement){
+        String messageText = "";
+        if (webElement instanceof TypifiedElement) { messageText = "'" + ((TypifiedElement) webElement).getName() + "'";}
+        return messageText;
     }
 
     private void stopTestAndPrintMessage() {

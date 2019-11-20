@@ -9,7 +9,7 @@ public class SparesTest extends AbstractParentTest{
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
 
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpares();
 
         sparePage.clickOnAddButton();

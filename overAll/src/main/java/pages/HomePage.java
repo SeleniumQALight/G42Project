@@ -5,17 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.elements.LeftMenu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Image;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class HomePage extends ParentPage {
     @FindBy(xpath = ".//*[@class='pull-left image']")
-    private WebElement avatar;
+    private Image avatar;
 
     @FindBy(id = "dictionary")
-    private WebElement menuDictionary;
+    private Link menuDictionary;
 
     @FindBy(id = "spares")
-    private WebElement subMenuSpares;
+    private Link subMenuSpares;
+
+    public LeftMenu leftMenu;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);

@@ -1,13 +1,13 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class SparePage extends ParentPage {
     @FindBy(xpath = "//*[@class='fa fa-plus']")
-    private WebElement buttonAdd;
+    private Link buttonAdd;
 
     public SparePage(WebDriver webDriver) {
         super(webDriver);
