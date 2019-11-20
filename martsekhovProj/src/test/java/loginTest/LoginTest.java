@@ -9,12 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+
 public class LoginTest {
     WebDriver webDriver;
 
-
     @Test
-    public void validLogin(){
+    public void validLogin() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
@@ -43,6 +43,4 @@ public class LoginTest {
         }
 
     }
-
-
 }
