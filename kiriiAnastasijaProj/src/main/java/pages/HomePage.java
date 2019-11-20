@@ -21,6 +21,6 @@ public class HomePage extends ParentPage {
 
     public String currentPage()
     {
-        return currentPage();
+        return currentUrl();
     }
 }

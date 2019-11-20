@@ -50,7 +50,7 @@ public class LoginPage extends ParentPage {
 
     public String currentPage ()
     {
-        return currentPage();
+        return currentUrl();
     }
 
 

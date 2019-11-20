@@ -66,4 +66,14 @@ public class LoginPage extends ParentPage {
         enterPasswordIntoInputPassword(password);
         clickOnButtonVhod();
     }
+
+    public boolean isLoginFieldDisplayed() {
+        try {
+            return inputLogin.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 }
