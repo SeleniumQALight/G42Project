@@ -2,10 +2,9 @@ package sparesTests;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
-import pages.HomePage;
-import pages.LoginPage;
 
 public class SparesTest extends AbstractParentTest {
+    final String spareName = "DubynaSpare";
     @Test
     public void addNewSpare() {
         loginPage.fillingLoginFormAndSubmit("Student", "909090");
@@ -13,6 +12,12 @@ public class SparesTest extends AbstractParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubmenuSpares();
         sparePage.clickOnAddButton();
+        editSparePage.buttonCreateIsDisplayed();
+        editSparePage.inputSpareNameIntoSpareNameField(spareName);
+        editSparePage.selectSpareTypeFromDropDown();
+        editSparePage.clickOnCreateSpareButton();
+        sparePage.checkDictionaryPageisDisplayed();
+        sparePage.checkNewSpare();
 
     }
 }
