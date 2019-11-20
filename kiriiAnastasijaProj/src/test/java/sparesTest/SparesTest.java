@@ -3,6 +3,7 @@ package sparesTest;
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
+
 public class SparesTest extends AbstractParentTest {
     @Test
     public void addNewSpare() {
@@ -11,6 +12,10 @@ public class SparesTest extends AbstractParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpares();
         sparePage.clickOnAddButton();
+        editSparePage.enterSpareName("RadulenkoSpare");
+        editSparePage.selectSpareTypeFromDropDown("Датчики");
+
+
 
     }
 }
