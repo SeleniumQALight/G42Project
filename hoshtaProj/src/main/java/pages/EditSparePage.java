@@ -7,10 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parrentPage.ParentPage;
 
-public class DictionaryPage extends ParentPage {
-    public DictionaryPage(WebDriver webDriver) {
+public class EditSparePage extends ParentPage {
+    public EditSparePage(WebDriver webDriver) {
         super(webDriver);
     }
+
+    @FindBy(name = "delete")
+    private WebElement deleteButton;
 
     @FindBy(id = "spares_spareType")
     private WebElement spareTypeDropdown;
@@ -44,5 +47,9 @@ public class DictionaryPage extends ParentPage {
 
     public void clickCreateButton() {
         actionsWithOurElements.clickElement(createButton);
+    }
+
+    public void clickDeleteButton() {
+        actionsWithOurElements.clickElement(deleteButton);
     }
 }

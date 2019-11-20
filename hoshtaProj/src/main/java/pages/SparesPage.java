@@ -21,9 +21,6 @@ public class SparesPage extends ParentPage {
     @FindBy(xpath = "//i[@class='fa fa-plus']")
     private WebElement addButton;
 
-
-    private By sparesRows = By.xpath("//tbody/tr");
-
     public void checkIfAddButtonIsDisplayed() {
         Assert.assertTrue("\"Add\" button is not displayed", isAddButtonDisplayed());
     }
@@ -36,15 +33,16 @@ public class SparesPage extends ParentPage {
         actionsWithOurElements.clickElement(addButton);
     }
 
-    public int getAmountOfSpares() {
-        return actionsWithOurElements.getNumberOfElements(sparesRows);
-    }
-
     public String getLastSpareName() {
         return actionsWithOurElements.getText(lastSpareName);
     }
 
     public String getLastSpareType() {
         return actionsWithOurElements.getText(lastSpareType);
+    }
+
+    public void clickRow(String spareName) {
+        By tableRow = By.xpath(String.format("//tr[./td[1][text()='%s']]", spareName));
+        actionsWithOurElements.clickElement(webDriver.findElement(tableRow));
     }
 }

@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.DictionaryPage;
+import pages.EditSparePage;
 import pages.LoginPage;
 import pages.HomePage;
 import pages.SparesPage;
@@ -18,7 +18,7 @@ public class AbstractParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparesPage sparesPage;
-    protected DictionaryPage dictionaryPage;
+    protected EditSparePage editSparePage;
 
     @Before
     public void setUp(){
@@ -28,7 +28,7 @@ public class AbstractParentTest {
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver);
-        dictionaryPage = new DictionaryPage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
