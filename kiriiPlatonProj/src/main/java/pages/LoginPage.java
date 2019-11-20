@@ -42,10 +42,19 @@ public class LoginPage extends ParentPage {
         logger.info(password + " was inputed into input Password");
     }
 
-
     public void clickOnButtonVhod() {
 //        WebElement vhodButton = webDriver.findElement(By.tagName("button"));
         vhodButton.click();
         logger.info(" Button Vhod was clicked");
     }
+
+    public boolean isLoginFieldDisplayed() {
+        try {
+            return inputLogin.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 }
