@@ -24,4 +24,5 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         checkExpectedResult("Avatar isn`t present", !homePage.isAvatarDisplayed());
     }
 
+
 }
