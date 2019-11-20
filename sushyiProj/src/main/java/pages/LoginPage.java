@@ -33,24 +33,27 @@ public class LoginPage extends ParentPage {
     public void enterLoginInToInputLogin(String login) {
         //
         // WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.click();
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info((login + " was inputed in to input Login"));
+        //// inputLogin.click();
+//        inputLogin.clear();
+//        inputLogin.sendKeys(login);
+//        logger.info((login + " was inputed in to input Login"));
+        // refractor 4 vishe metoda
+        actionsWithOurElements.enterTextInToInput(inputLogin, login);
 
     }
 
     public void enterPassInToInputPassWord(String password) {
         //WebElement inputPass = webDriver.findElement(By.id("password"));
-
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info((password + "was input PassWord"));
+//        inputPass.clear();
+//        inputPass.sendKeys(password);
+//        logger.info((password + "was input PassWord"));
+        actionsWithOurElements.enterTextInToInput(inputPass, password);
     }
 
     public void clickOnButtonVhod() {
         //WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+//        buttonVhod.click();
+//        logger.info("Button was clicked");
+        actionsWithOurElements.clickOnElement(buttonVhod);
             }
 }
