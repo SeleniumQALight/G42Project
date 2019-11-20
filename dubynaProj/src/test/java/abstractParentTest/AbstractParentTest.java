@@ -16,7 +16,7 @@ public class AbstractParentTest {
     protected HomePage homePage;
     protected SparePage sparePage;
     protected EditSparePage editSparePage;
-    protected DictionarySparePage dictionarySpares;
+
 
 
 
@@ -32,7 +32,7 @@ public class AbstractParentTest {
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
         editSparePage = new EditSparePage(webDriver);
-        dictionarySpares = new DictionarySparePage(webDriver);
+
     }
 
     @After

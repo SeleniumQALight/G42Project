@@ -16,8 +16,8 @@ public class SparesTest extends AbstractParentTest {
         editSparePage.inputSpareNameIntoSpareNameField(spareName);
         editSparePage.selectSpareTypeFromDropDown();
         editSparePage.clickOnCreateSpareButton();
-        dictionarySpares.checkDictionaryPageisDisplayed();
-        dictionarySpares.checkNewSpare();
+        sparePage.checkDictionaryPageisDisplayed();
+        sparePage.checkNewSpare();
 
     }
 }
