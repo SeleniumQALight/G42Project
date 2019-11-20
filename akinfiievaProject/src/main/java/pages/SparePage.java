@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +20,6 @@ public class SparePage extends ParentPage {
         super(webDriver);
     }
 
-
     public void clickOnButtonAdd() {
         actionsWithOurElements.clickOnElement(buttonAdd);
     }
@@ -28,7 +28,12 @@ public class SparePage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(inputSpareName, spareName);
     }
 
-    public void selectSpareTypeFromDropDown(String itemName) {
-        actionsWithOurElements.selectItemFromDropDownList(dropDownList,itemName);
+//    public void selectSpareTypeFromDropDown(String spareTypeName) {
+//        actionsWithOurElements.selectItemFromDropDownList(dropDownList, spareTypeName);
+//    }
+
+    public void clickSpareTypeFromDropDownList(String spareTypeFromList) {
+        actionsWithOurElements.clickOnElement(dropDownList);
+        webDriver.findElement(By.xpath("//*[contains(text(),'"+spareTypeFromList+"')]")).click();
     }
 }
