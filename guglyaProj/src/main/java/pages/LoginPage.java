@@ -34,20 +34,33 @@ public class LoginPage extends ParentPage{
 
     public void enterLoginInToInputLogin(String login) {
   //      WebElement inputLogin = webDriver.findElement(By.name("_username")); за коментировали по причине find by
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was iputed in to input Login");
+  //      inputLogin.clear();
+ //       inputLogin.sendKeys(login);
+  //      logger.info(login + " was iputed in to input Login"); заменили эти строки в парент падже акшеном с нашими елементами
+        actionsWithOurElements.enterTextInToInput(inputLogin,login);
 
     }
 
     public void enterPassInToInputPassword(String password) {
   //      WebElement inputPass = webDriver.findElement(By.id("password"));   findby
-        logger.info(password + " was inputed in to PassWord");
+ //       inputLogin.clear();
+  //      inputLogin.sendKeys(password);
+ //       logger.info(password + " was inputed in to PassWord");
+        actionsWithOurElements.enterTextInToInput(inputPassword, password );
     }
 
     public void clickOnButtonVhod() {
   //      WebElement buttonVhod = webDriver.findElement(By.tagName("button"));  findby
-        buttonVhod.click();
-        logger.info("Button was clicked");
+    //    buttonVhod.click();
+  //      logger.info("Button was clicked");
+        actionsWithOurElements.clickOnElement(buttonVhod);
+
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        enterLoginInToInputLogin(login);
+        enterPassInToInputPassword(pass);
+        clickOnButtonVhod();
     }
 }
