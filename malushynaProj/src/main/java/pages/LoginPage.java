@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
+import java.lang.ref.SoftReference;
+
 //в этом классе будут все действия для страницы логин
 public class LoginPage extends ParentPage {
 
@@ -18,6 +20,7 @@ public class LoginPage extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
 
+    public String Url = "http://v3.test.itpmgroup.com/login";
 
 
     public LoginPage(WebDriver webDriver) {
@@ -33,23 +36,38 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterLoginIntoInputLogin(String login) {
-//        WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed into input login");
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
     public void enterPassIntoInputPassword(String password) {
 //        WebElement inputPass= webDriver.findElement(By.id("password"));
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " was inputed into input Password");
+//        inputPass.clear();
+//        inputPass.sendKeys(password);
+//        logger.info(password + " was inputted into input Password");
+        actionsWithOurElements.enterTextIntoInput(inputPass,password);
     }
 
     public void clickOnButtonVhod() {
 //        WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+//        buttonVhod.click();
+//        logger.info("Button was clicked");
+        actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
+    public boolean isButtonVhodDisplayed(){
+//        try{
+//            return buttonVhod.isDisplayed();
+//        }catch (Exception e){
+//            return false;
+//        }
+        return actionsWithOurElements.isElementDisplayed(buttonVhod);
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPassIntoInputPassword(pass);
+        clickOnButtonVhod();
+
+    }
 }

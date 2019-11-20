@@ -16,7 +16,7 @@ public class LoginTest {
     public void validLogin(){
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        WebDriver webDriver = new ChromeDriver();
+         webDriver = new ChromeDriver();
     webDriver.manage().window().maximize();;
     webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     webDriver.get("http://v3.test.itpmgroup.com/login");
@@ -28,15 +28,11 @@ public class LoginTest {
 
     webDriver.findElement(By.tagName("button")).click();
 
-        Assert.assertTrue("Avatar is not present",isAvatarPresent()
-               );
-
-
-
-    webDriver.quit();
+        Assert.assertTrue("Avatar is not present",isAvatarPresent());
+        webDriver.quit();
     }
 
-    private boolean isAvatarPresent() {
+    public boolean isAvatarPresent() {
       try{
         return  webDriver.findElement(By.xpath(".//*[@class='pull-left image']")).isDisplayed();
       }catch (Exception e){

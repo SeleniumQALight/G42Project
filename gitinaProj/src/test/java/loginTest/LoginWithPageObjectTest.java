@@ -7,7 +7,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     @Test
     public void validLogin() {
         logInPage.openPage();
-        logInPage.enterLoginInToinputlogin("Student");
+        logInPage.enterLoginInToInputlogin("Student");
         logInPage.enterPassInToInputPassWord("909090");
         logInPage.clickOnButtonVhod();
 
@@ -16,6 +16,19 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
 
 
     }
-//////////////@Test  invalid login
+
+    @Test
+    public void invalidLogin() {
+        logInPage.openPage();
+        logInPage.enterLoginInToInputlogin("Student");
+        logInPage.enterPassInToInputPassWord("90909");
+        logInPage.clickOnButtonVhod();
+
+        checkExpectedResult("Avatar should not be present", !homePage.isAvatarDisplayed());
+        checkExpectedResult("Vhod button is not displayed", logInPage.isButtonVhodDisplayed());
+        checkExpectedResult("email field button is not displayed", logInPage.isEmailFieldDisplayed());
+        checkExpectedResult("email field button is not displayed", logInPage.isPasswordFieldDisplayed());
+
+    }
 
 }

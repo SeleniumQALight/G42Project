@@ -1,8 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import parrentPage.ParentPage;
 
 public class HomePage extends ParentPage {
@@ -10,13 +11,29 @@ public class HomePage extends ParentPage {
         super(webDriver);
     }
 
-    public boolean isAvatarDisplayed() {
-        try {
-            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
-            return avatar.isDisplayed();
+    @FindBy(id = "spares")
+    private WebElement sparesSubMenu;
 
-        } catch (Exception e) {
-            return false;
-        }
+    @FindBy(id = "dictionary")
+    private WebElement dictionaryMenu;
+
+    @FindBy(xpath = ".//*[@class='pull-left image']")
+    private WebElement avatar;
+
+    public boolean isAvatarDisplayed() {
+        return actionsWithOurElements.isElementDisplayed(avatar);
+    }
+
+    public void checkIfAvatarIsPresent() {
+        Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
+    }
+
+    public void clickOnDictionaryMenu() {
+        actionsWithOurElements.clickElement(dictionaryMenu);
+
+    }
+
+    public void clickOnSparesSubMenu() {
+        actionsWithOurElements.clickElement(sparesSubMenu);
     }
 }

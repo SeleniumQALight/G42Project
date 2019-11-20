@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SparePage;
 import sun.management.snmp.jvminstr.JvmOSImpl;
 
 import java.io.File;
@@ -16,6 +17,7 @@ public class AbstractParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected SparePage sparePage;
 
     @Before
     public void setUp() {
@@ -27,6 +29,7 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //добавили время ожидания (до 5 секунд будет выполняться действие)
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        sparePage = new SparePage(webDriver);
     }
 
     @After
