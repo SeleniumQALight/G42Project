@@ -3,6 +3,8 @@ package sparesTests;
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class SparesTests extends AbstractParentTest {
     @Test
     public void addNewSpare() {
@@ -12,11 +14,9 @@ public class SparesTests extends AbstractParentTest {
         homePage.clickOnSubmenuSpares();
 
         sparePage.clickOnButtonAdd();
-        sparePage.enterSpareName();
-        sparePage.chooseSpareType(); //mechanika
-        sparePage.clickonButtonCreate();
-
-
+        final String spareName = "AkinfiievaSpare";
+        sparePage.enterSpareName(spareName);
+        sparePage.selectSpareTypeFromDropDown("Датчики");
 
     }
 }

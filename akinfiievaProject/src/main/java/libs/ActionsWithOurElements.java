@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -13,8 +14,8 @@ public class ActionsWithOurElements {
         this.webDriver = webDriver;
     }
 
-    public void enterTextIntoInput(WebElement webElement, String text) {
-
+    public void enterTextIntoInput(WebElement webElement, String text)
+    {
         try {
             webElement.clear();
             webElement.sendKeys(text);
@@ -43,12 +44,20 @@ public class ActionsWithOurElements {
             logger.info("Is element displayed -> false");
             return false;
         }
+    }
 
+    public void selectItemFromDropDownList(WebElement webElement, String itemName){
+        Select dropDownValue = new Select(webElement);
+        try{
+            dropDownValue.selectByVisibleText(itemName);
+        }
+        catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
     }
 
     private void stopTestAndPrintMessage() {
         logger.error("Can't work with element.");
         Assert.fail("Can't work with element.");
     }
-
 }
