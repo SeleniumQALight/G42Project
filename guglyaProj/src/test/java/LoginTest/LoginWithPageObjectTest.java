@@ -23,7 +23,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     loginPage.enterPassInToPassword("906090");
     loginPage.clickOnButtonVhod();
 
-       checkExpectedResult("WRONG PASSWORD", loginPage.unValidPassW());
+       checkExpectedResult("WRONG PASSWORD", loginPage.stayOnLoginPageChek());
     }
 
 
