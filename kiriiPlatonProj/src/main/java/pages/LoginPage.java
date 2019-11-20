@@ -59,21 +59,10 @@ public class LoginPage extends ParentPage {
         }
     }
 
-
     public void fillingLoginFormAndSubmit(String login, String password) {
         openPage();
         enterLoginIntoInputLogin(login);
         enterPasswordIntoInputPassword(password);
         clickOnButtonVhod();
     }
-
-    public boolean isLoginFieldDisplayed() {
-        try {
-            return inputLogin.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-
 }

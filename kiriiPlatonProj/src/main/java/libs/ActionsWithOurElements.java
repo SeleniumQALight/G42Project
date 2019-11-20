@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
 
@@ -49,4 +50,9 @@ public class ActionsWithOurElements {
         Assert.fail("Can not work with the element ");
     }
 
+    public void selectOptionFromDropdown(WebElement dropdown, String option) {
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(option);
+
+    }
 }
