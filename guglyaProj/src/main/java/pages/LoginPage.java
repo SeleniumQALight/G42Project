@@ -53,12 +53,12 @@ public class LoginPage extends ParentPage {
         logger.info("Button was clicked");
     }
 
-    public boolean unValidPassW() {
+    public boolean stayOnLoginPageChek() {
         try {
-            WebElement buttonVh = webDriver.findElement(By.name("submit"));
+            WebElement buttonVhod = webDriver.findElement(By.name("submit"));
             return buttonVhod.isDisplayed();
         } catch (Exception e) {
-            return false;
+            return true;
         }
     }
 }
