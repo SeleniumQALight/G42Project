@@ -58,7 +58,7 @@ public class LoginPage extends ParentPage {
             WebElement buttonVhod = webDriver.findElement(By.name("submit"));
             return buttonVhod.isDisplayed();
         } catch (Exception e) {
-            return true;
+            return false;
         }
     }
 }

@@ -37,7 +37,14 @@ public class AbstractParentTest {
         webDriver.quit();
     }
     protected void checkExpectedResult(String message, boolean actualResult) {
-        Assert.assertEquals(message, true, actualResult);
+        Assert.assertEquals(message, false, actualResult);
     }
 
+    //protected void  checkExpectedResult(String message, boolean expectedResult, boolean actualResult){
+      //  Assert.assertEquals(message, expectedResult, actualResult);
 }
+
+
+
+
+
