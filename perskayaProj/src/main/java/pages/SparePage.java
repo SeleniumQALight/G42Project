@@ -16,4 +16,22 @@ public class SparePage extends ParentPage {
     public void clickOnAddButton() {
         actionsWithOurElements.clickOnElement(buttonAdd);
     }
+
+    public boolean isSpareInList(String spareName) { // метод, который проверяет что запчасть добавилась
+        return actionsWithOurElements.isElementDisplayed(".//*[text() = '" + spareName + "']"); // проверка есть ли эта запчасть, это параметризированный локато
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        EditSparePage editSparePage = new EditSparePage(webdriver);
+        while (isSpareInList(spareName)){            // выполняет цикл пока выполняется условие (пока запчасть есть в цикле)
+        clickOnSpare(spareName);
+        editSparePage.clickOnDeleteButton();
+
+        }
+    }
+
+    private void clickOnSpare(String spareName) {
+        actionsWithOurElements
+                .clickOnElement(".//*[text()='" + spareName + "']"); // создать метод с икспасом
+    }
 }

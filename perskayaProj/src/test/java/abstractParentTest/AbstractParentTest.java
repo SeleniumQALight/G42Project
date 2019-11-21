@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SparePage;
@@ -17,6 +18,7 @@ public class AbstractParentTest {
     protected LoginPage loginPage; // обявили переменную loginPage, protected - позволяет видеть эту переменную в наследниках; доступен во всех наследниках и всех пекеджах
     protected HomePage homePage; // обявили переменную homePage
     protected SparePage sparePage;
+    protected EditSparePage editSparePage;
 
     @Before // секция бефор будет выполняться перед каждым тестом
     public void setUp() {
@@ -31,6 +33,8 @@ public class AbstractParentTest {
         loginPage = new LoginPage(webdriver); // создали объект страницы LoginPage
         homePage = new HomePage(webdriver); // инициализировали переменную homePage
         sparePage = new SparePage(webdriver);
+        editSparePage = new EditSparePage(webdriver);
+
     }
 
 
