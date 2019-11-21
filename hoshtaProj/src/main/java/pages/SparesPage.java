@@ -45,4 +45,20 @@ public class SparesPage extends ParentPage {
         By tableRow = By.xpath(String.format("//tr[./td[1][text()='%s']]", spareName));
         actionsWithOurElements.clickElement(webDriver.findElement(tableRow));
     }
+
+    public boolean isSpareInList(String spareName) {
+        return actionsWithOurElements.isElementDisplayed("//td[text()='" + spareName + "']");
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        EditSparePage editSparePage = new EditSparePage(webDriver);
+        while (isSpareInList(spareName)){
+            clickSpare(spareName);
+            editSparePage.clickDeleteButton();
+        }
+    }
+
+    private void clickSpare(String xpath) {
+        actionsWithOurElements.clickElement("//td[text()='" + xpath + "']");
+    }
 }
