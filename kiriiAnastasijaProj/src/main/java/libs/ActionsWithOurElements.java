@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -44,11 +45,21 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void selectOnDropdownElement(WebElement webElement, String detailType) {
-        try{
-            Select dropdown = new Select(webElement);
-            dropdown.selectByVisibleText(detailType);
-            logger.info("Element was selected");
+//    public void selectOnDropdownElement(WebElement dropDown, String detailType) {
+//        try{
+//            Select select = new Select(dropDown);
+//            select.selectByVisibleText(detailType);
+//            logger.info("Element was selected");
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
+
+    public void selectInDropdownElement(WebElement dropDown, String value) {
+        try {
+            Select select = new Select(dropDown);
+            select.selectByValue(value);
+            logger.info(value + " element was selected");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
@@ -60,4 +71,20 @@ public class ActionsWithOurElements {
     }
 
 
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xpath) {
+        try{
+            clickOnElement(webDriver.findElement(By.xpath(xpath)));
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
 }
