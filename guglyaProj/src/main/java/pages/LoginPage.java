@@ -57,6 +57,15 @@ public class LoginPage extends ParentPage{
 
     }
 
+    public boolean stayOnLoginPageChek() {
+        try {
+            WebElement buttonVhod = webDriver.findElement(By.name("submit"));
+            return buttonVhod.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         enterLoginInToInputLogin(login);
