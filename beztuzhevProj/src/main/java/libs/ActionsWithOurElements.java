@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -37,10 +38,10 @@ public class ActionsWithOurElements {
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
-            logger.info ("Is element displayed -> " + state);
+            logger.info("Is element displayed -> " + state);
             return state;
         } catch (Exception e) {
-            logger.info ("Is element displayed -> false");
+            logger.info("Is element displayed -> false");
             return false;
         }
     }
@@ -48,5 +49,17 @@ public class ActionsWithOurElements {
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element ");
         Assert.fail("Can not work with element ");
+    }
+
+    public void selectItemFromDropDownList(WebElement webElement, String itemName) {
+
+
+        try {
+            Select dropDownValue = new Select(webElement);
+            webElement.click();
+            dropDownValue.selectByVisibleText(itemName);
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
     }
 }

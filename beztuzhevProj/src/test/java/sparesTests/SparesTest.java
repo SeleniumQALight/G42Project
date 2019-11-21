@@ -3,7 +3,8 @@ package sparesTests;
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
-public class SparesTest extends AbstractParentTest {
+public class
+SparesTest extends AbstractParentTest {
 
     @Test
     public void addNewSpare() {
@@ -12,6 +13,10 @@ public class SparesTest extends AbstractParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpares();
         sparePage.clickOnAddButton();
+
+        final String spareName = "BeztuzhevSpare";
+        editSparePage.enterSpareName(spareName);
+        editSparePage.selectSpareTypeFromDropDown("Датчики");
 
     }
 }

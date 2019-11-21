@@ -11,6 +11,7 @@ public class SparePage extends ParentPage {
     @FindBy(xpath = "//*[@class='fa fa-plus']")
     private WebElement buttonAdd;
 
+
     public SparePage(WebDriver webDriver) {
 
         super(webDriver);
@@ -19,5 +20,7 @@ public class SparePage extends ParentPage {
     public void clickOnAddButton() {
         actionsWithOurElements.clickOnElement(buttonAdd);
     }
+
+
 }
 
