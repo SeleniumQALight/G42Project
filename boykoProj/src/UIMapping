@@ -1,0 +1,35 @@
+.//*[@name='_username'] - "Email" field
+.//*[@name='_password'] - "Password" field
+.//button[@type='submit'] - "Вход" button
+.//*[@class='pull-left image'] - avatar in the left corner of the page
+
+.//a[@class='dropdown-toggle'] - dropdown user menu
+.//*[@href='/logout'] - "Выход" button
+
+.//*[@class="fa fa-book"] - "Словари" item
+.//a[@href="/dictionary/apparat"] - "Аппарат" item
+.//a[@href="http://v3.test.itpmgroup.com/dictionary/apparat/edit"] - "Add" button
+.//*[@id='apparat_apparatNumber'] - "Apparat number" field
+.//*[@id='apparat_apparatComment'] - "Apparat comment" field
+.//button[@type='submit' and @name='add'] - "Создать" button
+.//tr[.//td[text()='test']]//td[text()='comment']
+
+
+.//a[@href='/dictionary/spare_type'] - "Тип запчастей" item
+.//a[@href="http://v3.test.itpmgroup.com/dictionary/spare_type/edit"] - "Add" button
+.//*[@id='spareType_spareTypeName'] - "Spare type name" field
+.//button[@type='submit' and @name='add'] - "Создать" button
+.//td[text()='test'] - "test" item
+.//button[@type='submit' and @name='delete'] "Удалить" button
+
+
+.//a[@href='/dictionary/workers'] - "Сотрудники" item
+.//a[@href="http://v3.test.itpmgroup.com/dictionary/workers/edit"] - "Add" button
+.//*[@id='workers_workerSurname'] - "Worker surname" field
+.//*[@id='workers_workerName'] - "Worker name" field
+.//*[@id='workers_workerMiddleName'] "Worker middle name" field
+.//*[@id='workers_workerPhone'] "Worker phone" field
+.//button[@type='submit' and @name='add'] - "Создать" button
+.//tr[.//td[text()='Surname Name Middle-name']]//td[text()='111111111'] - "Surname Name Middle-name" item with phone "111111111"
+.//button[@type='save' and @name='add'] "Сохранить" button
+.//tr[.//td[text()='Surname Name Middle-name']]//td[text()='000000000'] - "Surname Name Middle-name" item with phone "000000000"
