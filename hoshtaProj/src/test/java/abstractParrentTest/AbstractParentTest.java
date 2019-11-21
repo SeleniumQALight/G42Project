@@ -17,7 +17,7 @@ public class AbstractParentTest {
     private WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected SparesPage sparesPage;
+    protected SparesPage sparesPage;//text
     protected EditSparePage editSparePage;
 
     @Before
