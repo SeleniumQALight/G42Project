@@ -33,10 +33,11 @@
       <module>tatarinaProj</module>
       <module>skibaProj</module>
       <module>kuzmichJanchukProj</module>
+
       <module>nakonechnaProj</module>
       <module>mosencovaProj</module>
-      <module>marcehovProj</module>
       <module>gushhinaProj</module>
+      <module>martsekhovProj</module>
     </modules>
 
     <name>G42Proj</name>
