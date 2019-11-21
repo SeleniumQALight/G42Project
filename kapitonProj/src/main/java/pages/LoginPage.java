@@ -31,22 +31,32 @@ public class LoginPage extends ParentPage {
 
     public void enterLoginInToInputLogin(String login) {
        // WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed in to input Login");
+//        inputLogin.clear();
+//        inputLogin.sendKeys(login);
+//        logger.info(login + " was inputed in to input Login");
+        actionWithOurElements.enterTextInToInput(inputLogin,login);
     }
 
     public void enterPassInToInputPassword(String password) {
        // WebElement inputPass = webDriver.findElement(By.id("password"));
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info(password + " was inputed into input Password");
+//        inputPass.clear();
+//        inputPass.sendKeys(password);
+//        logger.info(password + " was inputed into input Password");
+        actionWithOurElements.enterTextInToInput(inputPass,password);
     }
 
     public void clickInToButtonVhod() {
        // WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+//        buttonVhod.click();
+//        logger.info("Button was clicked");
+        actionWithOurElements.clickOnElement(buttonVhod);
+    }
+
+    public void fillingLoginFormAndSubmit(String login, String pass) {
+        openPage();
+        enterLoginInToInputLogin(login);
+        enterPassInToInputPassword(pass);
+        clickInToButtonVhod();
     }
 }
 

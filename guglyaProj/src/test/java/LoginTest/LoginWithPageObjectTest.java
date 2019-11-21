@@ -19,6 +19,15 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     }
 
 
+    @Test
+    public void wrongPass(){
+        loginPage.openPage();
+        loginPage.enterLoginInToInputLogin("Student");
+        loginPage.enterPassInToInputPassword("906090");
+        loginPage.clickOnButtonVhod();
+
+        checkExpextedResult("Still stay on login page", loginPage.stayOnLoginPageChek());
+    }
 
 
 
