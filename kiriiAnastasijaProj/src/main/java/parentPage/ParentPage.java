@@ -15,8 +15,5 @@ public class ParentPage {
          actionsWithOurElements = new ActionsWithOurElements(webDriver);
     }
 
-    public String currentUrl()
-    {return webDriver.getCurrentUrl();
-    }
 
 }
