@@ -11,6 +11,10 @@ public class SparesTest extends AbstractParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubmenuSpares();
         sparePage.clickOnAddButton();
+        editSparePage.enterSpareName("BoykoZhannaSpare1");
+        editSparePage.selectSpareTypeFromDropDown(); //датчики
+        editSparePage.clickOnSubmitButton();
+        checkExpectedResult("Spare is not found", sparePage.isSpareDisplayed());
 
     }
 }
