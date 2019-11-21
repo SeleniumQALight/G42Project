@@ -11,6 +11,11 @@ public class EditSparePage extends ParentPage {
     private WebElement inputSpareName;
     @FindBy(xpath = ".//select[@id='spares_spareType']")
     private WebElement dropDownList;
+    @FindBy(xpath = ".//button[@class='btn btn-info']")
+    private WebElement createSpareButton;
+    @FindBy(xpath = ".//button[@class='btn btn-danger pull-right']")
+    private WebElement buttonDelete;
+
 
     public EditSparePage(WebDriver webDriver) {
         super(webDriver);
@@ -26,6 +31,14 @@ public class EditSparePage extends ParentPage {
 
     public void clickSpareTypeFromDropDownList(String spareTypeFromList) {
         actionsWithOurElements.clickOnElement(dropDownList);
-        webDriver.findElement(By.xpath("//*[contains(text(),'" + spareTypeFromList + "')]")).click();
+        webDriver.findElement(By.xpath(".//*[contains(text(),'" + spareTypeFromList + "')]")).click();
+    }
+
+    public void clickButtonCreate() {
+        actionsWithOurElements.clickOnElement(createSpareButton);
+    }
+
+    public void clickButtonDelete() {
+        actionsWithOurElements.clickOnElement(buttonDelete);
     }
 }

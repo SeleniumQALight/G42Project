@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -14,8 +15,7 @@ public class ActionsWithOurElements {
         this.webDriver = webDriver;
     }
 
-    public void enterTextIntoInput(WebElement webElement, String text)
-    {
+    public void enterTextIntoInput(WebElement webElement, String text) {
         try {
             webElement.clear();
             webElement.sendKeys(text);
@@ -46,12 +46,12 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void selectItemFromDropDownList(WebElement webElement, String itemName){
+    public void selectItemFromDropDownList(WebElement webElement, String itemName) {
         Select dropDownValue = new Select(webElement);
-        try{
+        try {
             dropDownValue.selectByVisibleText(itemName);
-        }
-        catch (Exception e) {
+            logger.info(itemName + "was selected in dropdown");
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
@@ -59,5 +59,21 @@ public class ActionsWithOurElements {
     private void stopTestAndPrintMessage() {
         logger.error("Can't work with element.");
         Assert.fail("Can't work with element.");
+    }
+
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String locator) {
+        try {
+            clickOnElement(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
     }
 }
