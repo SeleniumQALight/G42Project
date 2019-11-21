@@ -14,5 +14,8 @@ public class SparesTest extends AbstractParentTest {
 
         sparePage.clickOnAddButton();
 
+        final String spareName = "MalushynaSpare";
+        editSparePage.enterSpareName(spareName);
+        editSparePage.selectSpareTypeFromDropDown("Датчики");
     }
 }

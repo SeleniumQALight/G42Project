@@ -30,3 +30,8 @@ Workers.List.Table = xpath(".//table[@id = 'device_list']/tbody")
 Workers.List.LastItem = xpath(".//tbody/tr[last()]")
 Workers.List.LastItemName = xpath(".//tbody/tr[last()]/td[1]")
 Workers.List.LastItemPhone = xpath(".//tbody/tr[last()]/td[2]")
+
+#Spares
+Spares.SpareName.Input = xpath(".//input[@id = 'spares_spareName']")
+Spares.SpareType.Dropdown = xpath(".//select[@id = 'spares_spareType']")
+Spares.DropdownDatchiki.Item = xpath(".//select/option[contains(text(), 'Датчики')]")
