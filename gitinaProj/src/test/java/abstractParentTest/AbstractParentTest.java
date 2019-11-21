@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LogInPage;
 import pages.SparePage;
@@ -17,6 +18,7 @@ public class AbstractParentTest {
     protected LogInPage logInPage;
     protected HomePage homePage;
     protected SparePage sparePage;
+    protected EditSparePage editSparePage;
     @Before
     public void setUp(){
         File file = new File("./src/drivers/chromedriver.exe");
@@ -30,6 +32,7 @@ public class AbstractParentTest {
         logInPage = new LogInPage(webDriver);
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
     }
 
 
