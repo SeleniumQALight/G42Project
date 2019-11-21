@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -36,13 +37,35 @@ public class ActionsWithOurElements {
 
     public boolean isElementDisplayed(WebElement element) {
         try {
-            boolean staate = element.isDisplayed();
-            logger.info("Is element displayed -> " + staate);
-            return staate;
+            boolean state = element.isDisplayed();
+            logger.info("Is element displayed -> " + state);
+            return state;
         } catch (Exception e){
             logger.info("Is element displayed ->  false");
             return false;
         }
+    }
+
+    public void selectOptionByTextFromDropdown(WebElement dropdown, String text) {
+        try {
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(text);
+            logger.info(text + " was selected from dropdown");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+
+    }
+
+    public void selectOptionByValueFromDropdown(WebElement dropdown, String value) {
+        try {
+            Select select = new Select(dropdown);
+            select.selectByValue(value);
+            logger.info(value + " was selected from dropdown");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+
     }
 
     private void stopTestAndPrintMessage() {
@@ -50,9 +73,19 @@ public class ActionsWithOurElements {
         Assert.fail("Can not work with the element ");
     }
 
-    public void selectOptionFromDropdown(WebElement dropdown, String option) {
-            Select select = new Select(dropdown);
-            select.selectByVisibleText(option);
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e){
+            return false;
+        }
+    }
 
+    public void clickOnElement(String xpath) {
+           try  {
+               clickOnElement(webDriver.findElement(By.xpath(xpath)));
+           } catch (Exception e){
+               stopTestAndPrintMessage();
+           }
     }
 }
