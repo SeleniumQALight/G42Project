@@ -11,42 +11,41 @@ public class ActionsWithOurElements {
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
-
     }
-    public void enterTextInToInput(WebElement webElement, String text) {
+
+    public void enterTextInToInput(WebElement webElement
+            , String text){
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + " was inputted in t[ input");
-
-        } catch (Exception e) {
+            logger.info(text + " was inputted in to input");
+        }catch (Exception e){
             stopTestAndPrintMessage();
         }
     }
 
-    public  void  clickOnElement (WebElement webElement){
+    public void clickOnElement(WebElement webElement){
         try {
-            webElement. click();
+            webElement.click();
             logger.info("Element was clicked");
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
     }
 
-    public boolean isElementDisplayed (WebElement webElement) {
+    public boolean isElementDisplayed(WebElement webElement){
         try {
-            // переменная Состояния Эдемента: показан ли он на странице
-            boolean state = webElement.isDisplayed();
-            logger.info("Is element displayed -> " + state);
-            return  state;
-        } catch (Exception e){
-            logger.info("Is element displayed -> false");
-            return false;
+           boolean state = webElement.isDisplayed();
+           logger.info("Is element displayed -> " + state);
+           return state;
+        }catch (Exception e){
+           logger.info("Is element displayed -> false");
+           return false;
         }
     }
 
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element ");
-        Assert.fail("Can not work with element");
+        Assert.fail("Can not work with element ");
     }
 }
