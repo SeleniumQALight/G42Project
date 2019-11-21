@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>overAll</artifactId>
+    <artifactId>mosencovaProj</artifactId>
 
-    <name>overAll</name>
+    <name>mosencovaProj</name>
 
     <dependencies>
         <dependency>
