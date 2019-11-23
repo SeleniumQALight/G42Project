@@ -17,9 +17,9 @@ public class AddNewProviderTest extends AbstractParentTest {
         providersEditPage.enterProCustPhone();
         providersEditPage.selectCheckboxPrivatePerson();
         providersEditPage.selectCheckboxIsOurFirm();
-//        providersEditPage.submitNewProvider();
-//        checkExpectedResult("Can't find spare"
-//                , providersPage.isProviderInList(providerName));
+        providersEditPage.submitNewProvider();
+        checkExpectedResult("Can't find spare"
+                , providersPage.isProviderInList(providerName));
 
     }
 }
