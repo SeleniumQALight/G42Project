@@ -85,4 +85,11 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+    public void setSateToCheckBox(WebElement webelement, String expectedState){
+        try {
+
+        }catch (Exception e){
+
+        }
+    }
 }

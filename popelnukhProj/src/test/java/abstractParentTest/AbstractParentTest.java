@@ -5,10 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.EditSparePage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SparePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +16,8 @@ public class AbstractParentTest {
     protected HomePage homePage;
     protected SparePage sparePage;
     protected EditSparePage editSparePage;
+    protected ProvidersEditPage providersEditPage;
+    protected ProvidersPage providersPage;
 
     @Before
     public void setUp(){
@@ -31,6 +30,8 @@ public class AbstractParentTest {
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
         editSparePage = new EditSparePage(webDriver);
+        providersEditPage = new ProvidersEditPage(webDriver);
+        providersPage = new ProvidersPage(webDriver);
 
     }
     @After
