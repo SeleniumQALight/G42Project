@@ -1,6 +1,7 @@
 package sparesTests;
 
 import abstractParentTest.AbstractParentTest;
+import org.junit.After;
 import org.junit.Test;
 
 public class SparesTest extends AbstractParentTest {
@@ -14,10 +15,21 @@ public class SparesTest extends AbstractParentTest {
         sparePage.clickOnAddButton();
         editSparePage.buttonCreateIsDisplayed();
         editSparePage.inputSpareNameIntoSpareNameField(spareName);
-        editSparePage.selectSpareTypeFromDropDown();
+        //editSparePage.selectSpareTypeFromDropDown();
+        editSparePage.selectSpareTypeFromDropDownMethodJava("Датчики"); //choosing value from drop down with help of Java
         editSparePage.clickOnCreateSpareButton();
         sparePage.checkDictionaryPageisDisplayed();
-        sparePage.checkNewSpare();
+        checkExpectedResult("Can not find spare in list", sparePage.isSpareInList(spareName));
+        //sparePage.checkNewSpare();
+
+
 
     }
+
+    @After
+    public void deleteSpare (){
+        sparePage.deleteSpareUntilPresent (spareName);
+
+    }
+
 }

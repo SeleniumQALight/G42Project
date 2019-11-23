@@ -1,10 +1,13 @@
 package sparesTests;
 
 import abstractParentTest.AbstractParentTest;
+import org.junit.After;
 import org.junit.Test;
 
 public class
 SparesTest extends AbstractParentTest {
+
+    private final String spareName = "BeztuzhevSpare";
 
     @Test
     public void addNewSpare() {
@@ -14,9 +17,17 @@ SparesTest extends AbstractParentTest {
         homePage.clickOnSubMenuSpares();
         sparePage.clickOnAddButton();
 
-        final String spareName = "BeztuzhevSpare";
         editSparePage.enterSpareName(spareName);
         editSparePage.selectSpareTypeFromDropDown("Датчики");
+        editSparePage.clickOnSubmitButton();
+
+        checkExpectedResult("Can not find spare in list", sparePage.isSpareInList(spareName));
+    }
+
+    @After
+    public void deleteSpare (){
+        sparePage.deleteSpareUntilPresent (spareName);
 
     }
+
 }

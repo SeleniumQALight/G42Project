@@ -10,18 +10,11 @@ public class ParentPage {
     protected Logger logger = Logger.getLogger(getClass());
     protected ActionsWithOurElements actionsWithOurElements;
 
-    // это конструктор!!!
     public ParentPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
         actionsWithOurElements = new ActionsWithOurElements(webDriver);
-        // sozdaem tut Logger
-
-
     }
-
-
-
 
 
 

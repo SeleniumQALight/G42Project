@@ -3,8 +3,10 @@ package libs;
 import org.apache.http.util.Asserts;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
@@ -14,12 +16,13 @@ public class ActionWithOurElements {
     public ActionWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-    public void enterTextInToInput(WebElement webElement, String text){
+
+    public void enterTextInToInput(WebElement webElement, String text) {
         try {
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was inputted in to input");
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
 
         }
@@ -27,27 +30,56 @@ public class ActionWithOurElements {
 
     }
 
-    public void clickOnElement(WebElement webElement){
+    public void clickOnElement(WebElement webElement) {
         try {
             webElement.click();
             logger.info("Element was clicked");
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
 
     }
-    public boolean isElementDisplayed(WebElement webElement){
+
+    public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
             logger.info("Is element displayed -> " + state);
             return state;
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("Is element displayed -> false");
             return false;
         }
     }
+
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element");
         Assert.fail("Can not work with element");
+    }
+
+    public void selectVisibleTextInDDByJava(WebElement dropDown, String text) {
+        try {
+            Select select = new Select(dropDown);
+            select.selectByVisibleText(text);
+            logger.info(text + " was selected in Drop Down");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xpath) {
+        try {
+            clickOnElement(webDriver.findElement(By.xpath(xpath)));
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+
     }
 }

@@ -51,9 +51,8 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
-    public String currentPage ()
-    {
-        return currentUrl();
+   public String currentUrl()
+    {return webDriver.getCurrentUrl();
     }
 
 

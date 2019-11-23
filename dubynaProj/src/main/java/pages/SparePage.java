@@ -29,4 +29,22 @@ public class SparePage extends ParentPage {
     public void checkDictionaryPageisDisplayed() {
         actionsWithOurElements.isElementDisplayed(headerSparesOnDictionaryPage);
     }
+
+    public boolean isSpareInList(String spareName) {
+        return actionsWithOurElements.isElementDisplayed (".//*[text()='"+spareName+"']");
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        EditSparePage editSparePage = new EditSparePage(webDriver);//если в методе нужна другая страница
+        while (isSpareInList(spareName)){
+            clickOnSpare(spareName);
+            editSparePage.clickOnDeleteButton();
+
+        }
+
+    }
+
+    private void clickOnSpare(String spareName) {
+        actionsWithOurElements.clickOnElement(".//*[text()='" +spareName+ "']");
+    }
 }

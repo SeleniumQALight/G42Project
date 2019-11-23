@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurElements {
     private WebDriver webDriver;
@@ -46,6 +47,14 @@ public class ActionsWithOurElements {
         }
     }
 
+    public boolean isElementDisplayed(String locator) {
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     private void stopTestAndPrintMessage() {
         String errorText = "Can not work with element ";
         logger.error(errorText);
@@ -60,5 +69,34 @@ public class ActionsWithOurElements {
     public String getText(WebElement webElement) {
         logger.info("Get text of the element");
         return webElement.getText();
+    }
+
+    public void selectValueInDDByJava(WebElement dropDoown, String value) {
+        try{
+            Select select = new Select(dropDoown);
+            select.selectByValue(value);
+            logger.info(value + " value was selected in dropdown");
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void selectVisibleTextInDDByJava(WebElement dropDoown, String text) {
+        try{
+            Select select = new Select(dropDoown);
+            select.selectByVisibleText(text);
+            logger.info(text + " value was selected in dropdown");
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
+
+
+    public void clickElement(String locator) {
+        try {
+            webDriver.findElement(By.xpath(locator)).click();
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
     }
 }

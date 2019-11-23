@@ -52,4 +52,8 @@ public class EditSparePage extends ParentPage {
     public void clickDeleteButton() {
         actionsWithOurElements.clickElement(deleteButton);
     }
+
+    public void selectSpareTypeFromDropDown(String spareType) {
+        actionsWithOurElements.selectVisibleTextInDDByJava(spareTypeDropdown, spareType);
+    }
 }
