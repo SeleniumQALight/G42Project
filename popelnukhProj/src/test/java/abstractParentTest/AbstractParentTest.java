@@ -34,10 +34,10 @@ public class AbstractParentTest {
         providersPage = new ProvidersPage(webDriver);
 
     }
-    @After
-    public void tearDown(){
-        webDriver.quit();
-    }
+//    @After
+//    public void tearDown(){
+//        webDriver.quit();
+//    }
 
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);

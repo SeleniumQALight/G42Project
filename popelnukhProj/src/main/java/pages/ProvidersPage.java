@@ -9,6 +9,8 @@ import parentPage.ParentPage;
 public class ProvidersPage extends ParentPage {
     @FindBy(xpath = ".//*[@id='device_list']//tbody//tr[.//td[contains(text(),'BTR-80')]]")
     private WebElement btr80;
+    @FindBy(xpath = "//*[@class='fa fa-plus']")
+    private WebElement addButton;
 
     public ProvidersPage(WebDriver webDriver) {
         super(webDriver);
@@ -32,5 +34,9 @@ public class ProvidersPage extends ParentPage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void addNewProvider() {
+        actionsWithOurElements.clickOnElement(addButton);
     }
 }
