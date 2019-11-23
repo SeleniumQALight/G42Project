@@ -76,22 +76,31 @@ public class ActionsWithOurElements {
         }
     }
 
-    public boolean isElementDisplayed (String locator){
-        try{
+    public boolean isElementDisplayed(String locator) {
+        try {
             return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public void clickOnElement(String xpath) {
-        try{
+        try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setSateToCheckBox(WebElement webelement, boolean expectedState) {
+        if (expectedState = true) {
+            logger.info("The chckbox is " + expectedState);
+        } else {
+            clickOnElement(webelement);
+            isElementDisplayed(webelement);
+            logger.info("The chckbox is " + expectedState);
+        }
+    }
+
 }
