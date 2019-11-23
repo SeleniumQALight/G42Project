@@ -19,16 +19,18 @@ public class SparesTest extends AbstractParentTest {
         sparesPage.clickAddButton();
         editSparePage.checkIfCreateButtonIsDisplayed();
         editSparePage.inputSpareName(spareName);
-        editSparePage.expandSpareTypeDropdownAndSelectValue(spareTypeValue);
+        //editSparePage.expandSpareTypeDropdownAndSelectValue(spareTypeValue);
+        editSparePage.selectSpareTypeFromDropDown("Датчики");
         editSparePage.clickCreateButton();
         Assert.assertEquals("The last spare name is not correct", sparesPage.getLastSpareName(), spareName);
         Assert.assertEquals("The last spare type is not correct", sparesPage.getLastSpareType(), spareTypeValue);
+        checkExpectedResult("Can not find spare in list", sparesPage.isSpareInList(spareName));
     }
-
 
     @After
     public void removeAddedSpare() {
-        sparesPage.clickRow(spareName);
-        editSparePage.clickDeleteButton();
+        //sparesPage.clickRow(spareName);
+        sparesPage.deleteSpareUntilPresent(spareName);
+        //editSparePage.clickDeleteButton();
     }
 }
