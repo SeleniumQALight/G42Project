@@ -1,22 +1,23 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
 public class LoginPage extends ParentPage {
-@FindBy(name = "_username")
-private WebElement inputLogin;
+    @FindBy(name = "_username")
+    private WebElement inputLogin;
 
-@FindBy (name = "_password")
-private WebElement inputPassword;
+    @FindBy(name = "_password")
+    private WebElement inputPassword;
 
-@FindBy (xpath = ".//button[@class='btn btn-primary btn-block btn-flat']")
-private WebElement buttonVhod;
+    @FindBy(xpath = ".//button[@class='btn btn-primary btn-block btn-flat']")
+    private WebElement buttonVhod;
 
+    @FindBy(xpath = ".//div[@class='login-box-body']")
+    private WebElement loginBox;
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
@@ -30,25 +31,27 @@ private WebElement buttonVhod;
         }
     }
 
-
     public void enterLoginIntoInputLogin(String login) {
-//        WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputed into input login");
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
 
     public void enterPasswordIntoInputPassword(String password) {
-//        WebElement inputPassword = webDriver.findElement(By.name("_password"));
-        inputPassword.clear();
-        inputPassword.sendKeys(password);
-        logger.info(password + " was inputed into input login");
+        actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
 
     public void clickOnButtonVhod() {
-//        WebElement clickButton = webDriver.findElement(By.xpath(".//button[@class='btn btn-primary btn-block btn-flat']"));
-        buttonVhod.click();
-        logger.info("button Vhod was clicked");
+        actionsWithOurElements.clickOnElement(buttonVhod);
+    }
+
+    public boolean isLoginBoxRefreshed() {
+        return actionsWithOurElements.isElementDisplayed(loginBox);
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String password) {
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPasswordIntoInputPassword(password);
+        clickOnButtonVhod();
     }
 }

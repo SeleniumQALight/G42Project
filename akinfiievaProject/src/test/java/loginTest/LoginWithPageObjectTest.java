@@ -2,7 +2,6 @@ package loginTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
-import pages.LoginPage;
 
 public class LoginWithPageObjectTest extends AbstractParentTest {
 
@@ -24,7 +23,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterPasswordIntoInputPassword("909090909090909099999");
         loginPage.clickOnButtonVhod();
 
-        checkExpectedResult("Login page hasn't loaded", homePage.isLoginBoxRefreshed());
+        checkExpectedResult("Login page hasn't loaded", loginPage.isLoginBoxRefreshed());
     }
 
     @Test
@@ -34,7 +33,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterPasswordIntoInputPassword("909090");
         loginPage.clickOnButtonVhod();
 
-        checkExpectedResult("Login page hasn't loaded", homePage.isLoginBoxRefreshed());
+        checkExpectedResult("Login page hasn't loaded", loginPage.isLoginBoxRefreshed());
     }
 
 

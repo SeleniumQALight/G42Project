@@ -6,7 +6,7 @@
 2) AddNewApparat
 1. Slovary - //*[@id="dictionary"]
 2. Apparat - //*/li[@id="apparat"]
-3. "Add" - //*[@class = "box-tools"]
+3. "Add" - //*[@class = "fa fa-plus"]
 4. ApparatNumber - //*[@id = "apparat_apparatNumber"]
 5. ApparatComment - //*[@name="apparat[apparatComment]"]
 6. ButtonSozdat' - //*[@name = "add"]
