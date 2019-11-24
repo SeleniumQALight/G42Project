@@ -79,18 +79,24 @@ public class ActionsWithOurElements {
 
     public void setStateToCheckBox(WebElement checkBox, String expectedState) {
         try {
-
-            if (checkBox.isSelected()) {
-                logger.info(expectedState + " was actually checked before");
-            }else{
-                checkBox.click();
-                logger.info(expectedState + " wasn't actually checked. Checked it now.");
+            if (expectedState == "true") {
+                if (checkBox.isSelected()) {
+                    logger.info("State true was setted");
+                } else {
+                    checkBox.click();
+                    logger.info("State true was setted");
+                }
             }
-
+            if (expectedState == "false") {
+                if (checkBox.isSelected()) {
+                    checkBox.click();
+                    logger.info("State false was setted");
+                } else {
+                    logger.info("State false was setted");
+                }
+            }
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
-
-
 }

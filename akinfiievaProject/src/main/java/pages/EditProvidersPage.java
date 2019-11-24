@@ -15,7 +15,7 @@ public class EditProvidersPage extends ParentPage {
     private WebElement enterProCustPhone;
     @FindBy(id = "prov_cus_proCustIsFl")
     private WebElement checkIfPrivatePerson;
-    @FindBy(id="prov_cus_isOurFirm")
+    @FindBy(id = "prov_cus_isOurFirm")
     private WebElement checkIfIsOurFirm;
 
     public EditProvidersPage(WebDriver webDriver) {
@@ -34,11 +34,11 @@ public class EditProvidersPage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(enterProCustPhone, proCustPhone);
     }
 
-    public void checkIfPrivatePerson(String privatePerson) {
-        actionsWithOurElements.setStateToCheckBox(checkIfPrivatePerson, privatePerson);
+    public void checkIfPrivatePerson(String isPrivatePerson) {
+        actionsWithOurElements.setStateToCheckBox(checkIfPrivatePerson, isPrivatePerson);
     }
 
     public void checkIfIsOurFirm(String isOurFirm) {
-        actionsWithOurElements.setStateToCheckBox(checkIfIsOurFirm,isOurFirm);
+        actionsWithOurElements.setStateToCheckBox(checkIfIsOurFirm, isOurFirm);
     }
 }
