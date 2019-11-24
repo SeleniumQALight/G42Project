@@ -76,4 +76,21 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setStateToCheckBox(WebElement checkBox, String expectedState) {
+        try {
+
+            if (checkBox.isSelected()) {
+                logger.info(expectedState + " was actually checked before");
+            }else{
+                checkBox.click();
+                logger.info(expectedState + " wasn't actually checked. Checked it now.");
+            }
+
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+
 }
