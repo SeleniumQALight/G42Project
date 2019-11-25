@@ -30,13 +30,19 @@ public class EditSparePage extends ParentPage {
     }
 
     public void selectSpareTypeFromDropDownValue(String value) {
-
-        actionsWithOurElements.selectValueInDDXpathByOption(spareTypeDDClosed, value);
+        try {
+            actionsWithOurElements.selectValueInSpareDDXpathByOption(spareTypeDDClosed, value);
+        } catch (Exception e) {
+            logger.info("No such option in DropDown");
+        }
     }
 
     public void selectSpareTypeFromDropDownText(String text) {
-
-        actionsWithOurElements.selectValueInDDXpathByText(spareTypeDDClosed, text);
+        try {
+            actionsWithOurElements.selectValueInSpareDDXpathByText(spareTypeDDClosed, text);
+        } catch (Exception e) {
+            logger.info("No such option in DropDown");
+        }
     }
 
     public void clickOnSubmitButton() {

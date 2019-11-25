@@ -66,14 +66,14 @@ public class ActionsWithOurElements {
     }
 
 
-    public void selectValueInDDXpathByOption(WebElement dropdown, String option) {
+    public void selectValueInSpareDDXpathByOption(WebElement dropdown, String option) {
         clickOnElement(dropdown);
         clickOnElement("//select[@id='spares_spareType']/option[@value ='" + option + "']");
         logger.info(option + " was selected in drop down");
     }
 
 
-    public void selectValueInDDXpathByText(WebElement dropdown, String text) {
+    public void selectValueInSpareDDXpathByText(WebElement dropdown, String text) {
         clickOnElement(dropdown);
         clickOnElement("//select[@id='spares_spareType']/option[text()='"+ text+"']");
         logger.info(text + " was selected in drop down");
