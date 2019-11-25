@@ -8,7 +8,7 @@ import parentPage.ParentPage;
 public class EditSparePage extends ParentPage {
 
     @FindBy(id = "spares_spareName")
-    private WebElement spareName;
+    private WebElement spareNameInput;
 
     @FindBy(id = "spares_spareType")
     private WebElement spareType;
@@ -16,20 +16,28 @@ public class EditSparePage extends ParentPage {
     @FindBy(name = "add")
     private WebElement createButton;
 
+    @FindBy(name = "delete")
+    private WebElement deleteButton;
+
+
     public EditSparePage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void addSpareName(String text) {
-        actionsWithOurElements.enterTextIntoInput(spareName,text);
+    public void addSpareName(String name) {
+        actionsWithOurElements.enterTextIntoInput(spareNameInput, name);
     }
 
 
     public void selectSpareType(String option) {
-        actionsWithOurElements.selectOptionFromDropdown(spareType, option);
+        actionsWithOurElements.selectOptionByTextFromDropdown(spareType, option);
     }
 
     public void clickCreateButton() {
         actionsWithOurElements.clickOnElement(createButton);
+    }
+
+    public void clickDeleteButton() {
+        actionsWithOurElements.clickOnElement(deleteButton);
     }
 }

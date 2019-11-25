@@ -13,15 +13,29 @@ public class EditSparePage extends ParentPage {
     @FindBy(id = "spares_spareType")
     private WebElement spareTypeDropdownList;
 
+    @FindBy(name = "add")
+    private WebElement submitButton;
+
+    @FindBy(name = "delete")
+    private WebElement buttonDelete;
+
     public EditSparePage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void enterSpareName(String spareName) {
+    public void enterSpareNameIntoInput(String spareName) {
         actionsWithOurElements.enterTextIntoInput(inputSpareName, spareName);
     }
 
     public void selectSpareTypeFromDropDown(String text) {
-        actionsWithOurElements.selectItemFromDropdownList(spareTypeDropdownList, text);
+        actionsWithOurElements.selectValueFromDropdownList(spareTypeDropdownList, text);
+    }
+
+    public void clickOnSubmitButton() {
+        actionsWithOurElements.clickOnElement(submitButton);
+    }
+
+    public void clickOnDeleteButton() {
+        actionsWithOurElements.clickOnElement(buttonDelete);
     }
 }

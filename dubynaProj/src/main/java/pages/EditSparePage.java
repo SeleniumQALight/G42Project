@@ -17,6 +17,10 @@ public class EditSparePage extends ParentPage {
     private WebElement spareTypeList;
     @FindBy(xpath = "//option[@value = '4']")
     private WebElement spareTypeDatchiki;
+    @FindBy (id = "spares_spareType")
+    private WebElement spareTypeDD;
+    @FindBy (name = "delete")
+    private WebElement buttonDelete;
 
 
     public EditSparePage(WebDriver webDriver) {
@@ -47,6 +51,14 @@ public class EditSparePage extends ParentPage {
     public void selectSpareTypeFromDropDown() {
         actionsWithOurElements.clickOnElement(spareTypeList);
         actionsWithOurElements.clickOnElement(spareTypeDatchiki);
+    }
+
+    public void selectSpareTypeFromDropDownMethodJava(String spareType) {
+        actionsWithOurElements.selectVisibleTextInDDByJava(spareTypeDD, spareType);
+    }
+
+    public void clickOnDeleteButton() {
+        actionsWithOurElements.clickOnElement(buttonDelete);
     }
 }
 
