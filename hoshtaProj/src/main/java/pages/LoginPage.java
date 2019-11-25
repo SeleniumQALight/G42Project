@@ -19,6 +19,13 @@ public class LoginPage extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
 
+    public void fillingLoginFormAndSubmitIt(String login, String password) {
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPassIntoInputPassword(password);
+        clickOnButtonVhod();
+    }
+
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/login");
@@ -29,29 +36,19 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterLoginIntoInputLogin(String login) {
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was entered into the input login");
+        actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
     public void enterPassIntoInputPassword(String password) {
-        inputPassword.clear();
-        inputPassword.sendKeys(password);
-        logger.info(password + " was entered into the input password");
+        actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
 
     public void clickOnButtonVhod() {
-        buttonVhod.click();
-        logger.info("Vhod button was clicked");
-    }
+        actionsWithOurElements.clickElement(buttonVhod);
+}
 
     public boolean isVhodButtonVisible() {
-        try {
-            return buttonVhod.isDisplayed();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return actionsWithOurElements.isElementDisplayed(buttonVhod);
     }
 
     public void tryToLoginAsStudentWithPassword(String password){

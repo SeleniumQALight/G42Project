@@ -1,8 +1,7 @@
 package abstractParentTest;
 
 import org.junit.Assert;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.*;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +14,11 @@ public class AbstractParentTest {
     WebDriver webDriver;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected SparePage sparePage;
+    protected EditSparePage editSparePage;
+
+
+
 
     @Before
     public void setUp(){
@@ -26,6 +30,9 @@ public class AbstractParentTest {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        sparePage = new SparePage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
+
     }
 
     @After

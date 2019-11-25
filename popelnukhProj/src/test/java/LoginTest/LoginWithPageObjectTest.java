@@ -10,7 +10,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest{
         loginPage.enterLoginInToInputLogin("student");
         loginPage.enterPassInToInputPassword("909090");
         loginPage.clickOnButtonVhod();
-        AbstractParentTest.checkExpectedResult("Avatar is not present"
+        checkExpectedResult("Avatar is not present"
                 , homePage.isAvatarDisplayed());
     }
     @Test
@@ -19,7 +19,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest{
         loginPage.enterLoginInToInputLogin("student");
         loginPage.enterPassInToInputPassword("90909");
         loginPage.clickOnButtonVhod();
-        AbstractParentTest.checkExpectedResult("Login proshel"
+        checkExpectedResult("Login proshel"
                 , homePage.isButtonVhodDisplayed());
     }
 

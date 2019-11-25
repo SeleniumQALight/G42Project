@@ -30,19 +30,21 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterLoginIntoLoginField(String login) {
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        log.info(login + " was input as login.");
+        commonActions.enterTextIntoInput(inputLogin, login);
     }
 
     public void enterPasswordIntoPasswordField(String password) {
-        inputPassword.clear();
-        inputPassword.sendKeys(password);
-        log.info(password + " was input as password");
+        commonActions.enterTextIntoInput(inputPassword, password);
     }
 
     public void clickOnButtonEnter() {
-        enterButton.click();
-        log.info("Button Enter was clicked.");
+        commonActions.clickOnElement(enterButton);
+    }
+
+    public void fillLoginFormAndSubmit(String login, String password) {
+        openPage();
+        enterLoginIntoLoginField(login);
+        enterPasswordIntoPasswordField(password);
+        clickOnButtonEnter();
     }
 }

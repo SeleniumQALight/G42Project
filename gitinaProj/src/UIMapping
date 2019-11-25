@@ -1,0 +1,35 @@
+#Log in page
+Email field: 			.//input[@name='_username']
+Password field: 		.//input[@type='password']
+Submit button:			.//button
+
+#Home page
+sidebar left menu: 		//a[@class='sidebar-toggle']
+slovari:				//li[@id='dictionary']
+apparat:				//li[@id='apparat']
+sdelki:					//li[@id='deal']
+avatar
+
+Apparat page:
++ icon:					//a[@class='btn btn-info btn-sm']
+Apparat number:			//input[@id='apparat_apparatNumber']
+Apparat comment:		//input[@id='apparat_apparatComment']
+Sozdat:					//button
+
+
+
+Sdelki:
++icon:					//a[@class='btn btn-info btn-sm']
+deal date				//select[@id='deal_dealDate_date_day
+deal month				//select[@id='deal_dealDate_date_month']
+deal year				//select[@id='deal_dealDate_date_year']
+deal hour				//select[@id='deal_dealDate_time_hour']
+deal minutes			//select[@id='deal_dealDate_time_minute']
+tip sdelki 				//select[@id='deal_dealType']
+pokupatel				//select[@id='deal_customer']
+postavshik 				//select[@id='deal_provider']
+Sozdat					//button
+
+tipy sdelok				//a[@href='/dictionary/deal_type']
+sdelka 1 item      		//tbody/tr[1]/td
+udalit button           //button[@name='delete']
