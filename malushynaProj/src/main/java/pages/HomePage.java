@@ -9,6 +9,11 @@ import parentPage.ParentPage;
 
 public class HomePage extends ParentPage {
 
+    @Override
+    public String getExpectedUrl() {
+        return "http://v3.test.itpmgroup.com/";
+    }
+
     @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement avatar;
 
@@ -18,18 +23,21 @@ public class HomePage extends ParentPage {
     @FindBy(id = "spares")
     private WebElement subMenuSpares;
 
+    @FindBy(id = "prov_cus")
+    private WebElement subMenuProviders;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public boolean isAvatarDisplayed(){
+    public boolean isAvatarDisplayed() {
 //        try{
 ////            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
 //            return avatar.isDisplayed();
 //        }catch (Exception e){
 //            return false;
 //        }
-            return actionsWithOurElements.isElementDisplayed(avatar);
+        return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
     public void checkIsAvatarPresent() {
@@ -42,5 +50,9 @@ public class HomePage extends ParentPage {
 
     public void clickOnSubMenuSpares() {
         actionsWithOurElements.clickOnElement(subMenuSpares);
+    }
+
+    public void clickOnSubMenuProviders() {
+        actionsWithOurElements.clickOnElement(subMenuProviders);
     }
 }
