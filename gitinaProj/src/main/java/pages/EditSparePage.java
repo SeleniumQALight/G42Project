@@ -10,7 +10,8 @@ public class EditSparePage extends ParentPage {
     private WebElement spareNameInput;
 
     @FindBy(id = "spares_spareType")
-    private WebElement spareTypeDD; //дропдаун в закрытом состоянии
+    private WebElement spareTypeDDClosed; //дропдаун в закрытом состоянии
+
     @FindBy(name = "add")
     private WebElement submitButton;
     @FindBy(name = "delete")
@@ -20,12 +21,22 @@ public class EditSparePage extends ParentPage {
         super(webDriver);
     }
 
-    public void enterSparenameIntoInput(String spareName) {
+    public void enterSpareNameIntoInput(String spareName) {
         actionsWithOurElements.enterTextIntoInput(spareNameInput, spareName);
     }
 
     public void selectSpareTypeFromDropdown(String spareType) {
-        actionsWithOurElements.selectVisibleTextinDDbyJava(spareTypeDD, spareType);
+        actionsWithOurElements.selectVisibleTextInDDbyJava(spareTypeDDClosed, spareType);
+    }
+
+    public void selectSpareTypeFromDropDownValue(String value) {
+
+        actionsWithOurElements.selectValueInDDXpathByOption(spareTypeDDClosed, value);
+    }
+
+    public void selectSpareTypeFromDropDownText(String text) {
+
+        actionsWithOurElements.selectValueInDDXpathByText(spareTypeDDClosed, text);
     }
 
     public void clickOnSubmitButton() {
