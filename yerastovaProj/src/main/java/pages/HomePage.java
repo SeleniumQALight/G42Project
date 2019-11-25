@@ -18,6 +18,9 @@ public class HomePage extends ParentPage {
     @FindBy (xpath= "//a[@href='/dictionary/spares']")
     private WebElement subMenuSpares;
 
+    @FindBy (id= "prov_cus")
+    private WebElement subMenuProviders;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -38,5 +41,9 @@ public class HomePage extends ParentPage {
 
     public void clickOnSubMenuSpares() {
         actionsWithOurElements.clickOnElement(subMenuSpares);
+    }
+
+    public void clickOnSubMenuProviders() {
+        actionsWithOurElements.clickOnElement(subMenuProviders);
     }
 }
