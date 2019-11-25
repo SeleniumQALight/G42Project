@@ -1,9 +1,9 @@
-package dealsTest;
+package providersTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
-public class DealsTest extends AbstractParentTest {
+public class ProvidersTest extends AbstractParentTest {
     @Test
     public void changeCheckBoxState(){
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
