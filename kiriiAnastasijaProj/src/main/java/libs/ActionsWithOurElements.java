@@ -45,16 +45,6 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public void selectOnDropdownElement(WebElement dropDown, String detailType) {
-//        try{
-//            Select select = new Select(dropDown);
-//            select.selectByVisibleText(detailType);
-//            logger.info("Element was selected");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
-
     public void selectInDropdownElement(WebElement dropDown, String value) {
         try {
             Select select = new Select(dropDown);
@@ -81,10 +71,34 @@ public class ActionsWithOurElements {
     }
 
     public void clickOnElement(String xpath) {
-        try{
+        try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
+        }
+    }
+
+    public void setStateToCheckBox(WebElement webElement, String expectedState) {
+        boolean isChecked = webElement.isSelected();
+        try {
+            if (expectedState == "check") {
+                if (isChecked == false) {
+                    webElement.click();
+                    logger.info("Check element ");
+                } else {
+                    logger.info("Element is already checked " + isChecked);
+                }
+            }
+            if (expectedState == "uncheck") {
+                if (isChecked == true) {
+                    webElement.click();
+                    logger.info("Uncheck element ");
+                } else {
+                    logger.info("Element is already unchecked" + isChecked);
+                }
+            }
+        } catch (Exception e) {
+            logger.info("Wrong status ");
         }
     }
 }
