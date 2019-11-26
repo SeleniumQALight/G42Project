@@ -16,6 +16,13 @@ public class SparesTests extends AbstractParentTest {
 
         sparePage.clickOnAddButton();
 
+ //       editSparePage.inputSpareNameIntoSpareNameField(spareName);
+ //       editSparePage.selectSpareTypeFromDropDown();
+//        editSparePage.clickOnCreateSpareButton();
+//        sparePage.checkDictionaryPageisDisplayed();
+//        sparePage.checkNewSpare();
+//        The part of previous homework
+
         editSparePage.enterSpareNameIntoInput(spareName);
         editSparePage.selectSpareTypeFromDropDown("Датчики");
         editSparePage.clickOnSubmitButton();
