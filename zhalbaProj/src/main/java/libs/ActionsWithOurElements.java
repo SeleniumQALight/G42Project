@@ -89,7 +89,7 @@ public class ActionsWithOurElements {
     }
   }
 
-  public void setSateToCheckBox(WebElement checkBox, String expectedState) {
+  public void setSateToCheckBox2(WebElement checkBox, String expectedState) {
     try {
       WebElement checkbox = webDriver.findElement(By.xpath(expectedState));
       checkBox.click();
@@ -97,5 +97,22 @@ public class ActionsWithOurElements {
     } catch (Exception e) {
       stopTestAndPrintMessage();
     }
+  }
+
+  public void setSateToCheckBox(WebElement checkBox, String expectedState) {
+    boolean isStateCheck = expectedState.toLowerCase().equals("check");
+    boolean isStateUnCheck = expectedState.toLowerCase().equals("uncheck");
+    boolean isCheckboxSelected = checkBox.isSelected();
+
+    if (isStateCheck || isStateUnCheck) {
+      if ((isStateCheck && isCheckboxSelected) || (isStateUnCheck && !isCheckboxSelected)) {
+        logger.info("Checkbox is already needed state");
+      } else if ((isStateCheck && !isCheckboxSelected) || (isStateUnCheck && isCheckboxSelected)) {
+        clickOnElement(checkBox);
+      }
+    } else {
+      logger.error("State should be only check or uncheck");
+    }
+    stopTestAndPrintMessage();
   }
 }
