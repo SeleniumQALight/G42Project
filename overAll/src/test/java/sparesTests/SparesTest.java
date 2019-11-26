@@ -3,12 +3,13 @@ package sparesTests;
 import abstractParentTest.AbstractParentTest;
 import org.junit.After;
 import org.junit.Test;
+import libs.Utils;
 
 public class SparesTest extends AbstractParentTest{
     private final String spareName = "RadulenkoSpare";
     @Test
     public void addNewSpare(){
-        loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
+        loginPage.fillingLoginFormAndSubmitIt("Student", "909090") + Utils;
 
         homePage.checkIsAvatarPresent();
         homePage.clickOnMenuDictionary();
