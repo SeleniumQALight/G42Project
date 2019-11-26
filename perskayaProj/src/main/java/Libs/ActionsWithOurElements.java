@@ -50,19 +50,29 @@ public class ActionsWithOurElements {
         Assert.fail("Can not work with element"); // будет писать сообщение в отчет
     }
 
-    public void selectVisibleTextInDDByJava(WebElement dropDown, String text) { // РЕАЛИЗОВАТЬ!!!!!!!!
+    public void selectValueInDDByJava(WebElement dropDown, String value) { // Value - из html структуры, по Value метод работает быстрей чем по text
         try {
-            Select select = new Select(dropDown);
-            select.selectByVisibleText(text);
-            logger.info(text + "selected in Drop Down");
+            Select select = new Select(dropDown); // Select - выбираем орг опен кю ей селениум саппорт; объявили переменную select типа Select - этот класс работает
+            // только с дроп даунами с селектами и опшионсами; Select(dropDown) - передаем в селект дропдаун; мы обратились к дропдауну и получили все чо у него есть
+            select.selectByValue(value);
+            logger.info(value + "was selected in Drop Down");
         } catch (Exception e) {
             stopTestAndPrintMassage();
         }
     }
-
-    public boolean isElementDisplayed(String locator) {
+    public void selectVisibleTextInDDByJava(WebElement dropDown, String text) { // text -  из html структуры
         try {
-            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+            Select select = new Select(dropDown);
+            select.selectByVisibleText(text);
+            logger.info(text + "was selected in Drop Down");
+        } catch (Exception e) {
+            stopTestAndPrintMassage();
+        }
+    }
+    public boolean isElementDisplayed(String locator) { // м-д который находит что запчасть отображается
+        try {
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator))); // здесь isElementDisplayed - м-д, который принимает вебелемент, умеет спрашивать
+            //у элемента есть он или нет. Это пример полиморфизма, когда есть одинаково названные методы, которые работают с вебелементом или стрингой
          } catch (Exception e) {
             return false;
         }
@@ -75,4 +85,19 @@ public class ActionsWithOurElements {
             stopTestAndPrintMassage();
         }
     }
+
+//    public void setSateToCheckBox(WebElement webelement, String expectedState){ //м-д устанавливает чек бокс если он пустой
+////        webelement.findElement(By.xpath(".//*/li[@id='spares']")); // найти чек бокс
+//        String expectedState = webelement.findElement(By.xpath(".//*/li[@id='spares']"));;
+//        if (expectedState == webelement.getAttribute(class("''")));  // если чек бокс активен - ничего не делать
+//        {)
+//
+//        }else {
+//
+//        }
+//        String state = webelement.isDisplayed(); // запись во временную переменную состояния = отображается / не отображается
+//            logger.info("Is element displayed -> " + state);
+//локатор, когда чек бокс активен       .//*/li[@class='active' and @id='spares']
+// локатор, когда чек бокс не активен   .//*/li[@class='' and @id='spares']
+//    }
 }

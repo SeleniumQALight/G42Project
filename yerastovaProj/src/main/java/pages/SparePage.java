@@ -6,31 +6,30 @@ import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
 public class SparePage extends ParentPage {
-
-    @FindBy(xpath = "//*[@class='fa fa-plus']")
+    @FindBy (xpath ="//div//a[@data-original-title='Add']")
     private WebElement addButton;
 
     public SparePage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void clickAddButton() {
+    public void clickOnAddButton() {
         actionsWithOurElements.clickOnElement(addButton);
     }
 
     public boolean isSpareInList(String spareName) {
-        return actionsWithOurElements.isElementDisplayed(".//*[text()='" + spareName + "']");
+        return actionsWithOurElements.isElementDisplayed(".//*[text() = '" + spareName + "']");
     }
 
     public void deleteSpareUntilPresent(String spareName) {
         EditSparePage editSparePage = new EditSparePage(webDriver);
-        while (isSpareInList(spareName)) {
+        while (isSpareInList(spareName)){
             clickOnSpare(spareName);
-            editSparePage.clickDeleteButton();
+            editSparePage.clickOnDeleteButton();
         }
     }
 
     private void clickOnSpare(String spareName) {
-        actionsWithOurElements.clickOnElement(".//*[text()='" + spareName + "']");
+        actionsWithOurElements.clickOnElement(".//*[text() = '" + spareName + "']");
     }
 }

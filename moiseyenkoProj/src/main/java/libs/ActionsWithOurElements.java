@@ -90,4 +90,31 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setStateToCheckBox(WebElement webelement, String expectedState) {
+        if ("check".equals(expectedState) || "uncheck".equals(expectedState)) {
+            try {
+                if (webelement.isSelected() && "check".equals(expectedState)) {
+                    logger.info("Already check");
+                } else if (!webelement.isSelected() && "check".equals(expectedState)) {
+                    webelement.click();
+                    logger.info("check box checked");
+                } else if (webelement.isSelected() && "uncheck".equals(expectedState)) {
+                    webelement.click();
+                    logger.info("check box deselected");
+
+                } else if (!webelement.isSelected() && "uncheck".equals(expectedState)) {
+                    logger.info("checkbox is already unchecked");
+                }
+
+            } catch (Exception e) {
+                stopTestAndPrintMessage();
+            }
+
+        } else {
+            logger.error("State should be 'check' or 'uncheck'");
+            Assert.fail("State should be 'check' or 'uncheck'");
+        }
+    }
+
 }

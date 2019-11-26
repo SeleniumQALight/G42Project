@@ -99,4 +99,18 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setSateToCheckBox(WebElement webelement, String expectedState){
+        try {
+            String actualState = webelement.isSelected() ? "checked" : "unchecked";
+            if (!actualState.equals(expectedState)) {
+                webelement.click();
+                logger.info("State of checkbox was changed to " + expectedState);
+            } else {
+                logger.info("State of checkbox is already " + expectedState);
+            }
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
 }
