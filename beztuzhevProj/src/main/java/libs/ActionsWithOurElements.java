@@ -86,9 +86,33 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(String xpath) {
         try {
-            clickOnElement (webDriver.findElement(By.xpath(xpath)));
+            clickOnElement(webDriver.findElement(By.xpath(xpath)));
         } catch (Exception e) {
             stopTestAndPrintMessage();
+        }
+    }
+
+    public void setStateToCheckBox(WebElement webElement, String expectedState) {
+        boolean isChecked = webElement.isSelected();
+        try {
+            if (expectedState == "check") {
+                if (isChecked == false) {
+                    webElement.click();
+                    logger.info("Check element ");
+                } else {
+                    logger.info("Element is already checked " + isChecked);
+                }
+            }
+            if (expectedState == "uncheck") {
+                if (isChecked == true) {
+                    webElement.click();
+                    logger.info("Uncheck element ");
+                } else {
+                    logger.info("Element is already unchecked" + isChecked);
+                }
+            }
+        } catch (Exception e) {
+            logger.info("Wrong status ");
         }
     }
 }
