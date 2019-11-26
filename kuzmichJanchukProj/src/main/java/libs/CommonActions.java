@@ -86,33 +86,50 @@ public class CommonActions {
         }
     }
 
-    public void toggleCheckbox(WebElement checkboxLocator, String action) {
-        switch (action) {
-            case "check":
-                try {
-                    if (!checkboxLocator.isSelected()) {
-                        checkboxLocator.click();
-                    } else {
-                        log.info("Checkbox is already checked!");
-                    }
-                } catch (Exception e) {
-                    stopTestAndPrintMessage();
-                }
-                break;
-            case "uncheck":
-                try {
-                    if (checkboxLocator.isSelected()) {
-                        checkboxLocator.click();
-                    } else {
-                        log.info("Checkbox is already unchecked!");
-                    }
-                } catch (Exception e) {
-                    stopTestAndPrintMessage();
-                }
-                break;
-            default:
-                log.error("Wrong action parameter! Use <check> or <uncheck> only.");
-                break;
+//    public void toggleCheckbox(WebElement checkboxLocator, String action) {
+//        switch (action) {
+//            case "check":
+//                try {
+//                    if (!checkboxLocator.isSelected()) {
+//                        checkboxLocator.click();
+//                    } else {
+//                        log.info("Checkbox is already checked!");
+//                    }
+//                } catch (Exception e) {
+//                    stopTestAndPrintMessage();
+//                }
+//                break;
+//            case "uncheck":
+//                try {
+//                    if (checkboxLocator.isSelected()) {
+//                        checkboxLocator.click();
+//                    } else {
+//                        log.info("Checkbox is already unchecked!");
+//                    }
+//                } catch (Exception e) {
+//                    stopTestAndPrintMessage();
+//                }
+//                break;
+//            default:
+//                log.error("Wrong action parameter! Use <check> or <uncheck> only.");
+//                break;
+//        }
+//}
+    public void setStateToCheckbox(WebElement checkBox, String state) {
+        boolean isStateChecked = state.toLowerCase().equals("check");
+        boolean isStateUnchecked = state.toLowerCase().equals("uncheck");
+        boolean isCheckboxSelected = checkBox.isSelected();
+
+        if(isStateChecked || isStateUnchecked) {
+            if((isStateChecked && isCheckboxSelected) || (isStateUnchecked && !isCheckboxSelected)) {
+                log.info("Checkbox is already in desired state.");
+            } else if ((isStateChecked && !isCheckboxSelected) || (isStateUnchecked && isCheckboxSelected)) {
+                clickOnElement(checkBox);
+            }
+        } else {
+            log.error("State should be only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
         }
     }
 }
+

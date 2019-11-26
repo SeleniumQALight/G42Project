@@ -18,7 +18,7 @@ public class LoginPage extends ParentPage {
     private WebElement enterButton;
 
     public LoginPage(WebDriver driver) {
-        super(driver);
+        super(driver, "/login");
     }
 
     public void openPage() {
