@@ -54,6 +54,22 @@ public class SparePage extends ParentPage {
         commonActions.clickOnElement(createSpareButton);
     }
 
+    public boolean isSpareInList(String spareName) {
+        return commonActions.isElementDisplayed(".//*[text() = '" + spareName + "']");
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        EditSparePage editSparePage = new EditSparePage(driver);
+        while (isSpareInList(spareName)) {
+            clickOnSpare(spareName);
+            editSparePage.clickOnDeleteButton();
+        }
+    }
+
+    private void clickOnSpare(String spareName) {
+        commonActions.clickOnElement(".//*[text() = '" + spareName + "']");
+    }
+
 //    public void selectFromDropDownOptions (String option) {
 //        commonActions.clickOnElement(spareTypes
 //                .stream()
