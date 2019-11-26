@@ -80,20 +80,29 @@ public class ActionsWithOurElements {
     public void setStateToCheckBox(WebElement checkBox, String expectedState) {
         try {
             if (expectedState == "true") {
+
                 if (checkBox.isSelected()) {
+
                     logger.info("State true was setted");
+
                 } else {
+
                     checkBox.click();
+
                     logger.info("State true was setted");
+
                 }
             }
-            if (expectedState == "false") {
+            else if (expectedState == "false") {
                 if (checkBox.isSelected()) {
                     checkBox.click();
                     logger.info("State false was setted");
                 } else {
                     logger.info("State false was setted");
                 }
+            }
+            else {
+                logger.info("Can't detect the state");
             }
         } catch (Exception e) {
             stopTestAndPrintMessage();

@@ -16,6 +16,6 @@ public class ProvidersTest extends AbstractParentTest {
         editProvidersPage.enterProCustAddress("testaddress2411");
         editProvidersPage.enterProCustPhone("24112411");
         editProvidersPage.checkIfPrivatePerson("true");
-        editProvidersPage.checkIfIsOurFirm("false");
+        editProvidersPage.checkIfIsOurFirm("falfse");
     }
 }
