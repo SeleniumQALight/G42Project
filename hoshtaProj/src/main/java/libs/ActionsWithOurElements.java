@@ -101,16 +101,22 @@ public class ActionsWithOurElements {
     }
 
     public void setSateToCheckBox(WebElement webelement, String expectedState){
-        try {
-            String actualState = webelement.isSelected() ? "checked" : "unchecked";
-            if (!actualState.equals(expectedState)) {
-                webelement.click();
-                logger.info("State of checkbox was changed to " + expectedState);
-            } else {
-                logger.info("State of checkbox is already " + expectedState);
+        final String checkedState = "checked";
+        final String uncheckedState = "unchecked";
+        if (expectedState.equals(checkedState) || expectedState.equals(uncheckedState)) {
+            try {
+                String actualState = webelement.isSelected() ? checkedState : uncheckedState;
+                if (!actualState.equals(expectedState)) {
+                    webelement.click();
+                    logger.info("State of checkbox was changed to " + expectedState);
+                } else {
+                    logger.info("State of checkbox is already " + expectedState);
+                }
+            } catch (Exception e) {
+                stopTestAndPrintMessage();
             }
-        } catch (Exception e) {
-            stopTestAndPrintMessage();
+        } else {
+            logger.error(expectedState + " value is not allowed. Should be " + checkedState + " or " + uncheckedState);
         }
     }
 }
