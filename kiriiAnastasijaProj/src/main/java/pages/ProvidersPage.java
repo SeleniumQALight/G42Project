@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ProvidersPage extends ParentPage {
     public ProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
     @FindBy(xpath = ".//*[@class = 'fa fa-plus']")
