@@ -15,9 +15,8 @@ public class SparesTest extends AbstractParentTest {
     }
 
     @Test
-    public void addNewSpare(){
+    public void addNewSpare() {
         loginPage.fillingLoginFormAndSubmit(login, password);
-
         homePage.checkIsAvatarPresent();
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpares();

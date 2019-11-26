@@ -19,10 +19,11 @@ public class SparePage extends ParentPage {
 
     public boolean isSpareInList(String spareName) { // метод, который проверяет что запчасть добавилась
         return actionsWithOurElements.isElementDisplayed(".//*[text() = '" + spareName + "']"); // проверка есть ли эта запчасть, это параметризированный локато
+        // в одинарных кавычках - наш текст; создаем метод
     }
 
     public void deleteSpareUntilPresent(String spareName) {
-        EditSparePage editSparePage = new EditSparePage(webdriver);
+        EditSparePage editSparePage = new EditSparePage(webdriver); // создаем екземпляр EditSparePage
         while (isSpareInList(spareName)){            // выполняет цикл пока выполняется условие (пока запчасть есть в цикле)
         clickOnSpare(spareName);
         editSparePage.clickOnDeleteButton();
