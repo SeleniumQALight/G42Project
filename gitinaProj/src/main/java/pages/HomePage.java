@@ -21,7 +21,7 @@ public class HomePage extends ParentPage {
     private WebElement subMenuProviders;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
 

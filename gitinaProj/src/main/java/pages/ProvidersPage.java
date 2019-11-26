@@ -15,7 +15,7 @@ public class ProvidersPage extends ParentPage {
     }
 
     public ProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
 }

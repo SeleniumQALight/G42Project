@@ -13,7 +13,7 @@ public class EditProvidersPage extends ParentPage {
     private WebElement isOUrFirmCheckbox;
 
     public EditProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers/edit");
     }
 
 

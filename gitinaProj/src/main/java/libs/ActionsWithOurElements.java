@@ -75,7 +75,7 @@ public class ActionsWithOurElements {
 
     public void selectValueInSpareDDXpathByText(WebElement dropdown, String text) {
         clickOnElement(dropdown);
-        clickOnElement("//select[@id='spares_spareType']/option[text()='"+ text+"']");
+        clickOnElement("//select[@id='spares_spareType']/option[text()='" + text + "']");
         logger.info(text + " was selected in drop down");
     }
 
@@ -88,7 +88,6 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
 
 
     public boolean isElementDisplayed(String locator) {
@@ -108,7 +107,7 @@ public class ActionsWithOurElements {
     }
 
     public void setStateToCheckBox(WebElement webelement, String expectedState) {
-        if (!(expectedState.equals(CHECK_BOX_SELECTED) || expectedState.equals(CHECK_BOX_UNSELECTED))) {
+        if ((!(expectedState.equals(CHECK_BOX_SELECTED)) && (!expectedState.equals(CHECK_BOX_UNSELECTED)))) {
             logger.info("Expected State is not correct");
             stopTestAndPrintMessage();
         }
@@ -116,10 +115,10 @@ public class ActionsWithOurElements {
         logger.info("Checkbox is selected: " + isSelected);
         if (isSelected) {
             if ((expectedState.equals(CHECK_BOX_SELECTED))) {
-                logger.debug("Nothing todo");
+                logger.debug("Nothing to do");
             } else {
                 logger.info("Setting checkbox to: " + expectedState);
-                webelement.click();
+         clickOnElement(webelement);
             }
         } else {
             if ((expectedState.equals(CHECK_BOX_SELECTED))) {
@@ -131,6 +130,27 @@ public class ActionsWithOurElements {
         }
     }
 
+//made in class
+
+
+    public void setStatetoCheckboNew(WebElement checkbox, String state) {
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUncheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkbox.isSelected();
+        if (isStateCheck || isStateUncheck) {
+
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUncheck && !isCheckBoxSelected)) {
+                logger.info("Checkbox is already in needed state");
+            }else if ((isStateCheck&&!isCheckBoxSelected)||(isStateUncheck&&isCheckBoxSelected)){
+                clickOnElement(checkbox);
+            }
+            {
+                logger.error("State should be only 'check' on 'uncheck'");
+                stopTestAndPrintMessage();
+            }
+        }
+
+    }
 
     public boolean isCheckboxSelected(WebElement checkbox) {
 
