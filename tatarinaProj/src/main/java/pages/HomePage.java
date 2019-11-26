@@ -8,9 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
 public class HomePage extends ParentPage {
-    @FindBy (xpath = ".//*[@class='pull-left image']")
+    @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement avatar;
-    @FindBy()
+
+    @FindBy(id = "dictionary")
     private WebElement menuDictionary;
 
     @FindBy(id = "spares")
@@ -20,20 +21,18 @@ public class HomePage extends ParentPage {
         super(webDriver);
     }
 
-    public boolean isAvatarDisplayed() {
+    public boolean isAvatarDisplayed(){
 //        try{
-//            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
+//            WebElement avatar = webDriver.findElement(By.xpath(""));
 //            return avatar.isDisplayed();
-//
 //        } catch (Exception e){
 //            return false;
 //        }
-     return actionsWithOurElements.isElementDisplayed(avatar);
+        return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
     public void checkIsAvatarPresent() {
-        Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
-
+        Assert.assertTrue("Avatar is not displayed" , isAvatarDisplayed());
     }
 
     public void clickOnMenuDictionary() {
