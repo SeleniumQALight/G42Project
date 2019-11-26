@@ -7,6 +7,11 @@ import parentPage.ParentPage;
 
 public class SparePage extends ParentPage{
 
+    @Override
+    public String getExpectedUrl() {
+        return "http://v3.test.itpmgroup.com/dictionary/spares";
+    }
+
     @FindBy(xpath = ".//i[@class = 'fa fa-plus']")
     private WebElement buttonAdd;
 

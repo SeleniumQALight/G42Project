@@ -52,6 +52,16 @@ public class ActionsWithOurElements {
 
     public void selectValueFromDropdownList(WebElement dropDown, String value) {
         try {
+            dropDown.click();
+            clickOnElement(".//option[text() = '" + value + "']");
+            logger.info(value + " was selected from dropdown list");
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void selectValueFromDropdownListWithJava(WebElement dropDown, String value) {
+        try {
             Select select = new Select(dropDown);
             select.selectByVisibleText(value);
             logger.info(value + " was selected from dropdown list");
@@ -61,41 +71,44 @@ public class ActionsWithOurElements {
     }
 
     public boolean isElementDisplayed(String locator) {
-        try{
+        try {
             return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public void clickOnElement(String xpath) {
-        try{
+        try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
 
-//    public void selectValueFromDropdownList(WebElement dropDown, String value) {
-//        try {
-//            Select select = new Select(dropDown);
-//            select.selectByValue(value);
-//            logger.info(value + " was selected from dropdown list");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
-
-//    public void selectTextFromDropdownList(WebElement dropDown, String text) {
-//        try {
-//            Select select = new Select(dropDown);
-//            select.selectByVisibleText(text);
-//            logger.info(text + " was selected from dropdown list");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
-
+    public void setStateToCheckBox(WebElement checkbox, String expectedState) {
+        try {
+            if (expectedState == "check") {
+                if (!checkbox.isSelected()) {
+                    checkbox.click();
+                    logger.info("Checkbox was checked");
+                } else {
+                    logger.info("Checkbox is already checked");
+                }
+            } else if (expectedState == "uncheck") {
+                if (checkbox.isSelected()) {
+                    checkbox.click();
+                    logger.info("Checkbox was unchecked");
+                } else {
+                    logger.info("Checkbox is already unchecked");
+                }
+            } else {
+                logger.error("Incorrect expected state: state should be check or uncheck");
+            }
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
 }
 
 
