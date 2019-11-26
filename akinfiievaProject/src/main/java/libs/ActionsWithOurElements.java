@@ -77,34 +77,44 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void setStateToCheckBox(WebElement checkBox, String expectedState) {
+    public void setStateToCheckBoxHomeOption(WebElement checkBox, String expectedState) {
         try {
             if (expectedState == "true") {
-
                 if (checkBox.isSelected()) {
-
                     logger.info("State true was setted");
-
                 } else {
-
                     checkBox.click();
-
                     logger.info("State true was setted");
-
                 }
-            }
-            else if (expectedState == "false") {
+            } else if (expectedState == "false") {
                 if (checkBox.isSelected()) {
                     checkBox.click();
                     logger.info("State false was setted");
                 } else {
                     logger.info("State false was setted");
                 }
-            }
-            else {
+            } else {
                 logger.info("Can't detect the state");
             }
         } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void setStateToCheckBoxClassOption(WebElement checkBox, String state) {
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+
+        if (isStateCheck || isStateUnCheck) {
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)) {
+                logger.info("Checkbox is already in needed state");
+            } else if((isStateCheck && !isCheckBoxSelected) || (isStateUnCheck && isCheckBoxSelected)) {
+                checkBox.click();
+                logger.info("Checkbox now is in needed state");
+            }
+        } else {
+            logger.error("State should be only check or uncheck");
             stopTestAndPrintMessage();
         }
     }

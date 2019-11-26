@@ -10,7 +10,7 @@ public class ProvidersPage extends ParentPage {
     private WebElement submenuProviders;
 
     public ProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"/dictionary/providers");
     }
 
     public void clickOnButtonAdd() {

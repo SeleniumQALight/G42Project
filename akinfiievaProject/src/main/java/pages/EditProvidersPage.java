@@ -19,7 +19,7 @@ public class EditProvidersPage extends ParentPage {
     private WebElement checkIfIsOurFirm;
 
     public EditProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver,"/dictionary/providers/edit");
     }
 
     public void enterProCustName(String proCustName) {
@@ -35,10 +35,10 @@ public class EditProvidersPage extends ParentPage {
     }
 
     public void checkIfPrivatePerson(String isPrivatePerson) {
-        actionsWithOurElements.setStateToCheckBox(checkIfPrivatePerson, isPrivatePerson);
+        actionsWithOurElements.setStateToCheckBoxHomeOption(checkIfPrivatePerson, isPrivatePerson);
     }
 
     public void checkIfIsOurFirm(String isOurFirm) {
-        actionsWithOurElements.setStateToCheckBox(checkIfIsOurFirm, isOurFirm);
+        actionsWithOurElements.setStateToCheckBoxClassOption(checkIfIsOurFirm, isOurFirm);
     }
 }
