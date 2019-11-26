@@ -23,7 +23,7 @@ public class ProvidersEditPage extends ParentPage {
     private WebElement saveButton;
 
     public ProvidersEditPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers/edit");
     }
 
     public void openPage() {

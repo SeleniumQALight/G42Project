@@ -13,7 +13,7 @@ public class ProvidersPage extends ParentPage {
     private WebElement addButton;
 
     public ProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
     public void findBTR80Provider() {

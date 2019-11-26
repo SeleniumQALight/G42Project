@@ -85,11 +85,20 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-    public void setSateToCheckBox(WebElement webelement, String expectedState){
-        try {
+    public void setStateToCheckBox(WebElement checkBox, String state) {
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUncheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+        if (isStateCheck || isStateUncheck) {
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUncheck && !isCheckBoxSelected)) {
+                logger.info("CheckBox is already needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected) || (isStateUncheck && isCheckBoxSelected)) {
+                clickOnElement(checkBox);
+            } else {
+                logger.error("State should be only 'check' or 'uncheck'");
+                stopTestAndPrintMessage();
 
-        }catch (Exception e){
-
+            }
         }
     }
 }
