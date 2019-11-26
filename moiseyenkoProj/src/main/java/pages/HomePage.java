@@ -18,7 +18,7 @@ public class HomePage extends ParentPage {
     private WebElement clickOnSubMenuSpares;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public boolean isAvatarDisplaied(){
