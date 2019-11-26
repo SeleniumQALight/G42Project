@@ -15,13 +15,22 @@ public class EditSparePage extends ParentPage {
     @FindBy (xpath = "//select[@id='spares_spareType']")
     private WebElement drillDownSpareType;
 
+    @FindBy (id = "spares_spareType")
+    private WebElement spareTypeDD;
+
+    @FindBy(name = "add")
+    private WebElement submitButton;
+
+    @FindBy (name = "delete")
+    private WebElement deleteButton;
+
 
     public EditSparePage(WebDriver webDriver) {
         super(webDriver);
     }
 
 
-    public void enterSpareName(String spareName) {
+    public void enterSpareNameIntoInput(String spareName) {
         actionsWithOurElements.enterTextIntoInput(inputSpareName, spareName);
 
     }
@@ -32,11 +41,24 @@ public class EditSparePage extends ParentPage {
     }
 
 
+//    public void selectSpareTypeFromDropDown(String spareType) {
+//        actionsWithOurElements.clickOnElement(drillDownSpareType);
+//
+//        actionsWithOurElements.clickOnElement(spareTypeListValue(spareType));
+//    }
+
     public void selectSpareTypeFromDropDown(String spareType) {
-        actionsWithOurElements.clickOnElement(drillDownSpareType);
-       
+        actionsWithOurElements.selectVisibleTextInDDByJava(spareTypeDD, spareType);
+
         actionsWithOurElements.clickOnElement(spareTypeListValue(spareType));
     }
 
+    public void clickOnSubmitButton() {
+        actionsWithOurElements.clickOnElement(submitButton);
+    }
+
+    public void clickOnDeleteButton() {
+        actionsWithOurElements.clickOnElement(deleteButton);
+    }
 }
 

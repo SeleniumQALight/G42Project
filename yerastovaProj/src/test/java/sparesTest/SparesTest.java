@@ -1,12 +1,14 @@
 package sparesTest;
 
 import abstractParentTest.AbstractParentTest;
+import org.junit.After;
 import org.junit.Test;
 
 public class SparesTest extends AbstractParentTest {
+    private final String spareName = "YerastovaSpare";
     @Test
     public  void addNewSpare () {
-        final String spareName = "RadulenkoSpare";
+
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
 
         homePage.checkIsAvatarPresent();
@@ -15,10 +17,16 @@ public class SparesTest extends AbstractParentTest {
 
         sparePage.clickOnAddButton();
 
-        editSparePage.enterSpareName(spareName);
+        editSparePage.enterSpareNameIntoInput(spareName);
         editSparePage.selectSpareTypeFromDropDown("Датчики");
+        editSparePage.clickOnSubmitButton();
 
+        checkExpectedResult("Can not find spare in list", sparePage.isSpareInList(spareName));
 
+    }
 
+    @After
+    public void deleteSpare () {
+        sparePage.deleteSpareUntilPresent(spareName);
     }
 }
