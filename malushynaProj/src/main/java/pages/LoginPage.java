@@ -10,10 +10,10 @@ import java.lang.ref.SoftReference;
 
 public class LoginPage extends ParentPage {
 
-    @Override
-    public String getExpectedUrl() {
-        return "http://v3.test.itpmgroup.com/login";
-    }
+//    @Override
+//    public String getExpectedUrl() {
+//        return "http://v3.test.itpmgroup.com/login";
+//    }
 
     @FindBy(name = "_username")
     private WebElement inputLogin;
@@ -25,7 +25,7 @@ public class LoginPage extends ParentPage {
     private WebElement buttonVhod;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     public void openPage() {

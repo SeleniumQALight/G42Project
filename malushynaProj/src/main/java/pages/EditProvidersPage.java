@@ -7,10 +7,10 @@ import parentPage.ParentPage;
 
 public class EditProvidersPage extends ParentPage {
 
-    @Override
-    public String getExpectedUrl() {
-        return "http://v3.test.itpmgroup.com/dictionary/providers/edit";
-    }
+//    @Override
+//    public String getExpectedUrl() {
+//        return "http://v3.test.itpmgroup.com/dictionary/providers/edit";
+//    }
 
     @FindBy(id = "prov_cus_proCustIsFl")
     private WebElement privatePersonCheckbox;
@@ -19,7 +19,7 @@ public class EditProvidersPage extends ParentPage {
     private WebElement isOurFirmCheckbox;
 
     public EditProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
     public void setStateToPrivatePersonCheckbox(String expectedState) {
