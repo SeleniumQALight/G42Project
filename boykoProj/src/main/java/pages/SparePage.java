@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,18 +10,40 @@ public class SparePage extends ParentPage {
 
     @FindBy (xpath = ".//*[@class='fa fa-plus']")
     private WebElement buttonAdd;
-    @FindBy(xpath = ".//tr[.//td[text()='Датчики']]//td[text()='BoykoZhannaSpare1']")
-    private WebElement spareName;
+//    @FindBy(xpath = ".//tr[.//td[text()='Датчики']]//td[text()='BoykoZhannaSpare1']")
+//    private WebElement spareName;
 
     public SparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares");
     }
 
     public void clickOnAddButton() {
                 actionsWithOurElements.clickOnElement(buttonAdd);
     }
 
-    public boolean isSpareDisplayed () {
-        return actionsWithOurElements.isElementDisplayed(spareName);
-    };
+    public boolean isSpareInList(String spareName) {
+        return actionsWithOurElements.isElementDisplayed(".//*[text()='" + spareName + "']");
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        int counter = 0;
+        EditSparePage editSparePage = new EditSparePage(webDriver);
+        while (isSpareInList(spareName)){
+            clickOnSpare(spareName);
+            editSparePage.clickOnDeleteButton();
+            logger.info(counter + " spare was deleted");
+            if (counter>100){
+                Assert.fail("There are more then 100 spares");
+            }
+            counter++;
+        }
+    }
+
+    private void clickOnSpare(String spareName) {
+        actionsWithOurElements.clickOnElement(".//*[text()='" + spareName + "']");
+    }
+
+//    public boolean isSpareDisplayed () {
+//        return actionsWithOurElements.isElementDisplayed(spareName);
+//    };
 }
