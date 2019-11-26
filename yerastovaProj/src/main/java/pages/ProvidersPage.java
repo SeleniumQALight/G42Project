@@ -9,7 +9,7 @@ public class ProvidersPage extends ParentPage {
     @FindBy(xpath ="//div//a[@data-original-title='Add']")
     private WebElement addButton;
     public ProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
     public void clickOnAddButton() {

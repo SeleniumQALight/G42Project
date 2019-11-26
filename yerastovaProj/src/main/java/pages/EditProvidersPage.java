@@ -14,7 +14,7 @@ public class EditProvidersPage extends ParentPage {
     private WebElement checkboxIsOurFirm;
 
     public EditProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers/edit");
     }
 
     public void setStateToCheckboxPrivatePerson(String expectedState) {
