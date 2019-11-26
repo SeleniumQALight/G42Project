@@ -7,7 +7,7 @@ import parentPage.ParentPage;
 
 public class EditProvidersPage extends ParentPage {
     public EditProvidersPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
     @FindBy(xpath = ".//*[@id = 'prov_cus_proCustIsFl']")
