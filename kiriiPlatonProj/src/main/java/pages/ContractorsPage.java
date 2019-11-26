@@ -16,7 +16,7 @@ public class ContractorsPage extends ParentPage {
     private WebElement checkBoxIsOurFirm;
 
     public ContractorsPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/providers");
     }
 
     public void clickAddButton() {
