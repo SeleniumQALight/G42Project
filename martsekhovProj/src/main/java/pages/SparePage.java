@@ -17,4 +17,22 @@ public class SparePage extends ParentPage {
     public void clickOnAddButton() {
         actionWithOurElements.clickOnElement(buttonAdd);
     }
+
+    public boolean isSpareInList(String spareName) {
+        return actionWithOurElements.isElementDisplayed(".//*[text()='"+spareName+"']");
+    }
+
+    public void deleteSpareUntilPresent(String spareName) {
+        EditSparePage editSparePage = new EditSparePage(webDriver);
+        while (isSpareInList(spareName)){
+            clickOnSpare(spareName);
+            editSparePage.clickOnDeleteButton();
+        }
+
+    }
+
+    private void clickOnSpare(String spareName) {
+        actionWithOurElements
+                .clickOnElement(".//*[text()='" + spareName + "']");
+    }
 }
