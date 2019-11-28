@@ -76,22 +76,42 @@ public class ActionsWithOurElements {
         }
     }
 
-    public boolean isElementDisplayed (String locator){
-        try{
+    public boolean isElementDisplayed(String locator) {
+        try {
             return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public void clickOnElement(String xpath) {
-        try{
+        try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setSateToCheckBox(WebElement checkbox, String state) {
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUncheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckboxSelected = checkbox.isSelected();
+        if (isStateCheck || isStateUncheck) {
+            if((isStateCheck && isCheckboxSelected)||(isStateUncheck && !isCheckboxSelected)){
+                logger.info("checkbox is already in needed state");}
+
+            else if ((isStateCheck && !isCheckboxSelected) || (isStateUncheck && isCheckboxSelected)){
+                clickOnElement(checkbox);
+
+            }}
+
+         else {
+            logger.error("State should be only check or uncheck");
+            stopTestAndPrintMessage();
+        }
+    }
+
+
+
 }
