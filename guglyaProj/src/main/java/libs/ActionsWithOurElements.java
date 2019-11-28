@@ -88,4 +88,21 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setStateToChekBox(WebElement chekBox, String state){
+        boolean isStateChek = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = chekBox.isSelected();
+
+        if(isStateChek || isStateUnCheck){
+            if((isStateChek && isCheckBoxSelected ) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("Checkbox is alredy in ineededstate");
+            }else if((isStateChek && !isCheckBoxSelected) ||(isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(chekBox);
+            }
+        }else {
+            logger.error("State shold be only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
+        }
+    }
 }
