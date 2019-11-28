@@ -18,7 +18,7 @@ public class HomePage extends ParentPage { // наследует все от р�
     private WebElement subMenuSpares;
 
     public HomePage(WebDriver webdriver) { // наследует конструктор от родителя
-        super(webdriver);
+        super(webdriver, "/");
     }
 
     public boolean isAvatarDisplayed() { // метод для отображения аватарки,

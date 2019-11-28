@@ -20,7 +20,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
     private WebElement buttonVhod;
 
     public LoginPage(WebDriver webdriver) {
-        super(webdriver);
+        super(webdriver, "/login");
     }
 
     public void openPage() {

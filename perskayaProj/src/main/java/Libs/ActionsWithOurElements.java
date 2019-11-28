@@ -86,18 +86,23 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public void setSateToCheckBox(WebElement webelement, String expectedState){ //м-д устанавливает чек бокс если он пустой
-////        webelement.findElement(By.xpath(".//*/li[@id='spares']")); // найти чек бокс
-//        String expectedState = webelement.findElement(By.xpath(".//*/li[@id='spares']"));;
-//        if (expectedState == webelement.getAttribute(class("''")));  // если чек бокс активен - ничего не делать
-//        {)
-//
-//        }else {
-//
-//        }
-//        String state = webelement.isDisplayed(); // запись во временную переменную состояния = отображается / не отображается
-//            logger.info("Is element displayed -> " + state);
-//локатор, когда чек бокс активен       .//*/li[@class='active' and @id='spares']
-// локатор, когда чек бокс не активен   .//*/li[@class='' and @id='spares']
-//    }
+    public void setStateToCheckBox(WebElement checkBox, String state){ //м-д устанавливает чек бокс если он пустой
+        boolean isStateCheck = state.toLowerCase().equals("check"); //toLowerCase - опускаем все в нижний регистр
+        boolean isStateUncheck = state.toLowerCase().equals("uncheck"); // переменная
+        boolean isCheckBoxSelected = checkBox.isSelected();
+        if (isStateCheck || isStateUncheck){  // ||  это или если передали чек или анчек, то переходим на след иф
+            if ((isStateCheck && isCheckBoxSelected) // чек бокс выбран и нужно чтб был выбран
+                    || (isStateUncheck && !isCheckBoxSelected)){ // чек бокс не выбран и нужно чтоб был не выбран
+                logger.info("CheckBox is already needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected) // чек бокс выбран а нужно не выбран
+            || (isStateUncheck && isCheckBoxSelected))    // чек бокс не выбран, а нужно выбран
+            {
+                clickOnElement(checkBox); //клик по чекбоксу
+            }
+        } else {
+            logger.error("state should be only 'check' or 'uncheck'");
+            stopTestAndPrintMassage();
+        }
+
+    }
 }

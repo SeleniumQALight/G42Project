@@ -23,7 +23,7 @@ public class EditSparePage extends ParentPage {
     private WebElement dropDownSpareType;
 
     public EditSparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
     public void enterSpareNameIntoInput(String spareName) { // ввод имени запчасти
