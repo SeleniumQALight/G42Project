@@ -19,7 +19,7 @@ public class EditSparesPage extends ParentPage {
     private WebElement deleteButton;
 
     public EditSparesPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
     public void enterSpareNameIntoInput(String spareName) {
