@@ -89,16 +89,6 @@ public class ActionsWithOurElements {
     }
   }
 
-  public void setSateToCheckBox2(WebElement checkBox, String expectedState) {
-    try {
-      WebElement checkbox = webDriver.findElement(By.xpath(expectedState));
-      checkBox.click();
-      logger.info(checkBox.isSelected());
-    } catch (Exception e) {
-      stopTestAndPrintMessage();
-    }
-  }
-
   public void setSateToCheckBox(WebElement checkBox, String expectedState) {
     boolean isStateCheck = expectedState.toLowerCase().equals("check");
     boolean isStateUnCheck = expectedState.toLowerCase().equals("uncheck");
