@@ -9,7 +9,7 @@ import parrentPage.ParentPage;
 
 public class SparesPage extends ParentPage {
     public SparesPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares");
     }
 
     @FindBy(xpath = "//tbody/tr[last()]/td[1]")

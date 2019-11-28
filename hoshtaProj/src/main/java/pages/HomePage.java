@@ -8,7 +8,7 @@ import parrentPage.ParentPage;
 
 public class HomePage extends ParentPage {
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     @FindBy(id = "spares")
