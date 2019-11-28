@@ -90,6 +90,7 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+/*   this is my own method from homework
 
     public void setStateToCheckBox(WebElement webelement, String expectedState) {
         if ("check".equals(expectedState) || "uncheck".equals(expectedState)) {
@@ -116,5 +117,23 @@ public class ActionsWithOurElements {
             Assert.fail("State should be 'check' or 'uncheck'");
         }
     }
+*/
 
+     public void setStateToCheckBox (WebElement checkBox, String state) {
+         boolean isStateCheck = state.toLowerCase().equals("check");
+         boolean isStateUncheck = state.toLowerCase().equals("uncheck");
+         boolean isCheckBoxSelected = checkBox.isSelected();
+
+         if (isStateCheck || isStateUncheck) {
+             if ((isStateCheck && isCheckBoxSelected) || (isStateUncheck && !isCheckBoxSelected)) {
+                 logger.info ("CheckBox is already in needed state");
+             } else  if ((isStateCheck && !isCheckBoxSelected) || (isStateUncheck && isCheckBoxSelected)) {
+                 clickOnElement(checkBox);
+             }
+
+         } else {
+             logger.error("State should be only 'check' or 'uncheck'");
+             stopTestAndPrintMessage();
+         }
+     }
 }
