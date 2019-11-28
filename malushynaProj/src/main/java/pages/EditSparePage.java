@@ -7,10 +7,10 @@ import parentPage.ParentPage;
 
 public class EditSparePage extends ParentPage {
 
-    @Override
-    public String getExpectedUrl() {
-        return "http://v3.test.itpmgroup.com/dictionary/spares/edit";
-    }
+//    @Override
+//    public String getExpectedUrl() {
+//        return "http://v3.test.itpmgroup.com/dictionary/spares/edit";
+//    }
 
     @FindBy(id = "spares_spareName")
     private WebElement inputSpareName;
@@ -25,7 +25,7 @@ public class EditSparePage extends ParentPage {
     private WebElement buttonDelete;
 
     public EditSparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
     public void enterSpareNameIntoInput(String spareName) {

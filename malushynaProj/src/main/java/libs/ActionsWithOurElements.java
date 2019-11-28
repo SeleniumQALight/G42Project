@@ -86,26 +86,43 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void setStateToCheckBox(WebElement checkbox, String expectedState) {
-        try {
-            if (expectedState == "check") {
-                if (!checkbox.isSelected()) {
-                    checkbox.click();
-                    logger.info("Checkbox was checked");
-                } else {
-                    logger.info("Checkbox is already checked");
-                }
-            } else if (expectedState == "uncheck") {
-                if (checkbox.isSelected()) {
-                    checkbox.click();
-                    logger.info("Checkbox was unchecked");
-                } else {
-                    logger.info("Checkbox is already unchecked");
-                }
-            } else {
-                logger.error("Incorrect expected state: state should be check or uncheck");
+//    public void setStateToCheckBox(WebElement checkbox, String expectedState) {
+//        try {
+//            if (expectedState == "check") {
+//                if (!checkbox.isSelected()) {
+//                    checkbox.click();
+//                    logger.info("Checkbox was checked");
+//                } else {
+//                    logger.info("Checkbox is already checked");
+//                }
+//            } else if (expectedState == "uncheck") {
+//                if (checkbox.isSelected()) {
+//                    checkbox.click();
+//                    logger.info("Checkbox was unchecked");
+//                } else {
+//                    logger.info("Checkbox is already unchecked");
+//                }
+//            } else {
+//                logger.error("Incorrect expected state: state should be check or uncheck");
+//            }
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
+
+    public void setStateToCheckBox(WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+
+        if (isStateCheck || isStateUnCheck){
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("Checkbox ia already in needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected)||(isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkBox);
             }
-        } catch (Exception e) {
+        } else{
+            logger.error("State shoula be only check or uncheck");
             stopTestAndPrintMessage();
         }
     }

@@ -9,10 +9,10 @@ import parentPage.ParentPage;
 
 public class HomePage extends ParentPage {
 
-    @Override
-    public String getExpectedUrl() {
-        return "http://v3.test.itpmgroup.com/";
-    }
+//    @Override
+//    public String getExpectedUrl() {
+//        return "http://v3.test.itpmgroup.com/";
+//    }
 
     @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement avatar;
@@ -27,7 +27,7 @@ public class HomePage extends ParentPage {
     private WebElement subMenuProviders;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver , "/");
     }
 
     public boolean isAvatarDisplayed() {
