@@ -13,9 +13,11 @@ public class HomePage extends ParentPage {
     private WebElement menuDictionary;
     @FindBy(id = "spares")
     private WebElement subMenuSpares;
+    @FindBy(xpath = ".//a[@href = '/dictionary/providers']")
+    private WebElement menuProviders;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public boolean isAvatarDisplayed() {
@@ -39,6 +41,10 @@ public class HomePage extends ParentPage {
 
     public void clickOnMenuDictionary() {
         actionsWithOurElements.clickOnElement(menuDictionary);
+    }
+
+    public void clickOnMenuProviders() {
+        actionsWithOurElements.clickOnElement(menuProviders);
     }
 
     public void clickOnSubMenuSpares(){

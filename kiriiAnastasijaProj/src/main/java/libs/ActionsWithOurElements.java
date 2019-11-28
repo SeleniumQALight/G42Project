@@ -19,7 +19,7 @@ public class ActionsWithOurElements {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + "was inputed into input");
+            logger.info(text + " was inputed into input");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
@@ -44,16 +44,6 @@ public class ActionsWithOurElements {
             return false;
         }
     }
-
-//    public void selectOnDropdownElement(WebElement dropDown, String detailType) {
-//        try{
-//            Select select = new Select(dropDown);
-//            select.selectByVisibleText(detailType);
-//            logger.info("Element was selected");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
 
     public void selectInDropdownElement(WebElement dropDown, String value) {
         try {
@@ -81,10 +71,48 @@ public class ActionsWithOurElements {
     }
 
     public void clickOnElement(String xpath) {
-        try{
+        try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
+    }
+
+    public void setStateToCheckBox(WebElement checkbox, String expectedState) {
+//        boolean isChecked = webElement.isSelected();
+//        try {
+//            if (expectedState == "check") {
+//                if (isChecked == false) {
+//                    webElement.click();
+//                    logger.info("Check element ");
+//                } else {
+//                    logger.info("Element is already checked " + isChecked);
+//                }
+//            }
+//            if (expectedState == "uncheck") {
+//                if (isChecked == true) {
+//                    webElement.click();
+//                    logger.info("Uncheck element ");
+//                } else {
+//                    logger.info("Element is already unchecked" + isChecked);
+//                }
+//            }
+//        } catch (Exception e) {
+//            logger.info("Wrong status ");
+//        }
+        boolean isStateCheck = expectedState.toLowerCase().equals("check");
+        boolean isStateUnCheck = expectedState.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkbox.isSelected();
+
+        if(isStateCheck || isStateUnCheck) {
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("Checkbox is already needed state");
+            }else if ((isStateCheck && !isCheckBoxSelected) || (isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkbox);
+            }
+        }else{
+    logger.info("State should be equal only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
+            }
     }
 }
