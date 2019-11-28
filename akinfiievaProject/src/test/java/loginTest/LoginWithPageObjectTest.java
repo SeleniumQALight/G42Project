@@ -11,9 +11,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterLoginIntoInputLogin("Student");
         loginPage.enterPasswordIntoInputPassword("909090");
         loginPage.clickOnButtonVhod();
-
         checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed());
-
     }
 
     @Test
@@ -22,7 +20,6 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterLoginIntoInputLogin("Student");
         loginPage.enterPasswordIntoInputPassword("909090909090909099999");
         loginPage.clickOnButtonVhod();
-
         checkExpectedResult("Login page hasn't loaded", loginPage.isLoginBoxRefreshed());
     }
 
