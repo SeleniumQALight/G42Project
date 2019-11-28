@@ -21,7 +21,7 @@ public class LogInPage extends ParentPage {
 
 
     public LogInPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     public void openPage() {
