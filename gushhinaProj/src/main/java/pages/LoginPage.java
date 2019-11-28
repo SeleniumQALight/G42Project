@@ -16,7 +16,7 @@ public class LoginPage extends ParentPage {
     private WebElement buttonVhod;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     public void openPage() {
@@ -30,9 +30,10 @@ public class LoginPage extends ParentPage {
 
     public void enterLoginInToInputLogin(String login) {
      //   WebElement inputLogin = webDriver.findElement(By.name("_username")); We dont need it anymore cuz we tags @ it above
-        inputLogin.clear();
+       /* inputLogin.clear();
         inputLogin.sendKeys(login);
-        logger.info(login + " was imputed in to input Login");
+        logger.info(login + " was imputed in to input Login"); */
+       actionWithOurElements.enterTextInToInput(inputLogin, login);
     }
 
     public void enterPassInToInputPassword(String password) {
@@ -46,5 +47,11 @@ public class LoginPage extends ParentPage {
       //  WebElement buttonVhod  = webDriver.findElement(By.tagName("button"));  We dont need it anymore cuz we tags @ it above
         buttonVhod.click();
         logger.info("Button was clicked.");
+    }
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        enterLoginInToInputLogin(login);
+        enterPassInToInputPassword(pass);
+        clickOnButtonVhod();
     }
 }
