@@ -98,7 +98,7 @@
         </pluginManagement>
         <resources>
             <resource>
-                <directory>src/main/java/resourses</directory>
+                <directory>src/main/java/resources</directory>
             </resource>
             <resource>
                 <directory>src/main/java</directory>
