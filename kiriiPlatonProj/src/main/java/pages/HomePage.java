@@ -31,6 +31,7 @@ public class HomePage extends ParentPage {
 //        } catch (Exception e){
 //            return false;
 //        }
+
         return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
