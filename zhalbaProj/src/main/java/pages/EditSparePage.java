@@ -14,6 +14,9 @@ public class EditSparePage extends ParentPage {
 
   private WebElement spareTypeDD;
 
+  @FindBy ()
+  private WebElement checkbox;
+
   @FindBy(name = "add")
   private WebElement submitButton;
 
@@ -21,7 +24,7 @@ public class EditSparePage extends ParentPage {
   private WebElement deleteButton;
 
   public EditSparePage(WebDriver webDriver) {
-    super(webDriver);
+    super(webDriver, "/dictionary/spares/edit");
   }
 
   public void enterSpareNameIntoIput(String spareName) {
@@ -39,4 +42,10 @@ public class EditSparePage extends ParentPage {
   public void clickOnDeleteButton() {
     actionsWithOurElements.clickOnElement(deleteButton);
   }
+
+  public void setCheckbox(String expectedState) {
+    actionsWithOurElements.setSateToCheckBox(checkbox, expectedState);
+  }
 }
+
+
