@@ -21,7 +21,7 @@ public class HomePage extends ParentPage {
     private WebElement subMenuContractors;
 
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public boolean isAvatarDisplayed() {
