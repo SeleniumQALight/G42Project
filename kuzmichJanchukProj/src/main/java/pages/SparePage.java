@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +28,7 @@ public class SparePage extends ParentPage {
     WebElement createSpareButton;
 
     public SparePage(WebDriver driver) {
-        super(driver);
+        super(driver, "/dictionary/spares");
     }
 
     public void clickOnAddButton() {
@@ -59,10 +60,16 @@ public class SparePage extends ParentPage {
     }
 
     public void deleteSpareUntilPresent(String spareName) {
+        int counter = 0;
         EditSparePage editSparePage = new EditSparePage(driver);
         while (isSpareInList(spareName)) {
             clickOnSpare(spareName);
             editSparePage.clickOnDeleteButton();
+            log.info(counter + " spare was deleted.");
+            if (counter > 100) {
+                Assert.fail("Two many spares to delete!");
+            }
+            counter++;
         }
     }
 
