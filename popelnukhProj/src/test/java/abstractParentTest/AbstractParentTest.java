@@ -5,9 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SparePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -17,9 +15,13 @@ public class AbstractParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparePage sparePage;
+    protected EditSparePage editSparePage;
+    protected ProvidersEditPage providersEditPage;
+    protected ProvidersPage providersPage;
+
     @Before
     public void setUp(){
-        File file = new File("./src/drivers/chromedriver");
+        File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
@@ -27,13 +29,17 @@ public class AbstractParentTest {
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
+        providersEditPage = new ProvidersEditPage(webDriver);
+        providersPage = new ProvidersPage(webDriver);
+
     }
     @After
     public void tearDown(){
         webDriver.quit();
     }
 
-    public static void checkExpectedResult(String message, boolean actualResult) {
+    protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     }
 }
