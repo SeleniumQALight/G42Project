@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Objects;
+
 public class ActionsWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
@@ -91,5 +93,42 @@ public class ActionsWithOurElements {
         }catch (Exception e) {
             stopTestAndPrintMessage();
         }
+    }
+
+    //HW12
+//    public void setStateToCheckBox(WebElement webelement, String expectedState){
+//        try {
+//           boolean checkBox = webelement.isSelected();
+//            if (checkBox==true & expectedState.equals("N")){
+//                clickOnElement(webelement);
+//                logger.info("checkbox change state into " + expectedState);
+//            }else if (checkBox==false & expectedState.equals("Y")) {
+//                clickOnElement(webelement);
+//                logger.info("checkbox change state into " + expectedState);
+//            }else if (!expectedState.equals("Y")& !expectedState.equals("N")) {
+//                logger.error("Something went wrong");
+//                stopTestAndPrintMessage();
+//            }
+//        }catch (Exception e){
+//            stopTestAndPrintMessage();
+//        }
+//    }
+
+    public void setStateToCheckBox (WebElement checkBox, String state) {
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUncheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckboxSelected = checkBox.isSelected();
+
+        if (isStateCheck || isStateUncheck) {
+            if ((isStateCheck && isCheckboxSelected) || (isStateUncheck && !isCheckboxSelected)) {
+                logger.info("Checkbox is already in needed state");
+            } else if ((isStateCheck && !isCheckboxSelected) || (isStateUncheck && isCheckboxSelected)){
+                clickOnElement(checkBox);
+            }
+        }else {
+            logger.error("State should be only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
+        }
+
     }
 }
