@@ -1,10 +1,13 @@
 package abstractParentTest;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -21,10 +24,11 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
 
     @Before // секция бефор будет выполняться перед каждым тестом
-    public void setUp() {
-        File file = new File("./src/drivers/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        webdriver = new ChromeDriver(); //создали объект для браузера хром
+    public void setUp() throws Exception {
+//        File file = new File("./src/drivers/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+//        webdriver = new ChromeDriver(); //создали объект для браузера хром
+        webdriver = driverInit(); // аль+ентер добавить эксепшн в метод
 
         webdriver.manage().window().maximize();//сделать окно браузера на весь экран
         webdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);//каждые пол секунды по дефолту хром будет пробовать выполнить действие каждые пол
@@ -35,6 +39,23 @@ public class AbstractParentTest {
         sparePage = new SparePage(webdriver);
         editSparePage = new EditSparePage(webdriver);
 
+    }
+
+    private WebDriver driverInit() throws Exception { // throws Exception - заявили что этот метод может выбросить эксепшн
+        String browser = System.getProperty("browser");
+        if ((browser == null) || // когда хотим запустить тест не передавая ничего, по умолчанию будет хром
+        ("chrome".equalsIgnoreCase(browser))){ // equalsIgnoreCase - не важно что нам передадут, оно будет сравнено, в любом регистре
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
+        } else if ("firefox".equalsIgnoreCase(browser)) {
+            WebDriverManager.firefoxdriver().setup(); // setup - подтягивает настройки
+            return new FirefoxDriver(); // на пк должен быть фаерфокс иначе тест не запустится
+        } else if ("ie".equalsIgnoreCase(browser)) {
+            WebDriverManager.iedriver().arch32().setup();
+            return new InternetExplorerDriver();
+        } else {
+            throw  new Exception("Check browser var"); // аль+ентер выбрать первое add exception to method; это создание своего эксепшена
+        }
     }
 
 

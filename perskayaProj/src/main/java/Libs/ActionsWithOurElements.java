@@ -5,15 +5,20 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.EditSparePage;
 
 public class ActionsWithOurElements {
     WebDriver webDriver; //обявляем переменную webDriver
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10, webDriverWait_15; //обявили переменные
     public ActionsWithOurElements(WebDriver webDriver) { // на пустом месте правая кн. клавиатуры / Generate / Constructor чтоб вручную его не создавать
         this.webDriver = webDriver;
-    }
+        webDriverWait_10 = new WebDriverWait(webDriver, 10); // 10 максимальное кол-во времени но какого-то момента, если элемент появится раньше, то 10 сек ждать дальше не будет
+        webDriverWait_15 = new WebDriverWait(webDriver, 15);
+        }
 
     public void enterTextInToInput (WebElement webElement, String text ) { // webElement - это элемент куда хотим ввести текст, text - это сам текст
         try {
@@ -27,6 +32,10 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) { // метод который кликает на элемент
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement)); //вебдрайвер жди пока элемент не станет кликабельным,
+            // ExpectedConditions - библиотека с методами
+//            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement)); // вебрайвер дождись пока элемент станет не кликабельным
+
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e){
