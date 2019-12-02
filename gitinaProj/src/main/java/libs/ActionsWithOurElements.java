@@ -3,7 +3,9 @@ package libs;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.management.ValueExp;
 import java.util.List;
@@ -11,12 +13,14 @@ import java.util.List;
 public class ActionsWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
-
+    WebDriverWait webDriverWait_10, webDriverWait_15;
     private final String CHECK_BOX_SELECTED = "Selected";
     private final String CHECK_BOX_UNSELECTED = "Unselected";
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait_10 = new WebDriverWait(webDriver, 10);
+        webDriverWait_15 = new WebDriverWait(webDriver, 15);
     }
 
     public void enterTextIntoInput(WebElement webElement, String text) {
@@ -42,6 +46,8 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+//            webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             webElement.click();
             logger.info("Element was clicked");
 
@@ -118,7 +124,7 @@ public class ActionsWithOurElements {
                 logger.debug("Nothing to do");
             } else {
                 logger.info("Setting checkbox to: " + expectedState);
-         clickOnElement(webelement);
+                clickOnElement(webelement);
             }
         } else {
             if ((expectedState.equals(CHECK_BOX_SELECTED))) {
@@ -141,7 +147,7 @@ public class ActionsWithOurElements {
 
             if ((isStateCheck && isCheckBoxSelected) || (isStateUncheck && !isCheckBoxSelected)) {
                 logger.info("Checkbox is already in needed state");
-            }else if ((isStateCheck&&!isCheckBoxSelected)||(isStateUncheck&&isCheckBoxSelected)){
+            } else if ((isStateCheck && !isCheckBoxSelected) || (isStateUncheck && isCheckBoxSelected)) {
                 clickOnElement(checkbox);
             }
             {
