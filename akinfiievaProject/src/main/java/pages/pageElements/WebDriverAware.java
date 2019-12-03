@@ -1,10 +1,8 @@
 package pages.pageElements;
 
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 public interface WebDriverAware{
 
     void setWebDriver(WebDriver driver);
-    }
 }
