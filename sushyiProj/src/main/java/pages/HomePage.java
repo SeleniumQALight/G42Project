@@ -5,17 +5,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.LeftMenu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class HomePage extends ParentPage {
     @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement avatar;
 
-    @FindBy(id = "dictionary")
-    private WebElement menuDictionary;
+//    @FindBy(id = "dictionary")
+//    private Link menuDictionary;
+//
+//    @FindBy(id = "spares")
+//    private Link subMenuSpares;
 
-    @FindBy(id = "spares")
-    private WebElement subMenuSpares;
+   public LeftMenu leftMenu;
 
     public HomePage(WebDriver webDriver) {
 
@@ -36,11 +40,12 @@ public class HomePage extends ParentPage {
         Assert.assertTrue("Avatar is not displayed" , isAvatarDisplayed());
     }
 
-    public void clickOnMenuDictionary() {
-        actionsWithOurElements.clickOnElement(menuDictionary);
-    }
-
-    public void clickOnSubMenuSpares() {
-        actionsWithOurElements.clickOnElement(subMenuSpares);
-    }
+//    public void clickOnMenuDictionary() {
+//        actionsWithOurElements.clickOnElement(menuDictionary);
+//    }
+//
+//    public void clickOnSubMenuSpares() {
+//
+//        actionsWithOurElements.clickOnElement(subMenuSpares);
+//    }
 }
