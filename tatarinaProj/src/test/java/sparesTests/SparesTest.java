@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Test;
 
 public class SparesTest extends AbstractParentTest{
-    private final String spareName = "TatarinaSpare" + Utils.getDateAndTimeFormated();
+    private final String spareName = "TatarinaSpare " + Utils.getDateAndTimeFormated();
     @Test
     public void addNewSpare(){
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
