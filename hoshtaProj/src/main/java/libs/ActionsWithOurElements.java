@@ -1,18 +1,25 @@
 package libs;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurElements {
     private WebDriver webDriver;
     private Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10, webDriverWait_15;
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+        this.webDriverWait_10 = new WebDriverWait(webDriver, configProperties.TIME_FOR_DFFAULT_WAIT());
+        this.webDriverWait_15 = new WebDriverWait(webDriver, configProperties.TIME_FOR_EXPLICIT_WAIT_LOW());
     }
 
     public void enterTextIntoInput(WebElement webElement, String text) {
@@ -25,8 +32,10 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void clickElement(WebElement webElement){
+    public void clickElement(WebElement webElement) {
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+            //webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -34,7 +43,7 @@ public class ActionsWithOurElements {
         }
     }
 
-    public boolean isElementDisplayed(WebElement webElement){
+    public boolean isElementDisplayed(WebElement webElement) {
         String elementIsNotDisplayedMessage = "Element is not displayed";
         try {
             boolean state = webElement.isDisplayed();
@@ -72,21 +81,21 @@ public class ActionsWithOurElements {
     }
 
     public void selectValueInDDByJava(WebElement dropDoown, String value) {
-        try{
+        try {
             Select select = new Select(dropDoown);
             select.selectByValue(value);
             logger.info(value + " value was selected in dropdown");
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
 
     public void selectVisibleTextInDDByJava(WebElement dropDoown, String text) {
-        try{
+        try {
             Select select = new Select(dropDoown);
             select.selectByVisibleText(text);
             logger.info(text + " value was selected in dropdown");
-        }catch (Exception e){
+        } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
@@ -95,6 +104,20 @@ public class ActionsWithOurElements {
     public void clickElement(String locator) {
         try {
             webDriver.findElement(By.xpath(locator)).click();
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void setSateToCheckBox(WebElement webelement, String expectedState) {
+        try {
+            String actualState = webelement.isSelected() ? "checked" : "unchecked";
+            if (!actualState.equals(expectedState)) {
+                webelement.click();
+                logger.info("State of checkbox was changed to " + expectedState);
+            } else {
+                logger.info("State of checkbox is already " + expectedState);
+            }
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }

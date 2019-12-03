@@ -9,7 +9,7 @@ import parentPage.ParentPage;
 public class LoginPage extends ParentPage {
     public LoginPage(WebDriver webDriver) {
 
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     @FindBy (name = "_username")
@@ -31,31 +31,28 @@ public class LoginPage extends ParentPage {
 
     public void enterLoginIntoInputLogin(String login) {
 //        WebElement inputLogin = webDriver.findElement(By.name("_username"));
-        inputLogin.clear();
-        inputLogin.sendKeys(login);
-        logger.info(login + " was inputted into input Login");
-
-
+//        inputLogin.clear();
+//        inputLogin.sendKeys(login);
+//        logger.info(login + " was inputted into input Login");
+        actionsWithOurElements.enterTextIntoInput (inputLogin, login);
     }
 
     public void enterPassIntoInputPassword(String password) {
-//        WebElement inputPass = webDriver.findElement(By.id("password"));
-        inputPass.clear();
-        inputPass.sendKeys(password);
-        logger.info("\"" + password + "\""  + " was inputted into input Password");
+        actionsWithOurElements.enterTextIntoInput(inputPass, password);
     }
 
-    public void clickonButtonVhod() {
-//        WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-        buttonVhod.click();
-        logger.info("Button was clicked");
+    public void clickOnButtonVhod() {
+        actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
     public boolean isSubmitButtonPresent () {
-        try {
-            return buttonVhod.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+        return actionsWithOurElements.isElementDisplayed(buttonVhod);
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String password) {
+        openPage();
+        enterLoginIntoInputLogin(login);
+        enterPassIntoInputPassword(password);
+        clickOnButtonVhod();
     }
 }

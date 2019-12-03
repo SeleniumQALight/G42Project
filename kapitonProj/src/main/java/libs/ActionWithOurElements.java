@@ -6,15 +6,20 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10 , webDriverWait_15;
 
 
     public ActionWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait_10 = new WebDriverWait(webDriver, 10);
+        webDriverWait_15 = new WebDriverWait(webDriver, 15);
     }
 
     public void enterTextInToInput(WebElement webElement, String text) {
@@ -24,22 +29,19 @@ public class ActionWithOurElements {
             logger.info(text + " was inputted in to input");
         } catch (Exception e) {
             stopTestAndPrintMessage();
-
         }
-
-
     }
 
     public void clickOnElement(WebElement webElement) {
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+            //webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
-
     }
-
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
@@ -50,7 +52,6 @@ public class ActionWithOurElements {
             return false;
         }
     }
-
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element");
         Assert.fail("Can not work with element");
@@ -65,7 +66,6 @@ public class ActionWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
     public boolean isElementDisplayed(String locator) {
         try {
             return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
@@ -81,5 +81,20 @@ public class ActionWithOurElements {
             stopTestAndPrintMessage();
         }
 
+    }
+    public void setStateToCheckBox(WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+        if (isStateCheck || isStateUnCheck){
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("CheckBox is already needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected) || (isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkBox);
+            }
+        }else {
+            logger.error("State should be only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
+        }
     }
 }

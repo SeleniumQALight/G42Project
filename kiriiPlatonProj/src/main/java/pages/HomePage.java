@@ -17,8 +17,11 @@ public class HomePage extends ParentPage {
     @FindBy(id = "spares")
     private WebElement subMenuSpares;
 
+    @FindBy(id = "prov_cus")
+    private WebElement subMenuContractors;
+
     public HomePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public boolean isAvatarDisplayed() {
@@ -28,6 +31,7 @@ public class HomePage extends ParentPage {
 //        } catch (Exception e){
 //            return false;
 //        }
+
         return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
@@ -41,5 +45,9 @@ public class HomePage extends ParentPage {
 
     public void clickOnSubMenuSpares() {
         actionsWithOurElements.clickOnElement(subMenuSpares);
+    }
+
+    public void clickOnSubMenuContractors() {
+        actionsWithOurElements.clickOnElement(subMenuContractors);
     }
 }

@@ -8,8 +8,12 @@ import parentPage.ParentPage;
 
 import java.lang.ref.SoftReference;
 
-//в этом классе будут все действия для страницы логин
 public class LoginPage extends ParentPage {
+
+//    @Override
+//    public String getExpectedUrl() {
+//        return "http://v3.test.itpmgroup.com/login";
+//    }
 
     @FindBy(name = "_username")
     private WebElement inputLogin;
@@ -20,11 +24,8 @@ public class LoginPage extends ParentPage {
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
 
-    public String Url = "http://v3.test.itpmgroup.com/login";
-
-
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     public void openPage() {
@@ -68,6 +69,5 @@ public class LoginPage extends ParentPage {
         enterLoginIntoInputLogin(login);
         enterPassIntoInputPassword(pass);
         clickOnButtonVhod();
-
     }
 }

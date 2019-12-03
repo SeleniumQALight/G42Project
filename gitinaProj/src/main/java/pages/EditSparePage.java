@@ -10,22 +10,39 @@ public class EditSparePage extends ParentPage {
     private WebElement spareNameInput;
 
     @FindBy(id = "spares_spareType")
-    private WebElement spareTypeDD; //дропдаун в закрытом состоянии
+    private WebElement spareTypeDDClosed; //дропдаун в закрытом состоянии
+
     @FindBy(name = "add")
     private WebElement submitButton;
     @FindBy(name = "delete")
     private WebElement buttonDelete;
 
     public EditSparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
-    public void enterSparenameIntoInput(String spareName) {
+    public void enterSpareNameIntoInput(String spareName) {
         actionsWithOurElements.enterTextIntoInput(spareNameInput, spareName);
     }
 
     public void selectSpareTypeFromDropdown(String spareType) {
-        actionsWithOurElements.selectVisibleTextinDDbyJava(spareTypeDD, spareType);
+        actionsWithOurElements.selectVisibleTextInDDbyJava(spareTypeDDClosed, spareType);
+    }
+
+    public void selectSpareTypeFromDropDownValue(String value) {
+        try {
+            actionsWithOurElements.selectValueInSpareDDXpathByOption(spareTypeDDClosed, value);
+        } catch (Exception e) {
+            logger.info("No such option in DropDown");
+        }
+    }
+
+    public void selectSpareTypeFromDropDownText(String text) {
+        try {
+            actionsWithOurElements.selectValueInSpareDDXpathByText(spareTypeDDClosed, text);
+        } catch (Exception e) {
+            logger.info("No such option in DropDown");
+        }
     }
 
     public void clickOnSubmitButton() {

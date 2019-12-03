@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class SparePage extends ParentPage {
 
     public SparePage(WebDriver webDriver) {
 
-        super(webDriver);
+        super(webDriver, "/dictionary/spares");
     }
 
     public void clickOnAddButton() {
@@ -27,10 +28,16 @@ public class SparePage extends ParentPage {
     }
 
     public void deleteSpareUntilPresent(String spareName) {
+        int counter = 0;
         EditSparePage editSparePage = new EditSparePage(webDriver);
-        while (isSpareInList(spareName)){
+        while (isSpareInList(spareName)){                                       //удаляет ранее добавленный пункт (запчасть), пока он не перестанет находиться в списке
             clickOnSpare (spareName);
             editSparePage.clickOnDeleteButton();
+            logger.info(counter + " spare was deleted");
+            if (counter > 100) {
+                Assert.fail("There are more then 100 spares.");  //останавливаем тест, если после 100 удалений запчасть все еще есть в списке
+            }
+            counter ++;   // к каждому удалению добавляем 1, пока не будет 100 попыток
         }
     }
 
