@@ -8,8 +8,10 @@ public class SparesTest extends AbstractParentTest {
     public void addNewSpare(){
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnSubMenuSpares();
+       // homePage.clickOnMenuDictionary();
+       // homePage.clickOnSubMenuSpares();
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnSubMenuSpare();
         sparePage.clickOnAddButton();
     }
 }

@@ -11,7 +11,7 @@ public class SparePage extends ParentPage {
 
 
     public SparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public void clickOnAddButton() {
