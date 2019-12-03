@@ -37,6 +37,7 @@ public class ActionsWithOurElements {
 
     public boolean isElementDisplayed(WebElement webElement){
         try {
+           //wait10 .element is present
            boolean state = webElement.isDisplayed();
            logger.info("Is element displayed -> " + state);
            return state;
