@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -29,10 +30,18 @@ public class ActionsWithOurElements {
     public void clickOnElement(WebElement webElement){
         try {
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked"+ getElementName (webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
+    }
+
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement){
+            elementName = "'" + ((TypifiedElement) webElement).getName() + "'";
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement webElement){
