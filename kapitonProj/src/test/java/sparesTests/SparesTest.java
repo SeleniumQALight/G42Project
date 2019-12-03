@@ -14,8 +14,11 @@ public class SparesTest extends AbstractParentTest {
         homePage.checkCurrentUrl();//проверка попали ли мы на правильную страницу
 
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnSubMenuSpares();
+//        homePage.clickOnMenuDictionary();
+//        homePage.clickOnSubMenuSpares();
+
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnSubMenuSpare();
 
         sparesPage.checkCurrentUrl();//проверка попали ли мы на правильную страницу
 
