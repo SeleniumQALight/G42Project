@@ -29,10 +29,7 @@ public class ActionWithOurElements {
             logger.info(text + " was inputted in to input");
         } catch (Exception e) {
             stopTestAndPrintMessage();
-
         }
-
-
     }
 
     public void clickOnElement(WebElement webElement) {
@@ -44,9 +41,7 @@ public class ActionWithOurElements {
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
-
     }
-
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
@@ -57,7 +52,6 @@ public class ActionWithOurElements {
             return false;
         }
     }
-
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element");
         Assert.fail("Can not work with element");
@@ -72,7 +66,6 @@ public class ActionWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
     public boolean isElementDisplayed(String locator) {
         try {
             return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
