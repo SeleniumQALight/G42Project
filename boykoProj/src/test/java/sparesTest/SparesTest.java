@@ -12,8 +12,10 @@ public class SparesTest extends AbstractParentTest {
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
         homePage.checkCurrentUrl();
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnSubmenuSpares();
+//        homePage.clickOnMenuDictionary();
+//        homePage.clickOnSubmenuSpares();
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnSubMenuSpare();
         sparePage.checkCurrentUrl();
         sparePage.deleteSpareUntilPresent(spareName);
 
