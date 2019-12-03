@@ -28,7 +28,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     public void emptyData() {
         loginPage.openPage();
         loginPage.fillingLoginFormAndSubmitIt("", "");
-        Assert.assertEquals(loginPage.getCurrentUrl(), "http://v3.test.itpmgroup.com/login");
+        loginPage.checkCurrentUrl();
         Assert.assertEquals(loginPage.getTitle(), "Account of spare:Авторизация");
         Assert.assertTrue("ButtonVhod is displayed", loginPage.isPageLoaded());
     }
@@ -37,7 +37,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     public void invalidLoginValidPass() {
         loginPage.openPage();
         loginPage.fillingLoginFormAndSubmitIt("Student1", "909090");
-        Assert.assertEquals(loginPage.getCurrentUrl(), "http://v3.test.itpmgroup.com/login");
+        loginPage.checkCurrentUrl();
         Assert.assertEquals(loginPage.getTitle(), "Account of spare:Авторизация");
         Assert.assertTrue("ButtonVhod is displayed", loginPage.isPageLoaded());
     }
@@ -46,7 +46,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     public void invalidLoginInvalidPass() {
         loginPage.openPage();
         loginPage.fillingLoginFormAndSubmitIt("Student1", "000000");
-        Assert.assertEquals(loginPage.getCurrentUrl(), "http://v3.test.itpmgroup.com/login");
+        loginPage.checkCurrentUrl();
         Assert.assertEquals(loginPage.getTitle(), "Account of spare:Авторизация");
         Assert.assertTrue("ButtonVhod is displayed", loginPage.isPageLoaded());
     }
@@ -54,7 +54,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
     public void validLoginInvalidPass() {
         loginPage.openPage();
         loginPage.fillingLoginFormAndSubmitIt("Student", "000000");
-        Assert.assertEquals(loginPage.getCurrentUrl(), "http://v3.test.itpmgroup.com/login");
+        loginPage.checkCurrentUrl();
         Assert.assertEquals(loginPage.getTitle(), "Account of spare:Авторизация");
         Assert.assertTrue("ButtonVhod is displayed", loginPage.isPageLoaded());
     }
