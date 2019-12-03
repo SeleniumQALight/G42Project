@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -24,7 +25,7 @@ public class ActionsWithOurElements {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + "was inputed into field");
+            logger.info(text + " was inputed into field");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
@@ -34,10 +35,18 @@ public class ActionsWithOurElements {
         try {
             webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked " + getElementName(webElement));
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
+    }
+
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement) {
+            elementName = "'" + ((TypifiedElement) webElement).getName() + "'";
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement webElement) {
@@ -55,7 +64,7 @@ public class ActionsWithOurElements {
         Select dropDownValue = new Select(webElement);
         try {
             dropDownValue.selectByVisibleText(itemName);
-            logger.info(itemName + "was selected in dropdown");
+            logger.info(itemName + " was selected in dropdown");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
