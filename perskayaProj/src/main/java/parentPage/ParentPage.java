@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.EditSparePage;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 public class ParentPage {
     protected WebDriver webdriver; // чтоб создать конструктор на webdriver жмем Alt+Insert, выбираем конструктор, ок. С помощью конструктора можно параметризировать
@@ -26,8 +28,13 @@ public class ParentPage {
 
         baseUrl = configProperties.base_url();
 
-        PageFactory.initElements(webdriver, this); //PageFactory - класс который умеет инициализировать элементы от файнд бай
+//        PageFactory.initElements(webdriver, this); //PageFactory - класс который умеет инициализировать элементы от файнд бай
         // webdriver - говорим в каком браузере будем инициализировать, this - элементы какой страницы инициализируем, т.е. той с которой происходит обращение
+
+        PageFactory.initElements( //библиотека, теперь вместо WebElement можем писать название элементов яндекса
+                new HtmlElementDecorator(
+                        new HtmlElementLocatorFactory(webdriver))
+                ,this);
         actionsWithOurElements = new ActionsWithOurElements(webdriver);
 
         expectedUrl = baseUrl + partUrl;

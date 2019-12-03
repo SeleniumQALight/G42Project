@@ -1,5 +1,6 @@
 package Libs;
 
+import org.apache.commons.lang3.reflect.Typed;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.EditSparePage;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     WebDriver webDriver; //обявляем переменную webDriver
@@ -40,10 +42,18 @@ public class ActionsWithOurElements {
 //            также можно использовать and и or
 
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked" + getElementName(webElement)); //
         } catch (Exception e){
            stopTestAndPrintMassage();
         }
+    }
+
+    private String getElementName(WebElement webElement) { // если есть какой-то тип элемента яндекса, тогда выполняется иф, если нет то elementName = ""
+        String elementName = "";
+        if (webElement instanceof TypifiedElement) { // если вебелемент это TypifiedElement - тип элементов яндекса, тогда в элемент нейм запиши instanceof - cравнение
+        elementName = " '" + ((TypifiedElement) webElement).getName() + "'"; //(TypifiedElement) webElement - явное приведение переменной webElement к типу TypifiedElement
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed (WebElement webElement) { // метод, который проверяет отображение элемента

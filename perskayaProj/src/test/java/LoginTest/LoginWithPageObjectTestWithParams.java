@@ -2,13 +2,28 @@ package LoginTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(Parameterized.class) // говорим джейюниту запусти этот класс несколько раз
 public class LoginWithPageObjectTestWithParams extends AbstractParentTest { //alt+insert / constructor / выбираем обе переменные
 String login, pass;
 
     public LoginWithPageObjectTestWithParams(String login, String pass) { // конструктор
         this.login = login;
         this.pass = pass;
+    }
+
+    @Parameterized.Parameters(name = "Parameters are {0} and {1}")  //@Parameterized.Parameters; в скобках указываем номер параметров 0  и 1
+    public static Collection testData(){
+       return Arrays.asList(new Object[][]// Object[][] - двухмерный массив для каждого набора данных
+               {{"Student", "906090"},
+               {"login", "909090"}
+    }
+       );
     }
 
     @Test
