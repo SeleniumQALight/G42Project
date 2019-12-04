@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 public class ParentPage {
     protected WebDriver webDriver;
@@ -21,7 +23,11 @@ public class ParentPage {
     public ParentPage(WebDriver webDriver, String partUrl) {
         this.webDriver = webDriver;
         baseUrl = configProperties.base_url();
-        PageFactory.initElements(webDriver, this);
+       // PageFactory.initElements(webDriver, this);
+        PageFactory.initElements(
+                new HtmlElementDecorator(
+                        new HtmlElementLocatorFactory(webDriver))
+                ,this);
         actionWithOurElements = new ActionWithOurElements(webDriver);
         expectedUrl = baseUrl + partUrl;
     }

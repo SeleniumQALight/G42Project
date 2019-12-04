@@ -5,14 +5,20 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10, getWebDriverWait_15;
 
     public ActionWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait_10 = new WebDriverWait(webDriver, 10);
+        getWebDriverWait_15 = new WebDriverWait(webDriver,15);
     }
     public void enterTextInToInput(WebElement webElement, String text){
         try { webElement.clear();
@@ -25,11 +31,20 @@ public class ActionWithOurElements {
 
     public void clickOnElement(WebElement webElement){
         try{
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked" + getElementName(webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
+    }
+
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement){
+            elementName = " '" + ((TypifiedElement) webElement).getName()+"'";
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement webElement){
