@@ -24,6 +24,8 @@ public class SparesTest extends AbstractParentTest {
         editSparePage.selectSpareTypeFromDropDownMethodJava("Датчики"); //choosing value from drop down with help of Java
         editSparePage.clickOnCreateSpareButton();
         sparePage.checkCurrentUrl();
+       // homePage.leftmenu.clickOnMenuDictionary(); обращение к левой менюшке, вынесенной в отдельный класс, клик на элементе
+       // homePage.leftmenu.clickOnSubmenuSpares();
         sparePage.checkDictionaryPageisDisplayed();
         checkExpectedResult("Can not find spare in list", sparePage.isSpareInList(spareName));
         //sparePage.checkNewSpare();
