@@ -2,8 +2,10 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
@@ -44,5 +46,57 @@ public class ActionWithOurElements {
     private void stopTestAndPrintMessage() {
         logger.error("Can not work with element ");
         Assert.fail("Can not work with element ");
+    }
+    public void selectValueInDDbyJava(WebElement dropDown, String value){
+        try{
+            Select select = new Select(dropDown);
+            select.selectByValue(value);
+            logger.info(value + " was selected in Drop Down");
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
+    public void selectVisibleTextInDDbyJava(WebElement dropDown, String text){
+        try{
+            Select select = new Select(dropDown);
+            select.selectByVisibleText (text);
+            logger.info(text + " was selected in Drop Down");
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public boolean isElementDisplayed(String locator){
+        try{
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xpath) {
+        try {
+            clickOnElement(webDriver.findElement(By.xpath(xpath)));
+        }catch (Exception e){
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void setStateToCheckBox(WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+
+        if(isStateCheck || isStateUnCheck){
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)) {
+                logger.info("Checkbox is already in needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected)||(isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkBox);
+            }
+        }else{
+            logger.error("State should be only check or uncheck");
+            stopTestAndPrintMessage();
+        }
+
     }
 }
