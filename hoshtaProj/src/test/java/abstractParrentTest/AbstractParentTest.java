@@ -1,16 +1,18 @@
 package abstractParrentTest;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import pages.EditSparePage;
-import pages.LoginPage;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.SparesPage;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
@@ -21,16 +23,33 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
 
     @Before
-    public void setUp(){
-        File file = new File("./src/Drivers/chromedriver");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        webDriver = new ChromeDriver();
+    public void setUp() throws Exception {
+//        File file = new File("./src/Drivers/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+//        webDriver = new ChromeDriver();
+        webDriver = driverInit();
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver);
         editSparePage = new EditSparePage(webDriver);
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    private WebDriver driverInit() throws Exception {
+        String browser = System.getProperty("browser");
+        if ((browser == null) || ("chrome".equalsIgnoreCase(browser))){
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
+        } else if ("firefox".equalsIgnoreCase(browser)){
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+        } else if ("ie".equalsIgnoreCase(browser)){
+            WebDriverManager.iedriver().setup();
+            return new InternetExplorerDriver();
+        } else {
+            throw new Exception("Check browser var");
+        }
     }
 
     @After

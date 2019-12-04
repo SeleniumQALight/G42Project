@@ -11,6 +11,7 @@ public class LoginWithPageObjectTest extends AbstractParentTest{
         loginPage.enterPassInToInputPassWord("909090");
         loginPage.clickOnButtonVhod();
 
+        //кейс когда мы не указываем переменную
         checkExpectedResult("Avatar is not present"
                 , homePage.isAvatarDisplayed());
 

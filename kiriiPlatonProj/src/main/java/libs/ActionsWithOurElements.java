@@ -22,6 +22,7 @@ public class ActionsWithOurElements {
 
     public void enterTextIntoInput(WebElement element, String text) {
         try {
+            wait.until(ExpectedConditions.visibilityOf(element));
             element.clear();
             element.sendKeys(text);
             logger.info(text + " was inputed into input");
@@ -32,6 +33,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement element) {
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
             logger.info(" Element was clicked");
         } catch (Exception e) {
@@ -41,6 +43,7 @@ public class ActionsWithOurElements {
 
     public boolean isElementDisplayed(WebElement element) {
         try {
+            wait.until(ExpectedConditions.visibilityOf(element));
             boolean state = element.isDisplayed();
             logger.info("Is element displayed -> " + state);
             return state;
@@ -52,6 +55,7 @@ public class ActionsWithOurElements {
 
     public void selectOptionByTextFromDropdown(WebElement dropdown, String text) {
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(dropdown));
             Select select = new Select(dropdown);
             select.selectByVisibleText(text);
             logger.info(text + " was selected from dropdown");
@@ -63,6 +67,7 @@ public class ActionsWithOurElements {
 
     public void selectOptionByValueFromDropdown(WebElement dropdown, String value) {
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(dropdown));
             Select select = new Select(dropdown);
             select.selectByValue(value);
             logger.info(value + " was selected from dropdown");
@@ -81,6 +86,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(String xpath) {
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
         } catch (Exception e) {
             stopTestAndPrintMessage();

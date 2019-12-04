@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SparePage;
@@ -21,6 +22,7 @@ public class AbstractParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparePage sparePage;
+    protected EditSparePage editSparePage;
 
 
     @Before
@@ -37,6 +39,7 @@ public class AbstractParentTest {
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparePage = new SparePage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
     }
 
     private WebDriver driverInit() throws Exception {

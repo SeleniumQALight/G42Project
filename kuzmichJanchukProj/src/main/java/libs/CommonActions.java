@@ -5,14 +5,19 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonActions {
-    WebDriver driver;
-    Logger log = Logger.getLogger(getClass());
+    private WebDriver driver;
+    private Logger log = Logger.getLogger(getClass());
+    private WebDriverWait webDriverWait_10, webDriverWait_15;
 
     public CommonActions(WebDriver driver) {
         this.driver = driver;
+        webDriverWait_10 = new WebDriverWait(driver, 10);
+        webDriverWait_15 = new WebDriverWait(driver, 15);
     }
 
     public void enterTextIntoInput(WebElement element, String text) {
@@ -27,6 +32,8 @@ public class CommonActions {
 
     public void clickOnElement(WebElement element) {
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(element));
+            //webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(element)));
             element.click();
             log.info("Element was clicked");
         } catch (Exception e) {

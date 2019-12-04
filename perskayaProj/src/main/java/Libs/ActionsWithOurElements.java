@@ -5,15 +5,21 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.EditSparePage;
 
 public class ActionsWithOurElements {
     WebDriver webDriver; //обявляем переменную webDriver
     Logger logger = Logger.getLogger(getClass());
+
+    WebDriverWait webDriverWait_10, webDriverWait_15; //обявили переменные с 10 и 15 секундами ожидания (опен кю а селениум импорт)
     public ActionsWithOurElements(WebDriver webDriver) { // на пустом месте правая кн. клавиатуры / Generate / Constructor чтоб вручную его не создавать
         this.webDriver = webDriver;
-    }
+        webDriverWait_10 = new WebDriverWait(webDriver, 10); // 10 максимальное кол-во секунд до определенного момента, если элемент появится раньше, то 10 сек ждать дальше не будет
+        webDriverWait_15 = new WebDriverWait(webDriver, 15); // объект с которым можно дальше ощаться
+        }
 
     public void enterTextInToInput (WebElement webElement, String text ) { // webElement - это элемент куда хотим ввести текст, text - это сам текст
         try {
@@ -27,6 +33,12 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) { // метод который кликает на элемент
         try {
+            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement)); //Ожидание - вебдрайвер жди пока элемент не станет кликабельным,
+            // ExpectedConditions - библиотека с методами
+//            webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement))); // Пример ожидания не кликабельности
+//            говорим вебдрайвер дождись пока элемент станет не кликабельным
+//            также можно использовать and и or
+
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e){
