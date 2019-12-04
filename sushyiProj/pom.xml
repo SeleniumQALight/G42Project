@@ -71,6 +71,12 @@
             <!-- <scope>test</scope> -->
 
         </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-java</artifactId>
+            <version>1.20.0</version> <!-- 1.18+ is SELENIUM 3.5.1+ compatible -->
+        </dependency>
     </dependencies>
 
     <build>
