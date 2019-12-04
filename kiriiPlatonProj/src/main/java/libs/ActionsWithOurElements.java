@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
 
@@ -25,7 +26,7 @@ public class ActionsWithOurElements {
             wait.until(ExpectedConditions.visibilityOf(element));
             element.clear();
             element.sendKeys(text);
-            logger.info(text + " was inputed into input");
+            logger.info(text + " was inputed into input " + getElementName(element));
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
@@ -35,17 +36,25 @@ public class ActionsWithOurElements {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
-            logger.info(" Element was clicked");
+            logger.info("Element was clicked " + getElementName(element));
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
+    }
+
+    private String getElementName(WebElement element) {
+        String elementName = "";
+        if (element instanceof TypifiedElement){
+            elementName = "'" + ((TypifiedElement) element).getName() + "'";
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement element) {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             boolean state = element.isDisplayed();
-            logger.info("Is element displayed -> " + state);
+            logger.info("Is element" +  getElementName(element) +" displayed -> " + state);
             return state;
         } catch (Exception e) {
             logger.info("Is element displayed ->  false");

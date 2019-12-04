@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class SparePage extends ParentPage {
 
     @FindBy(xpath = "//*[@class='fa fa-plus']")
-    private WebElement addButton;
+    private Button addButton;
 
     public SparePage(WebDriver webDriver) {
         super(webDriver, "/dictionary/spares");
