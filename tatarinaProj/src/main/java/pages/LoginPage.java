@@ -1,13 +1,12 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import parentPage.ParentPage;
 
-public class LoginPage extends ParentPage {
+public class LoginPage extends ParentPage{
     @FindBy(name = "_username")
     private WebElement inputLogin;
 
@@ -18,49 +17,41 @@ public class LoginPage extends ParentPage {
     private WebElement buttonVhod;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+
+        super(webDriver, "/login");
     }
 
-    public void enterPassInToInputPassword(String password) {
-//        WebElement inputPass = webDriver.findElement(By.id("password"));
-//        inputPass.clear();
-//        inputPass.sendKeys(password);
-//        logger.info(password +" was inputed into input PassWord");
-        actionsWithOurElements.enterTextInToInput(inputPass, password);
-
-    }
 
     public void openPage() {
-        try {
+        try{
             webDriver.get("http://v3.test.itpmgroup.com/");
-        } catch (Exception e) {
-            Assert.fail("Cannot work with browser");
+        }catch (Exception e){
+            Assert.fail("Can not work with browser");
         }
-
     }
 
     public void enterLoginInToInputLogin(String login) {
 //        WebElement inputLogin = webDriver.findElement(By.name("_username"));
-//        inputLogin.clear ();
+//        inputLogin.clear();
 //        inputLogin.sendKeys(login);
-//        logger.info(login +" was inputed into input Login");
+//        logger.info(login + " was inputed in to input Login");
         actionsWithOurElements.enterTextInToInput(inputLogin, login);
     }
 
 
+    public void enterPassInToInputPassWord(String password) {
+
+        actionsWithOurElements.enterTextInToInput(inputPass, password);
+    }
+
     public void clickOnButtonVhod() {
-//        WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
-//        buttonVhod.click();
-//        logger.info("Button was clicked");
         actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
-    public void fillingLoginFormAndSubbmitIt(String login, String pass) {
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         enterLoginInToInputLogin(login);
-        enterPassInToInputPassword(pass);
+        enterPassInToInputPassWord(pass);
         clickOnButtonVhod();
     }
-
-    }
-
+}
