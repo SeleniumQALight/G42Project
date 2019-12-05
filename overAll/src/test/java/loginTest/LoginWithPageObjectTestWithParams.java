@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class LoginWithPageObjectTestWithParams extends AbstractParentTest{
-    String login, pass;
+    private String login, pass;
 
     public LoginWithPageObjectTestWithParams(String login, String pass) {
         this.login = login;
