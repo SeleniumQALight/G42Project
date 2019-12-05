@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import libs.Database;
 import libs.MySQL_Database;
+import libs.UtilsForDB;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -26,12 +27,15 @@ public class TestDB {
   }
 
   @Test
-  public void testDataBase() throws SQLException {
+  public void testDataBase() throws SQLException, ClassNotFoundException {
     List<Map<String, String>> dataFromSeleniumTable =
         database.selectTableAsMap("Select * from seleniumTable where login='g42ZhalbaTest'");
     logger.info(dataFromSeleniumTable);
     // logger.info(dataFromSeleniumTable.get(2).get("login"));
  //   database.changeTable("INSERT INTO seleniumTable VALUES (13, 'g42ZhalbaTest', 'ololo') ");
    // logger.info(dataFromSeleniumTable);
+
+    UtilsForDB utilsForDB = new UtilsForDB();
+    utilsForDB.getPassForLogin("g42ZhalbaTest");
   }
 }
