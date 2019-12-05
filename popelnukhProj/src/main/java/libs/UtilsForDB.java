@@ -17,7 +17,7 @@ public class UtilsForDB {
         log.info("--- Conected to MySQL --------");
         String tempPass = dBMySQL
                 .selectValue(String.format("select passWord from seleniumTable " +
-                        "where login = '%s'",login));
+                        "where login = '%s')",login));
 
         dBMySQL.quit();
         return tempPass;
