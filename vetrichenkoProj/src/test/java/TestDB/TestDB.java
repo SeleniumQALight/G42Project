@@ -38,7 +38,7 @@ public class TestDB {
         logger.info(dataFromSelectedTable);
 
         UtilsForDB utilsForDB = new UtilsForDB();
-        utilsForDB.getPassForLogin("G42Vetrichenko");
+        logger.info(utilsForDB.getPassForLogin("G42Vetrichenko"));
     }
 
 
