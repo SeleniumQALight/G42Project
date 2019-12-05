@@ -9,7 +9,7 @@ public class AddNewProviderTest extends AbstractParentTest {
     @Test
     public void addNewProvider(){
         loginPage.fillingLoginFormAndSubmitIt("student", "909090");
-        homePage.clickOnMenuDictionary();
+//        homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuProviders();
         providersPage.addNewProvider();
         providersEditPage.enterProCustName(providerName);

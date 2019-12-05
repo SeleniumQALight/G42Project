@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 public class ParentPage {
     protected WebDriver driver;
@@ -22,6 +24,7 @@ public class ParentPage {
         PageFactory.initElements(driver, this);
         commonActions = new CommonActions(driver);
         expectedUrl = baseUrl + partialUrl;
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
     }
 
     public void checkCurrentUrl() {

@@ -12,7 +12,8 @@ public class ContractorsTest extends AbstractParentTest {
         loginPage.fillingLoginFormAndSubmit(login, password);
 
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
+//        homePage.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnMenuDictionary();
         homePage.clickOnSubMenuContractors();
 
         contractorsPage.clickAddButton();

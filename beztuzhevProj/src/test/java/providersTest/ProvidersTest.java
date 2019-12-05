@@ -9,8 +9,8 @@ public class ProvidersTest extends AbstractParentTest {
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
         homePage.checkCurrentUrl();
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnMenuProviders();
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnMenuSpares();
 
         providersPage.checkCurrentUrl();
         providersPage.clickOnAddProviderButton();

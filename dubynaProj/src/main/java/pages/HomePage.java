@@ -6,15 +6,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.LeftMenu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class HomePage extends ParentPage {
     @FindBy (xpath = ".//*[@class='pull-left image']" )
     private WebElement avatar;
     @FindBy (id = "dictionary")
-    private WebElement menuDictionary;
+    private Link menuDictionary;
+
+    @Name(" Submenu Spares")//присваиваем другое имя для логгера
     @FindBy (id = "spares")
-    private WebElement subMenuSpares;
+    private Link subMenuSpares;
+
+    public LeftMenu leftmenu;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
