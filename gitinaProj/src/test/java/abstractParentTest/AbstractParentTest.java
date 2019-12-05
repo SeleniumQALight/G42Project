@@ -23,8 +23,8 @@ public class AbstractParentTest {
     protected EditProvidersPage editProvidersPage;
     @Before
     public void setUp() throws Exception {
-//        File file = new File("./src/drivers/chromedriver.exe");
-//        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+       File file = new File("./src/drivers/chromedriver.exe");
+      System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 //        webDriver = new ChromeDriver();
 
         webDriver = driverInit();

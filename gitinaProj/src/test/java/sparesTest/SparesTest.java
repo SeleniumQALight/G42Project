@@ -15,9 +15,10 @@ public class SparesTest extends AbstractParentTest {
         homePage.checkCurrentUrl();
 
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnSubMenuSpares();
-
+//        homePage.clickOnMenuDictionary();
+//        homePage.clickOnSubMenuSpares();
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnSubMenuSpare();
         sparePage.checkCurrentUrl();
         sparePage.deleteSpareUntilPresent(spareName);
 
@@ -40,7 +41,7 @@ public class SparesTest extends AbstractParentTest {
     @Test
     public void testCheckBox() {
         logInPage.fillingLoginFormAndSubmitIt("Student", "909090");
-        homePage.clickOnMenuDictionary();
+    //    homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuProviders();
         providersPage.clickOnAddButton();
         editProvidersPage.clickOnIsOurFirmCheckbox();
