@@ -80,7 +80,7 @@ public class Database {
             if (rSet.getObject(1)!=null){
                 value=rSet.getObject(1).toString();
 
-                if(meta.getColumnType(1)==93){
+                if(meta.getColumnType(1)==93){ // number for time data type in db driver
                     value=value.substring(0,value.length()-2);
                 }
             }
