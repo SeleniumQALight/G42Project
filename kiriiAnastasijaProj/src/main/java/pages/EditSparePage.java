@@ -31,7 +31,6 @@ public class EditSparePage extends ParentPage {
 //        actionsWithOurElements.clickOnElement(clickOnSpareTypeDropdown);
 
         actionsWithOurElements.selectInDropdownElement(clickOnSpareTypeDropdown, value);
-
     }
 
     public void clickOnSubmitButton() {
