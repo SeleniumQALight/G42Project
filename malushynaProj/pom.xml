@@ -42,6 +42,42 @@
             <version>1.2.17</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-java</artifactId>
+            <version>1.20.0</version> <!-- 1.18+ is SELENIUM 3.5.1+ compatible -->
+        </dependency>
+
     </dependencies>
 
     <build>

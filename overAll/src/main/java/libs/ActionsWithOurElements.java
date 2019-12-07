@@ -5,14 +5,20 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait_10, webDriverWait_15;
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait_10 = new WebDriverWait(webDriver, 10);
+        webDriverWait_15 = new WebDriverWait(webDriver, 15);
     }
 
     public void enterTextInToInput(WebElement webElement
@@ -28,11 +34,26 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement){
         try {
+            webDriverWait_10.until(
+                    ExpectedConditions.elementToBeClickable(webElement));
+//            webDriverWait_10.until(
+//                    ExpectedConditions.not(
+//                            ExpectedConditions.elementToBeClickable(webElement)
+//                    )
+//            );
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked" + getElementName(webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
+    }
+
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement) {
+            elementName = "'" + ((TypifiedElement) webElement).getName() + "'";
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement webElement){
@@ -86,4 +107,28 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
+
+    public void setStateToCheckBox (WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+
+        if (isStateCheck || isStateUnCheck){
+            if ((isStateCheck && isCheckBoxSelected)
+                    || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("CheckBox is already needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected)
+                    || (isStateUnCheck && isCheckBoxSelected)) {
+                clickOnElement(checkBox);
+            }
+        } else {
+            logger.error("State should be only 'check' or 'uncheck'");
+            stopTestAndPrintMessage();
+        }
+
+
+
+    }
+
+
 }

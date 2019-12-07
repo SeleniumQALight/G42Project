@@ -12,7 +12,7 @@ public class EditSparePage extends ParentPage {
     private WebElement buttonDelete;
 
     public EditSparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
     @FindBy(id = "spares_spareName")
@@ -31,7 +31,6 @@ public class EditSparePage extends ParentPage {
 //        actionsWithOurElements.clickOnElement(clickOnSpareTypeDropdown);
 
         actionsWithOurElements.selectInDropdownElement(clickOnSpareTypeDropdown, value);
-
     }
 
     public void clickOnSubmitButton() {

@@ -20,7 +20,7 @@ public class LoginPage extends ParentPage {
     private WebElement loginBox;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
 
     public void openPage() {

@@ -17,7 +17,7 @@ public class LoginPage extends ParentPage {
     private WebElement buttonVhod;
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     } // будут содержаться все классы на логин пейдже и все действия
 
     public void openPage() {

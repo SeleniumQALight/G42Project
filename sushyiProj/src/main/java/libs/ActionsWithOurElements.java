@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -29,14 +30,24 @@ public class ActionsWithOurElements {
     public void clickOnElement(WebElement webElement){
         try {
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element was clicked" + getElementName(webElement));
         }catch (Exception e){
             stopTestAndPrintMessage();
         }
     }
 
+    private String getElementName(WebElement webElement) {
+
+        String elementName = "";
+        if (webElement instanceof TypifiedElement){
+            elementName = "'" + ((TypifiedElement) webElement).getName() + "'";
+        }
+        return  elementName;
+    }
+
     public boolean isElementDisplayed(WebElement webElement){
         try {
+           //wait10 .element is present
            boolean state = webElement.isDisplayed();
            logger.info("Is element displayed -> " + state);
            return state;
@@ -86,5 +97,24 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
 
+    }
+    // метод проверкиЧекбокса и !!дописать тест (ДЗ)
+    public void setStateToCheckBox (WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
+
+        if (isStateCheck || isStateUnCheck) {
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("CheckBox is already needed state");
+            }else  if ((isStateCheck && !isCheckBoxSelected) && (isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkBox);
+            }
+
+
+        } else {
+            logger.error("State should be oly 'chack' or 'uncheck");
+            stopTestAndPrintMessage();
+        }
     }
 }

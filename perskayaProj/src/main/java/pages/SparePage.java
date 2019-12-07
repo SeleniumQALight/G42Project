@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,7 @@ public class SparePage extends ParentPage {
     private WebElement buttonAdd; // кнопка добавления аппаратов
 
     public SparePage(WebDriver webdriver) {
-        super(webdriver);
+        super(webdriver, "/dictionary/spares");
     }
 
     public void clickOnAddButton() {
@@ -19,14 +20,20 @@ public class SparePage extends ParentPage {
 
     public boolean isSpareInList(String spareName) { // метод, который проверяет что запчасть добавилась
         return actionsWithOurElements.isElementDisplayed(".//*[text() = '" + spareName + "']"); // проверка есть ли эта запчасть, это параметризированный локато
+        // в одинарных кавычках - наш текст; создаем метод
     }
 
     public void deleteSpareUntilPresent(String spareName) {
-        EditSparePage editSparePage = new EditSparePage(webdriver);
-        while (isSpareInList(spareName)){            // выполняет цикл пока выполняется условие (пока запчасть есть в цикле)
+        int counter = 0; // счетчик колличества проверок
+        EditSparePage editSparePage = new EditSparePage(webdriver); // создаем екземпляр EditSparePage
+        while (isSpareInList(spareName)){            // выполняет цикл пока выполняется условие (пока запчасть есть в цикле) c циклом while всегда использовать каунтеры
         clickOnSpare(spareName);
         editSparePage.clickOnDeleteButton();
-
+        logger.info(counter + " spare was deleted");
+        if (counter > 100) {
+            Assert.fail("There are more then 100 spares");
+        }
+        counter ++;
         }
     }
 

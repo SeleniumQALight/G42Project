@@ -9,7 +9,7 @@ import parentPage.ParentPage;
 
 public class LoginPage extends ParentPage {
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/login");
     }
     @FindBy(name = "_username")
     private WebElement inputLogin;

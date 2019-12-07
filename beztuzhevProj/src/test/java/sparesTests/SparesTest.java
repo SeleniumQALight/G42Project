@@ -1,22 +1,30 @@
 package sparesTests;
 
 import abstractParentTest.AbstractParentTest;
+import libs.Utils;
 import org.junit.After;
 import org.junit.Test;
 
 public class
 SparesTest extends AbstractParentTest {
 
-    private final String spareName = "BeztuzhevSpare";
+    private final String spareName = "BeztuzhevSpare" + Utils.getDateAndTimeFormated();   //добавляет системное время
 
     @Test
     public void addNewSpare() {
         loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
+        homePage.checkCurrentUrl();
         homePage.checkIsAvatarPresent();
-        homePage.clickOnMenuDictionary();
-        homePage.clickOnSubMenuSpares();
+        //homePage.clickOnMenuDictionary();
+        //homePage.clickOnSubMenuSpares();
+        homePage.leftMenu.clickOnMenuDictionary();
+        homePage.leftMenu.clickOnMenuSpares();
+
+        sparePage.checkCurrentUrl();
+        sparePage.deleteSpareUntilPresent(spareName); //удалить запчасть, перед внесением ее имени, если она уже есть в списке
         sparePage.clickOnAddButton();
 
+        editSparePage.checkCurrentUrl();
         editSparePage.enterSpareName(spareName);
         editSparePage.selectSpareTypeFromDropDown("Датчики");
         editSparePage.clickOnSubmitButton();
@@ -25,8 +33,8 @@ SparesTest extends AbstractParentTest {
     }
 
     @After
-    public void deleteSpare (){
-        sparePage.deleteSpareUntilPresent (spareName);
+    public void deleteSpare() {
+        sparePage.deleteSpareUntilPresent(spareName);
 
     }
 

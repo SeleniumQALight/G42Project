@@ -25,7 +25,8 @@ public class LoginWithPageObjectTest extends AbstractParentTest {
         loginPage.enterPassIntoInputPassword("");
         loginPage.clickOnButtonVhod();
 
-        checkExpectedResult("Wrong URL", checkCurrentUrl(loginPage.Url));
+//        checkExpectedResult("Wrong URL", loginPage.checkCurrentUrl());
+        loginPage.checkCurrentUrl();
         checkExpectedResult("Button vhod is not present", loginPage.isButtonVhodDisplayed());
     }
 }

@@ -24,7 +24,7 @@ public class EditSparePage extends ParentPage {
 
 
     public EditSparePage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/dictionary/spares/edit");
     }
 
 
