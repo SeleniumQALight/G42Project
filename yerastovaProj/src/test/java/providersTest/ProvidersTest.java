@@ -16,9 +16,5 @@ public class ProvidersTest extends AbstractParentTest {
 
         editProvidersPage.setStateToCheckboxPrivatePerson ("Check");
         editProvidersPage.setStateToCheckboxIsOurFirm ("uncheck");
-
-
-
-
     }
 }
