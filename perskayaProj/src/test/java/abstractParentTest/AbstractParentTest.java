@@ -1,6 +1,8 @@
 package abstractParentTest;
 
+import Libs.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,6 +24,8 @@ public class AbstractParentTest {
     protected HomePage homePage; // обявили переменную homePage
     protected SparePage sparePage;
     protected EditSparePage editSparePage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
 
     @Before // секция бефор будет выполняться перед каждым тестом
     public void setUp() throws Exception {
