@@ -1,6 +1,8 @@
 package abstractParentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,6 +24,8 @@ public class AbstractParentTest {
     protected HomePage homePage;
     protected SparePage sparePage;
     protected EditSparePage editSparePage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
 
     @Before
     public void setUp() throws Exception {
@@ -31,7 +35,7 @@ public class AbstractParentTest {
         webDriver = driverInit();
 
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
