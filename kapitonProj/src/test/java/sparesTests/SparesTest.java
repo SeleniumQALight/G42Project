@@ -9,7 +9,7 @@ public class SparesTest extends AbstractParentTest {
     private final String spareName = "KapitonSpare " + Utils.getDateAndTimeFormated() ;
     @Test
     public void addNewSpare(){
-        loginPage.fillingLoginFormAndSubmit("Student", "909090");
+        loginPage.fillingLoginFormAndSubmitIt("Student", "909090");
 
         homePage.checkCurrentUrl();//проверка попали ли мы на правильную страницу
 
