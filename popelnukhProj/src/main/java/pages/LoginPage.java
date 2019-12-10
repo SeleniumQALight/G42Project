@@ -55,4 +55,6 @@ public class LoginPage extends ParentPage {
         enterPassInToInputPassword(password);
         clickOnButtonVhod();
     }
+
+
 }
