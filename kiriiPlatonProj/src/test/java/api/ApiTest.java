@@ -64,7 +64,7 @@ public class ApiTest {
     }
 
     @Test
-    public void demoQATestAlredyRegistered() {
+    public void demoQATestAlreadyRegistered() {
 
         JSONObject requestParams = new JSONObject();
         requestParams.put("FirstName", "Virender"); // Cast
