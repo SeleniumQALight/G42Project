@@ -61,7 +61,7 @@ public class AbstractParentTest {
 
 
     @After //закрытие браузера после каждого теста. можно еще предусмотреть если webdriver = null, то не закрывать
-    public void clouseBrouser() {
+    public void closeBrowser() {
         webdriver.quit();
     }
 
