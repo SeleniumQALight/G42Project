@@ -35,7 +35,7 @@ public class LoginWithPageObjectTestWithParameters extends AbstractParentTest {
         loginPage.enterLoginIntoInputLogin(login);
         loginPage.enterPassIntoInputPassword(password);
         loginPage.clickOnButtonVhod();
-        checkExpectedResult("Avatar should  not be present", !homePage.isAvatarDisplayed());
+        checkExpectedResult("Avatar should  not be present", true, !homePage.isAvatarDisplayed());
 
     }
     
