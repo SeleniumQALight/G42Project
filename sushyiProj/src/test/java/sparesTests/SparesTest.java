@@ -18,7 +18,7 @@ public class SparesTest extends AbstractParentTest{
 //        homePage.clickOnMenuDictionary();
 //        homePage.clickOnSubMenuSpares();
         homePage.leftMenu.clickOnMenuDictionary();
-        homePage.leftMenu.clckOnSubMenuSpare();
+        homePage.leftMenu.clickOnSubMenuSpare();
 
 
         sparePage.checkCurrentUrl();

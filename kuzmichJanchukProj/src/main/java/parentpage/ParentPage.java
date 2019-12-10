@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import pages.pageelements.WebDriverAwareDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
@@ -21,10 +22,11 @@ public class ParentPage {
     public ParentPage(WebDriver driver, String partialUrl) {
         this.driver = driver;
         baseUrl = configProperties.base_url();
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
         commonActions = new CommonActions(driver);
         expectedUrl = baseUrl + partialUrl;
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
+//        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
+        PageFactory.initElements(new WebDriverAwareDecorator(new HtmlElementLocatorFactory(driver), driver), this);
     }
 
     public void checkCurrentUrl() {

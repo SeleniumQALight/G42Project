@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.EditSparePage;
+import pages.pageElements.WebDriverAwareDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
@@ -31,10 +32,13 @@ public class ParentPage {
 //        PageFactory.initElements(webdriver, this); //PageFactory - класс который умеет инициализировать элементы от файнд бай
         // webdriver - говорим в каком браузере будем инициализировать, this - элементы какой страницы инициализируем, т.е. той с которой происходит обращение
 
-        PageFactory.initElements( //библиотека, теперь вместо WebElement можем писать название элементов яндекса
-                new HtmlElementDecorator(
-                        new HtmlElementLocatorFactory(webdriver))
-                ,this);
+//        PageFactory.initElements( //библиотека, теперь вместо WebElement можем писать название элементов яндекса
+//                new HtmlElementDecorator(
+//                        new HtmlElementLocatorFactory(webdriver))
+//                ,this);
+
+        PageFactory.initElements(new WebDriverAwareDecorator(new HtmlElementLocatorFactory(webdriver), webdriver), this);
+
         actionsWithOurElements = new ActionsWithOurElements(webdriver);
 
         expectedUrl = baseUrl + partUrl;

@@ -1,4 +1,4 @@
-package pageElements;
+package pages.pageElements;
 
 import java.lang.reflect.Field;
 import org.openqa.selenium.WebDriver;
@@ -19,8 +19,8 @@ public class WebDriverAwareDecorator extends HtmlElementDecorator{
   protected <T extends HtmlElement> T decorateHtmlElement(ClassLoader loader, Field field) {
     T element = super.decorateHtmlElement(loader, field);
 
-    if (element instanceof pages.elements.WebDriverAware) {
-      ((pages.elements.WebDriverAware)element).setWebDriver(driver);
+    if (element instanceof pages.pageElements.WebDriverAware) {
+      ((pages.pageElements.WebDriverAware)element).setWebDriver(driver);
     }
 
     return element;

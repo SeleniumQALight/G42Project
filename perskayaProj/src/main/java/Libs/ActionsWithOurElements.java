@@ -1,5 +1,6 @@
 package Libs;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.apache.commons.lang3.reflect.Typed;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -13,13 +14,16 @@ import pages.EditSparePage;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
+    public ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+
     WebDriver webDriver; //обявляем переменную webDriver
     Logger logger = Logger.getLogger(getClass());
 
     WebDriverWait webDriverWait_10, webDriverWait_15; //обявили переменные с 10 и 15 секундами ожидания (опен кю а селениум импорт)
+
     public ActionsWithOurElements(WebDriver webDriver) { // на пустом месте правая кн. клавиатуры / Generate / Constructor чтоб вручную его не создавать
         this.webDriver = webDriver;
-        webDriverWait_10 = new WebDriverWait(webDriver, 10); // 10 максимальное кол-во секунд до определенного момента, если элемент появится раньше, то 10 сек ждать дальше не будет
+        webDriverWait_10 = new WebDriverWait(webDriver, configProperties.TIME_FOR_DFFAULT_WAIT()); // 10 максимальное кол-во секунд до определенного момента, если элемент появится раньше, то 10 сек ждать дальше не будет
         webDriverWait_15 = new WebDriverWait(webDriver, 15); // объект с которым можно дальше ощаться
         }
 
