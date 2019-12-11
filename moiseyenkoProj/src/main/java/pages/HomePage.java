@@ -26,7 +26,7 @@ public class HomePage extends ParentPage {
         super(webDriver, "/");
     }
 
-    public boolean isAvatarDisplaied(){
+    public boolean isAvatarDisplayed(){
         try{
             WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));
                     return avatar.isDisplayed();
@@ -36,7 +36,7 @@ public class HomePage extends ParentPage {
     }
 
     public void checkIsAvatarPresent() {
-        Assert.assertTrue("Avatar is not displayed" , isAvatarDisplaied());
+        Assert.assertTrue("Avatar is not displayed" , isAvatarDisplayed());
     }
 
 //    public void clickOnMenuDictionary() {
