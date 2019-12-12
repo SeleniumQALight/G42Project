@@ -1,6 +1,9 @@
 package abstractParentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import libs.ConfigProperties;
+import libs.ExcelDriver;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,6 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import pages.*;
 
 import java.io.File;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
@@ -21,6 +25,9 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
     protected ProvidersPage providersPage;
     protected EditProvidersPage editProvidersPage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
+
 
     @Before
     public void setUp () throws Exception {
@@ -61,7 +68,7 @@ public class AbstractParentTest {
 
     }
 
-    protected void checkExpectedResult(String message, boolean actualResult) {
-        Assert.assertEquals(message, true, actualResult);
+    protected void checkExpectedResult(String message, boolean expectedResult, boolean actualResult) {
+        Assert.assertEquals(message, expectedResult, actualResult);
     }
 }
