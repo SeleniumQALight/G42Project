@@ -1,6 +1,8 @@
 package abstractParentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +23,9 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
     protected ProvidersPage providersPage;
     protected EditProvidersPage editProvidersPage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
+
 
     @Before
     public void setUp() throws Exception {
@@ -38,6 +43,7 @@ public class AbstractParentTest {
         editSparePage = new EditSparePage(webDriver);
         providersPage = new ProvidersPage(webDriver);
         editProvidersPage = new EditProvidersPage(webDriver);
+
     }
 
     private WebDriver driverInit() throws Exception {
