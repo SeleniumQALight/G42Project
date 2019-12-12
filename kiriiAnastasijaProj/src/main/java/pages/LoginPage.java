@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public class LoginPage extends ParentPage {
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "/login");
     } // будут содержаться все классы на логин пейдже и все действия
-
+    @Step
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
@@ -28,6 +29,7 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    @Step
     public void enterloginInToInputLogin(String login) {
         //WebElement inputLogin = webDriver.findElement(By.name("_username"));
 //        inputLogin.clear();
@@ -36,6 +38,7 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
+    @Step
     public void enterPassInToInputPass(String password) {
        // WebElement inputPass = webDriver.findElement(By.id("password"));
 //        inputPass.clear();
@@ -44,6 +47,7 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(inputPass, password);
     }
 
+    @Step
     public void clickOnButtonVhod() {
         //WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
 //        buttonVhod.click();
@@ -55,7 +59,7 @@ public class LoginPage extends ParentPage {
     {return webDriver.getCurrentUrl();
     }
 
-
+    @Step
     public void fillLoginFormAndSubmitIt(String login, String password) {
         openPage();
         enterloginInToInputLogin(login);
