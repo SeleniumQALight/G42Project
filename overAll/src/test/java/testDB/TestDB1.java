@@ -41,6 +41,8 @@ public class TestDB1 {
 
         UtilsForDB utilsForDB = new UtilsForDB();
         logger.info(utilsForDB.getPassForLogin("g42RadulenkoTest"));
+
+
     }
 
 
