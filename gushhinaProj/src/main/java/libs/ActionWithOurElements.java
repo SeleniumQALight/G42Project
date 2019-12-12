@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 
 public class ActionWithOurElements {
@@ -26,10 +27,18 @@ public class ActionWithOurElements {
           //  webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             //the one above is about to wait until the element becomes unclickable.
             webElement.click();
-            logger.info("Element was clicked.");
+            logger.info("Element " + getElementName(webElement) + " was clicked."); //+.. will check is it webElement
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
+    }
+//block under - if we get webElement it will be converted into yandex name (TypifieldElement)
+    private String getElementName(WebElement webElement) {
+        String elementName = "";
+        if (webElement instanceof TypifiedElement){ //is webElement contains in TypifieldElement
+            elementName = "'" + ((TypifiedElement) webElement).getName() + "'"; //webElement bude privideno do TypifieldElement
+        }
+        return elementName;
     }
 
     public boolean isElementDisplayed(WebElement webElement){
