@@ -1,6 +1,6 @@
 package api;
 
-import dto.CurrencyValues;
+import DTO.CurrencyValues;
 import io.restassured.http.ContentType;
 import io.restassured.response.ResponseBody;
 import org.json.JSONObject;
