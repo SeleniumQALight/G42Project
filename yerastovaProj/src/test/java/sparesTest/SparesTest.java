@@ -29,7 +29,7 @@ public class SparesTest extends AbstractParentTest {
         editSparePage.clickOnSubmitButton();
 
         sparePage.checkCurrentUrl();
-        checkExpectedResult("Can not find spare in list", sparePage.isSpareInList(spareName));
+        checkExpectedResult("Can not find spare in list", true, sparePage.isSpareInList(spareName));
 
     }
 

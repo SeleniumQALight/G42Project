@@ -45,7 +45,7 @@ public class LoginPage extends ParentPage {
     actionsWithOurElements.enterTextIntToInput(inputPass, password);
   }
 
-  public void clickonButtonVhod() {
+  public void clickOnButtonVhod() {
 //    buttonVhod.click();
 //    logger.info("Button was clicked");
     actionsWithOurElements.clickOnElement(buttonVhod);
@@ -63,6 +63,6 @@ public class LoginPage extends ParentPage {
     openPage();
     enterLoginInToInputLogin(login);
     enterPassInToInputPassword(pass);
-    clickonButtonVhod();
+    clickOnButtonVhod();
   }
 }
