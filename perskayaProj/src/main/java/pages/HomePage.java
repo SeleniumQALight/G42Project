@@ -39,7 +39,8 @@ public class HomePage extends ParentPage { // наследует все от р�
     return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
-    public void checkIsAvatarPresent() {
+    public void checkIsAvatarPresent()
+    {
         Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
     }
 

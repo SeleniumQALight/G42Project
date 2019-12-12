@@ -2,6 +2,8 @@ package abstractParentTest;
 
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.Assert;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -20,6 +22,8 @@ public class AbstractParentTest {
     protected SparePage sparePage;
     protected EditSparePage editSparePage;
     WebDriver webDriver;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
 
     @Before
     public void setUp() throws Exception {

@@ -2,23 +2,23 @@ package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.LeftMenu;
 import parrentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Image;
 
 public class HomePage extends ParentPage {
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
-
-    @FindBy(id = "spares")
-    private WebElement sparesSubMenu;
-
-    @FindBy(id = "dictionary")
-    private WebElement dictionaryMenu;
+//    @FindBy(id = "spares")
+//    private Link sparesSubMenu;
+//
+//    @FindBy(id = "dictionary")
+//    private Link dictionaryMenu;
 
     @FindBy(xpath = ".//*[@class='pull-left image']")
-    private WebElement avatar;
+    private Image avatar;
 
     public boolean isAvatarDisplayed() {
         return actionsWithOurElements.isElementDisplayed(avatar);
@@ -28,12 +28,14 @@ public class HomePage extends ParentPage {
         Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
     }
 
-    public void clickOnDictionaryMenu() {
-        actionsWithOurElements.clickElement(dictionaryMenu);
+    public LeftMenu leftMenu;
 
-    }
-
-    public void clickOnSparesSubMenu() {
-        actionsWithOurElements.clickElement(sparesSubMenu);
-    }
+//    public void clickOnDictionaryMenu() {
+//        actionsWithOurElements.clickElement(dictionaryMenu);
+//
+//    }
+//
+//    public void clickOnSparesSubMenu() {
+//        actionsWithOurElements.clickElement(sparesSubMenu);
+//    }
 }

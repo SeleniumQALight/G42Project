@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class ActionsWithOurElements {
     private WebDriver webDriver;
@@ -37,17 +38,22 @@ public class ActionsWithOurElements {
             webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
             //webDriverWait_10.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             webElement.click();
-            logger.info("Element was clicked");
+            logger.info("Element " + getElementName(webElement) + "was clicked");
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
     }
 
+    private String getElementName(WebElement webElement) {
+        return (webElement instanceof TypifiedElement) ? "'" + ((TypifiedElement) webElement).getName() + "'" + " " : "";
+    }
+
     public boolean isElementDisplayed(WebElement webElement) {
-        String elementIsNotDisplayedMessage = "Element is not displayed";
+        String element = (webElement instanceof TypifiedElement) ? " '" + ((TypifiedElement) webElement).getName() + "'" : "";
+        String elementIsNotDisplayedMessage = String.format("Element%s is not displayed", element);
         try {
             boolean state = webElement.isDisplayed();
-            String message = state ? "Element is displayed" : elementIsNotDisplayedMessage;
+            String message = state ? String.format("Element%s is displayed", element) : elementIsNotDisplayedMessage;
             logger.info(message);
             return state;
         } catch (Exception e) {

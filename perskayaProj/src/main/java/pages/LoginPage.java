@@ -35,7 +35,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
         //WebElement inputLogin = webdriver.findElement(By.name("_username")); - мы просим вебдрайвер найти элемент по этому локатору и
         // его записать в эту переменную inputLogin// уже не нужно, так как написали сверху файнд бай
 
-        actionsWithOurElements.enterTextInToInput (inputLogin, login); // добавлено вместо 3х строк ниже
+        actionsWithOurElements.enterTextInToInput (inputLogin, login); // alt+enter / create field ; добавлено вместо 3х строк ниже
 
 //        inputLogin.clear(); // находим элемент, который сохранен в переменной inputLogin и очищаем это поле
 //        inputLogin.sendKeys(login); // ввести в инпут login из метода

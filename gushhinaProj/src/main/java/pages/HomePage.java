@@ -5,18 +5,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.LeftMenu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 public class HomePage extends ParentPage {
 
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
-    @FindBy(id = "dictionary")
-    private WebElement menuDictionary;
+ /*   @FindBy(id = "dictionary")
+  //  private WebElement menuDictionary; - commented cuz we added yandex library (it's in ParentPage) and changed on line under
+    private Link menuDictionary;
 
     @FindBy(id = "spares")
-    private WebElement subMenuSpares;
+   // private WebElement subMenuSpares;
+    private Link subMenuSpares; */    //this block commented cuz we created LeftMenu
+
+   public LeftMenu leftMenu;
 
 
     //method po rabote s avatarom
@@ -39,11 +45,11 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
-    public void clickOnMenuDictionary() {
+ /*   public void clickOnMenuDictionary() {
         actionWithOurElements.clickOnElement(menuDictionary);
     }
 
     public void clickOnSubMenuSpares() {
         actionWithOurElements.clickOnElement(subMenuSpares);
-    }
+    } */  //this block commented cuz we created LeftMenu
 }

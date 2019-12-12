@@ -52,7 +52,7 @@ public class LoginPage extends ParentPage {
         actionWithOurElements.clickOnElement(buttonVhod);
     }
 
-    public void fillingLoginFormAndSubmit(String login, String pass) {
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         enterLoginInToInputLogin(login);
         enterPassInToInputPassword(pass);
