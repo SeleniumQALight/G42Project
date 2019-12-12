@@ -1,6 +1,8 @@
 package abstractParentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,7 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import pages.*;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
@@ -21,6 +22,8 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
     protected ProvidersPage providersPage;
     protected EditProvidersPage editProvidersPage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
 
     @Before
     public void setUp() throws Exception {
