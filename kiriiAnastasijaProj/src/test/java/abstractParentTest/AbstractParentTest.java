@@ -2,6 +2,8 @@ package abstractParentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import libs.ActionsWithOurElements;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,6 +25,8 @@ public class AbstractParentTest {
     protected EditProvidersPage editProvidersPage;
     protected ProvidersPage providersPage;
     protected ActionsWithOurElements actionsWithOurElements;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
 
     @Before
     public void setUp() throws Exception {
