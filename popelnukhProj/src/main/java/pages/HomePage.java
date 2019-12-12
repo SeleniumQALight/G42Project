@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,7 @@ public class HomePage extends ParentPage {
 
     @FindBy(xpath = ".//*[@class='pull-left image']")
     private WebElement avatar;
-
+    @Step
     public boolean isAvatarDisplayed() {
         return actionsWithOurElements.isElementDisplayed(avatar);
 //        try{
@@ -35,7 +36,7 @@ public class HomePage extends ParentPage {
 //        }
     }
 
-
+    @Step
     public boolean isButtonVhodDisplayed() {
         try {
             WebElement buttonVhod = webDriver.findElement(By.tagName("button"));
@@ -44,7 +45,7 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
-
+    @Step
     public void checkIsAvatarPresent() {
         Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
     }
@@ -56,7 +57,7 @@ public class HomePage extends ParentPage {
 //    public void clickOnSubMenuSpares() {
 //        actionsWithOurElements.clickOnElement(subMenuSpares);
 //    }
-
+        @Step
         public void clickOnSubMenuProviders () {
             actionsWithOurElements.clickOnElement(subMenuProviders);
         }
