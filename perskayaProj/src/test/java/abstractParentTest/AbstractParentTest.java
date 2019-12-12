@@ -2,10 +2,18 @@ package abstractParentTest;
 
 import Libs.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigFactory;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,6 +34,7 @@ public class AbstractParentTest {
     protected EditSparePage editSparePage;
     protected static ConfigProperties configProperties =
             ConfigFactory.create(ConfigProperties.class);
+    protected Logger logger = Logger.getLogger(getClass()); //апаче
 
     @Before // секция бефор будет выполняться перед каждым тестом
     public void setUp() throws Exception {
@@ -66,9 +75,38 @@ public class AbstractParentTest {
 
     @After //закрытие браузера после каждого теста. можно еще предусмотреть если webdriver = null, то не закрывать
     public void closeBrowser() {
-        webdriver.quit();
+        webdriver.quit(); // комментируем для скриншотов
     }
 
+//    @Rule // импорт класс
+//    public TestWatcher watchman = new TestWatcher() {
+//        @Override
+//        protected void failed(Throwable e, Description description) {
+//            screenshot();
+//        }
+//        @Attachment(value = "Page screenshot", type = "image/png") // импорт класс
+//        public byte[] saveScreenshot(byte[] screenShot) {
+//            return screenShot;
+//        }
+//        public void screenshot() {
+//            if (webdriver == null) {
+//                logger.info("Driver for screenshot not found");
+//                return;
+//            }
+//            saveScreenshot(((TakesScreenshot) webdriver).getScreenshotAs(OutputType.BYTES)); // импорт класс
+//        }
+//        @Override
+//        protected void finished(Description description) {
+//            logger.info(String.format("Finished test: %s::%s", description.getClassName(), description.getMethodName()));
+//            try {
+//                webdriver.quit();
+//            } catch (Exception e) {
+//                logger.error(e);
+//            }
+//        }
+//    };
+
+    @Step
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult); // Assert - org junit обязательно, true - expected result, он может быть и фолс, но в нашем случае он тру
     }
