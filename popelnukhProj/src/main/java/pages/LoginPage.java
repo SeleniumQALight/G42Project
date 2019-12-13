@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class LoginPage extends ParentPage {
     private WebElement inputPassword;
     @FindBy(tagName = "button")
     private WebElement buttonVhod;
-
+    @Step
     public void openPage() {
         try{
             webDriver.get("http://v3.test.itpmgroup.com/");
@@ -25,7 +26,7 @@ public class LoginPage extends ParentPage {
             Assert.fail("Can't work with browser");
         }
     }
-
+    @Step
     public void enterLoginInToInputLogin(String login) {
 //        WebElement inputLogin = webDriver.findElement(By.name("_username"));
 //        inputLogin.clear();
@@ -33,7 +34,7 @@ public class LoginPage extends ParentPage {
 //        logger.info(login + " was inputed into input Login");
           actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
-
+    @Step
     public void enterPassInToInputPassword(String password) {
 //        WebElement inputPassword = webDriver.findElement(By.id("password"));
 //        inputPassword.clear();
@@ -41,18 +42,20 @@ public class LoginPage extends ParentPage {
 //        logger.info(password + " was inputed into input Password");
         actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
-
+    @Step
     public void clickOnButtonVhod() {
 //        WebElement clickOnButtonVhod = webDriver.findElement(By.tagName("button"));
 //        clickOnButtonVhod.click();
 //        logger.info("Click was success");
         actionsWithOurElements.clickOnElement(buttonVhod);
     }
-
+    @Step
     public void fillingLoginFormAndSubmitIt(String login, String password) {
         openPage();
         enterLoginInToInputLogin(login);
         enterPassInToInputPassword(password);
         clickOnButtonVhod();
     }
+
+
 }
