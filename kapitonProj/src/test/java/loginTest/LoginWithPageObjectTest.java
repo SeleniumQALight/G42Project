@@ -1,12 +1,22 @@
 package loginTest;
 
 import abstractParentTest.AbstractParentTest;
+import io.qameta.allure.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.junit.Test;
 import pages.LoginPage;
+@Epic("Allure examples")
+@Feature("Junit 4 support")
 
 public class LoginWithPageObjectTest extends AbstractParentTest {
+    @Description("Some detailed test description")
+    @Story("Base support for bdd annotations")
+    @Link("https://example.org")
+    @Link(name = "allure", type = "mylink")
+    @Issue("123")
+    @Issue("432")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void validLogin() {
         loginPage.openPage(); //открывает нужную страницу
