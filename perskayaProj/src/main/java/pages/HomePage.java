@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,7 @@ public class HomePage extends ParentPage { // наследует все от р�
         super(webdriver, "/");
     }
 
+    @Step
     public boolean isAvatarDisplayed() { // метод для отображения аватарки,
         // параметры в скобках не нужны, страница внутри себя должна знать как найти аватарку и как у нее спросить есть она или нет
 
@@ -39,7 +41,8 @@ public class HomePage extends ParentPage { // наследует все от р�
     return actionsWithOurElements.isElementDisplayed(avatar);
     }
 
-    public void checkIsAvatarPresent() {
+    public void checkIsAvatarPresent()
+    {
         Assert.assertTrue("Avatar is not displayed", isAvatarDisplayed());
     }
 

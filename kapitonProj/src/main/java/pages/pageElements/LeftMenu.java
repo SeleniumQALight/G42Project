@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.element.Link;
 
 @FindBy(xpath = ".//*[@class='sidebar-menu']")
 
-public class LeftMenu extends HtmlElement {
+public class LeftMenu extends CommonActionWithElements {
     @FindBy(id = "dictionary")
     private Link menuDictionary;
 
@@ -15,10 +15,10 @@ public class LeftMenu extends HtmlElement {
     private Link subMenuSpares;
 
     public void clickOnMenuDictionary() {
-        menuDictionary.click();
+        actionWithOurElements.clickOnElement(menuDictionary);
     }
 
     public void clickOnSubMenuSpare() {
-        subMenuSpares.click();
+        actionWithOurElements.clickOnElement(subMenuSpares);
     }
 }

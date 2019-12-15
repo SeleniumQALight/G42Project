@@ -5,7 +5,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 
 @FindBy(xpath = ".//*[@class='sidebar-menu']") // локатор левого меню
-public class LeftMenu extends HtmlElement { // описывает конкретные элемент - левое меню
+public class LeftMenu extends CommonActionWithElements { // описывает конкретные элемент - левое меню, 05.12 изменили наследование на комон
     @FindBy(id = "dictionary")
     private Link menuDictionary;
 
@@ -13,9 +13,13 @@ public class LeftMenu extends HtmlElement { // описывает конкрет
     private Link subMenuSpares;
 
     public void clickOnMenuDictionary(){
-        menuDictionary.click();
+
+        actionsWithOurElements.clickOnElement(menuDictionary);
+//        menuDictionary.click();
     }
     public void clickOnSubMenuSpare(){
-        subMenuSpares.click();
+
+        actionsWithOurElements.clickOnElement(subMenuSpares);
+//        subMenuSpares.click();
     }
 }

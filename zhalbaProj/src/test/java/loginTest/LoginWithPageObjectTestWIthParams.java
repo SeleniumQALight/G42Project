@@ -33,7 +33,7 @@ public class LoginWithPageObjectTestWIthParams extends AbstractParentTest {
     loginPage.openPage();
     loginPage.enterLoginInToInputLogin(login);
     loginPage.enterPassInToInputPassword(pass);
-    loginPage.clickonButtonVhod();
+    loginPage.clickOnButtonVhod();
 
     checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed());
 
@@ -44,7 +44,7 @@ public class LoginWithPageObjectTestWIthParams extends AbstractParentTest {
     loginPage.openPage();
     loginPage.enterLoginInToInputLogin(login);
     loginPage.enterPassInToInputPassword(pass);
-    loginPage.clickonButtonVhod();
+    loginPage.clickOnButtonVhod();
 
     checkExpectedResult("Avatar is not present", !homePage.isAvatarDisplayed());
     checkExpectedResult("Button is not displayed", loginPage.isVhodButtonDispalyed());
