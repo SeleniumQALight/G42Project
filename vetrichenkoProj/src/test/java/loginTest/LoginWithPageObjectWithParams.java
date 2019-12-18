@@ -1,4 +1,4 @@
-package LoginTest;
+package loginTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
