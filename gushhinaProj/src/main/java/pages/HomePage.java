@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public class HomePage extends ParentPage {
    public LeftMenu leftMenu;
 
 
+   //@Step
     //method po rabote s avatarom
     public boolean isAvatarDisplayed (){
         try{
@@ -37,6 +39,8 @@ public class HomePage extends ParentPage {
     public void checkIsAvatarPresent() {
         Assert.assertTrue("Avatar is not displayed" , isAvatarDisplayed());
     }
+
+   // @Step
     public boolean isLogginSuccess(){
         try{
             WebElement successLoggin = webDriver.findElement(By.xpath("//*/li[text()='Главная']"));
