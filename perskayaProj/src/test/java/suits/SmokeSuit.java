@@ -1,6 +1,6 @@
 package suits;
 
-import loginTest.LoginWithPageObjectTest;
+import LoginTest.LoginWithPageObjectTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import sparesTest.SparesTest;
