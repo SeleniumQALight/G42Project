@@ -1,4 +1,4 @@
-package loginTest;
+package LoginTest;
 
 
 import org.junit.Assert;
