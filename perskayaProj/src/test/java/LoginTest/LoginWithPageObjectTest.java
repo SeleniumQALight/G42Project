@@ -2,6 +2,7 @@ package LoginTest;
 
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
+import pages.LoginPage;
 
 public class LoginWithPageObjectTest extends AbstractParentTest {
 @Test

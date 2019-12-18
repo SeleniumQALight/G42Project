@@ -1,5 +1,6 @@
 package providersTest;
 
+import LoginTest.LoginWithPageObjectTest;
 import abstractParentTest.AbstractParentTest;
 import org.junit.Test;
 
