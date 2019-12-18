@@ -1,5 +1,8 @@
 package loginTest;
 
+// clean test -Dtest=LoginWithPageObjectTest -Dmaven.test.failure.ignore=true allure:report
+
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;

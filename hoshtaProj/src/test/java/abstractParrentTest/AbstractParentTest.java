@@ -1,9 +1,19 @@
 package abstractParrentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,6 +31,9 @@ public class AbstractParentTest {
     protected HomePage homePage;
     protected SparesPage sparesPage;
     protected EditSparePage editSparePage;
+    protected static ConfigProperties configProperties =
+            ConfigFactory.create(ConfigProperties.class);
+    private Logger logger = Logger.getLogger(getClass());
 
     @Before
     public void setUp() throws Exception {
@@ -54,9 +67,39 @@ public class AbstractParentTest {
 
     @After
     public void tearDown(){
-        webDriver.quit();
+
+//        webDriver.quit();
     }
 
+    @Rule
+    public TestWatcher watchman = new TestWatcher() {
+        @Override
+        protected void failed(Throwable e, Description description) {
+            screenshot();
+        }
+        @Attachment(value = "Page screenshot", type = "image/png")
+        public byte[] saveScreenshot(byte[] screenShot) {
+            return screenShot;
+        }
+        public void screenshot() {
+            if (webDriver == null) {
+                logger.info("Driver for screenshot not found");
+                return;
+            }
+            saveScreenshot(((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES));
+        }
+        @Override
+        protected void finished(Description description) {
+            logger.info(String.format("Finished test: %s::%s", description.getClassName(), description.getMethodName()));
+            try {
+                webDriver.quit();
+            } catch (Exception e) {
+                logger.error(e);
+            }
+        }
+    };
+
+    @Step
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     }

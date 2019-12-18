@@ -1,6 +1,7 @@
 package abstractParrentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -66,10 +67,12 @@ public class AbstractParentTest {
         webDriver.quit();
     }
 
+  //  @Step
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     }
 
+ //   @Step
     protected void correctLogin(String message, boolean actualResult){
         Assert.assertEquals(message, true, actualResult);
     }

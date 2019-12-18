@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +25,7 @@ public class HomePage extends ParentPage {
         super(webDriver, "/");
     }
 
+    @Step
     public boolean isAvatarDisplayed() {
 //        try {
 //            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));

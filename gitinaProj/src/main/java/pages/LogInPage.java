@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import libs.ActionsWithOurElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -24,6 +25,7 @@ public class LogInPage extends ParentPage {
         super(webDriver, "/login");
     }
 
+    @Step
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/");
@@ -32,18 +34,22 @@ public class LogInPage extends ParentPage {
         }
     }
 
+    @Step
     public void enterLoginInToInputlogin(String login) {
         actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
+    @Step
     public void enterPassInToInputPassWord(String password) {
         actionsWithOurElements.enterTextIntoInput(inputPass, password);
     }
 
+    @Step
     public void clickOnButtonVhod() {
-   actionsWithOurElements.clickOnElement(buttonVhod);
+        actionsWithOurElements.clickOnElement(buttonVhod);
     }
 
+    @Step
     public boolean isButtonVhodDisplayed() {
         try {
             logger.info("Button Vhod is displayed");
@@ -55,7 +61,7 @@ public class LogInPage extends ParentPage {
         }
     }
 
-
+    @Step
     public boolean isEmailFieldDisplayed() {
         try {
             logger.info("Email field is displayed");
@@ -66,7 +72,7 @@ public class LogInPage extends ParentPage {
             return false;
         }
     }
-
+    @Step
     public boolean isPasswordFieldDisplayed() {
         try {
             logger.info("Password field is displayed");
@@ -77,8 +83,7 @@ public class LogInPage extends ParentPage {
             return false;
         }
     }
-
-
+    @Step
     public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         enterLoginInToInputlogin(login);

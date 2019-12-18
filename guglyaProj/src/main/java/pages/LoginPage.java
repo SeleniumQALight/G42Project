@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class LoginPage extends ParentPage{
         super(webDriver, "/login");
     }
 
+    @Step //для отображения в отчете алюра метка шагов
     public void openPage() {
         try{
             webDriver.get("http://v3.test.itpmgroup.com/login");
@@ -32,6 +34,7 @@ public class LoginPage extends ParentPage{
         }
     }
 
+    @Step
     public void enterLoginInToInputLogin(String login) {
   //      WebElement inputLogin = webDriver.findElement(By.name("_username")); за коментировали по причине find by
   //      inputLogin.clear();
@@ -41,6 +44,7 @@ public class LoginPage extends ParentPage{
 
     }
 
+    @Step
     public void enterPassInToInputPassword(String password) {
   //      WebElement inputPass = webDriver.findElement(By.id("password"));   findby
  //       inputLogin.clear();
@@ -49,6 +53,7 @@ public class LoginPage extends ParentPage{
         actionsWithOurElements.enterTextInToInput(inputPassword, password );
     }
 
+    @Step
     public void clickOnButtonVhod() {
   //      WebElement buttonVhod = webDriver.findElement(By.tagName("button"));  findby
     //    buttonVhod.click();
@@ -57,6 +62,7 @@ public class LoginPage extends ParentPage{
 
     }
 
+    @Step
     public boolean stayOnLoginPageChek() {
         try {
             WebElement buttonVhod = webDriver.findElement(By.name("submit"));
@@ -66,6 +72,7 @@ public class LoginPage extends ParentPage{
         }
     }
 
+    @Step
     public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         enterLoginInToInputLogin(login);

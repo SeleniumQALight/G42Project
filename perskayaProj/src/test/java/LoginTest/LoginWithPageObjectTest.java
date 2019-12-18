@@ -1,15 +1,25 @@
 package LoginTest;
 
 import abstractParentTest.AbstractParentTest;
+import io.qameta.allure.*;
 import org.junit.Test;
 import pages.LoginPage;
 
+@Epic("Allure examples") // описывает класс
+@Feature("Junit 4 support")
 public class LoginWithPageObjectTest extends AbstractParentTest {
-@Test
+    @Description("Some detailed test description") // описание
+    @Story("Base support for bdd annotations") // это стори фич копиурется из джиры
+//    @Link("https://example.org") // любой линк можно вставить
+//    @Link(name = "allure", type = "mylink") // название линка
+//    @Issue("123") // 123 - номер бага
+//    @Issue("432")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test
     public void validLogin() {
     loginPage.openPage(); // метод openPage открывает нужную урлку
     loginPage.enterLoginInToInputLogin("Student"); // метод enterLoginInToInputLogin вводит значение в поле логин
-    loginPage.enterPassInToInputPassword("909090"); // метод enterPassInToInputPassword вводит значение в поле пароля
+    loginPage.enterPassInToInputPassword("9090909"); // метод enterPassInToInputPassword вводит значение в поле пароля
     loginPage.clickOnButtonVhod(); // метод clickOnButtonVhod нажимает кнопку вход реализация этих методов будет в AbstractParentTest
 
     checkExpectedResult("Avatar is not present", homePage.isAvatarDisplayed()); //checkExpectedResult - название метода

@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class HomePage extends ParentPage {
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
+    @Test
     public boolean isAvatarDisplayed(){
 //        try{
 //            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));

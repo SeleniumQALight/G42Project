@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,7 @@ public class HomePage extends ParentPage {
     super(webDriver, "/");
   }
 
+  @Test
   public boolean isAvatarDisplayed() {
 
 //    try {
@@ -35,6 +37,7 @@ public class HomePage extends ParentPage {
     return actionsWithOurElements.isElementDisplayed(avatar);
   }
 
+  @Test
   public void checkIsAvatarDisplayed() {
     Assert.assertTrue("Avatar is not Displayed", isAvatarDisplayed());
   }

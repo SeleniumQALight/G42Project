@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class HomePage extends ParentPage {
 //    @FindBy (id = "dictionary")
 //    private Link menuDictionary;
 //
-////    @Name("SubMenu Spares")
+//    @Name("SubMenu Spares")
 //    @FindBy (id = "spares")
 //    private Link subMenuSpares;
 
@@ -27,6 +28,7 @@ public class HomePage extends ParentPage {
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
+    @Step
     public boolean isAvatarDisplayed(){
 //        try {
 //            WebElement avatar = webDriver.findElement(By.xpath(".//*[@class='pull-left image']"));

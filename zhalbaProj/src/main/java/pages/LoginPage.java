@@ -1,7 +1,7 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +22,7 @@ public class LoginPage extends ParentPage {
     super(webDriver, "/login");
   }
 
+  @Step
   public void openPage() {
     try {
       webDriver.get("http://v3.test.itpmgroup.com/");
@@ -30,6 +31,7 @@ public class LoginPage extends ParentPage {
     }
   }
 
+  @Step
   public void enterLoginInToInputLogin(String login) {
 //    inputLogin.clear();
 //    inputLogin.sendKeys(login);
@@ -37,7 +39,7 @@ public class LoginPage extends ParentPage {
     actionsWithOurElements.enterTextIntToInput(inputLogin, login);
   }
 
-
+  @Step
   public void enterPassInToInputPassword(String password) {
 //    inputPass.clear();
 //    inputPass.sendKeys(password);
@@ -45,12 +47,14 @@ public class LoginPage extends ParentPage {
     actionsWithOurElements.enterTextIntToInput(inputPass, password);
   }
 
-  public void clickonButtonVhod() {
+  @Step
+  public void clickOnButtonVhod() {
 //    buttonVhod.click();
 //    logger.info("Button was clicked");
     actionsWithOurElements.clickOnElement(buttonVhod);
   }
 
+  @Step
   public boolean isVhodButtonDispalyed() {
     try {
       return buttonVhod.isDisplayed();
@@ -59,10 +63,11 @@ public class LoginPage extends ParentPage {
     }
   }
 
+  @Step
   public void fillingLoginFormAndSubmitIt(String login, String pass) {
     openPage();
     enterLoginInToInputLogin(login);
     enterPassInToInputPassword(pass);
-    clickonButtonVhod();
+    clickOnButtonVhod();
   }
 }

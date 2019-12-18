@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,7 @@ public class LoginPage extends ParentPage {
         super(webDriver, "/login");
     }
 
+  //  @Step //because of this tag we will have this method in allure report
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com");
@@ -28,6 +30,7 @@ public class LoginPage extends ParentPage {
         }
     }
 
+  //  @Step
     public void enterLoginInToInputLogin(String login) {
      //   WebElement inputLogin = webDriver.findElement(By.name("_username")); We dont need it anymore cuz we tags @ it above
        /* inputLogin.clear();
@@ -36,6 +39,7 @@ public class LoginPage extends ParentPage {
        actionWithOurElements.enterTextInToInput(inputLogin, login);
     }
 
+   // @Step
     public void enterPassInToInputPassword(String password) {
       //  WebElement inputPass = webDriver.findElement(By.id("password"));  We dont need it anymore cuz we tags @ it above
         inputPass.clear();
@@ -43,6 +47,7 @@ public class LoginPage extends ParentPage {
         logger.info(password + " was imputed in to input Password");
     }
 
+  //  @Step
     public void clickOnButtonVhod() {
       //  WebElement buttonVhod  = webDriver.findElement(By.tagName("button"));  We dont need it anymore cuz we tags @ it above
         buttonVhod.click();

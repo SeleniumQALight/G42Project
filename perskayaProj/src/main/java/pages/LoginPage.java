@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
         super(webdriver, "/login");
     }
 
+    @Step
     public void openPage() {
         try {
             webdriver.get ("http://v3.test.itpmgroup.com");
@@ -31,17 +33,19 @@ public class LoginPage extends ParentPage { // когда введем слов�
         }
     }
 
+    @Step
     public void enterLoginInToInputLogin(String login) { // login - название переменной
         //WebElement inputLogin = webdriver.findElement(By.name("_username")); - мы просим вебдрайвер найти элемент по этому локатору и
         // его записать в эту переменную inputLogin// уже не нужно, так как написали сверху файнд бай
 
-        actionsWithOurElements.enterTextInToInput (inputLogin, login); // добавлено вместо 3х строк ниже
+        actionsWithOurElements.enterTextInToInput (inputLogin, login); // alt+enter / create field ; добавлено вместо 3х строк ниже
 
 //        inputLogin.clear(); // находим элемент, который сохранен в переменной inputLogin и очищаем это поле
 //        inputLogin.sendKeys(login); // ввести в инпут login из метода
 //        logger.info(login + " was inputed in to input Login"); // подключаем логирования, это будет информирование о введенном логине
     }
 
+    @Step
     public void enterPassInToInputPassword(String password) {
         //WebElement inputPass = webdriver.findElement(By.id("password")); уже не нужно, так как написали сверху файнд бай
 
@@ -52,6 +56,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
 //        logger.info(password + " was inputed into input PassWord");
     }
 
+    @Step
     public void clickOnButtonVhod() { // параметр в методе не нужен, это просто клик поэтому () пустые
         //WebElement buttonVhod = webdriver.findElement(By.tagName("button")); уже не нужно, так как написали сверху файнд бай
 
@@ -62,6 +67,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
 //        logger.info("Button was clicked");
     }
 
+    @Step
     public boolean isButtonVhodDisplayed() {
         try {
             WebElement buttonVhod = webdriver.findElement(By.tagName("button")); //поиск кнопки
@@ -71,6 +77,7 @@ public class LoginPage extends ParentPage { // когда введем слов�
         }
     }
 
+    @Step
     public void fillingLoginFormAndSubmitIt(String login, String password) { // авторизация в кабинет
         openPage();
         enterLoginInToInputLogin(login);
