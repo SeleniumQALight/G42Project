@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,7 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    @Step
     public void enterLoginIntoInputLogin(String login) {
 //        WebElement inputLogin = webDriver.findElement(By.name("_username"));
 //        inputLogin.clear();
@@ -38,6 +40,7 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
+    @Step
     public void enterPasswordIntoInputPassword(String password) {
 //        WebElement inputPassword = webDriver.findElement(By.id("password"));
 //        inputPassword.clear();
@@ -46,6 +49,7 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
 
+    @Step
     public void clickOnButtonVhod() {
 //        WebElement vhodButton = webDriver.findElement(By.tagName("button"));
 //        vhodButton.click();
@@ -53,6 +57,7 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.clickOnElement(vhodButton);
     }
 
+    @Step
     public boolean isLoginFieldDisplayed() {
         try {
             return inputLogin.isDisplayed();
@@ -61,6 +66,7 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    @Step
     public void fillingLoginFormAndSubmit(String login, String password) {
         openPage();
         enterLoginIntoInputLogin(login);
