@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class LoginPage extends ParentPage {
         clickOnButtonVhod();
     }
 
+    @Step
     public void openPage() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/login");
@@ -35,18 +37,22 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    @Step
     public void enterLoginIntoInputLogin(String login) {
         actionsWithOurElements.enterTextIntoInput(inputLogin, login);
     }
 
+    @Step
     public void enterPassIntoInputPassword(String password) {
         actionsWithOurElements.enterTextIntoInput(inputPassword, password);
     }
 
+    @Step
     public void clickOnButtonVhod() {
         actionsWithOurElements.clickElement(buttonVhod);
-}
+    }
 
+    @Step
     public boolean isVhodButtonVisible() {
         return actionsWithOurElements.isElementDisplayed(buttonVhod);
     }
