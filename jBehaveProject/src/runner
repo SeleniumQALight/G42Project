@@ -1,0 +1,4 @@
+clean verify -Ddriver=chrome -Dmaven.test.failure.ignore=true
+
+report:
+C:\workspace\G29Project\jBehaveProject\target\site\thucydides\index.html

@@ -1,0 +1,9 @@
+http://toolsqa.com/cucumber/data-driven-testing-in-cucumber/
+
+runner
+mvn clean test
+or
+clean test site -Dmaven.test.failure.ignore=true
+
+IDEA
+install cucumber and gerkin plugings

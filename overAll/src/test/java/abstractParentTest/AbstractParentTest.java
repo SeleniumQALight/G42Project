@@ -13,17 +13,22 @@ import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SparePage;
 
 import java.io.File;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
@@ -65,6 +70,17 @@ public class AbstractParentTest {
         } else if ("ie".equalsIgnoreCase(browser)){
             WebDriverManager.iedriver().arch32().setup();
             return new InternetExplorerDriver();
+        } else if ("remote".equals(browser)){
+            DesiredCapabilities cap=new DesiredCapabilities();
+            cap.setBrowserName("chrome");
+            cap.setPlatform(Platform.WINDOWS);
+            cap.setVersion("79");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.merge(cap);
+            webDriver = new RemoteWebDriver(
+                    new URL("http://localhost:4444/wd/hub"),
+                    chromeOptions);
+            return webDriver;
         } else {
             throw new Exception("Check browser var ");
         }

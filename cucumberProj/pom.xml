@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>G42Proj</artifactId>
+        <groupId>G42Proj</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cucumberProj</artifactId>
+    <packaging>jar</packaging>
+
+    <name>cucumberProj</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>1.2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>1.2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.45.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+    <plugin>
+        <groupId>com.trivago.rta</groupId>
+        <artifactId>cluecumber-report-plugin</artifactId>
+        <version>0.7.1</version>
+        <executions>
+            <execution>
+                <id>report</id>
+                <phase>post-integration-test</phase>
+                <goals>
+                    <goal>reporting</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <sourceJsonReportDirectory>${project.build.directory}/cucumber-parallel</sourceJsonReportDirectory>
+            <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+        </configuration>
+    </plugin>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <glue>StepDefinitions</glue>
+                            <featuresDirectory>./src/test/resources/features</featuresDirectory>
+                            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+                            <format>json,html</format>
+                            <tags>"@q1"</tags>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <forkCount>5</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <parallel>all</parallel>
+                    <threadCount>10</threadCount>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <includes>
+                        <include>**/Parallel*IT.class</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    </build>
+</project>

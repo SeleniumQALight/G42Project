@@ -38,6 +38,8 @@
       <module>mosencovaProj</module>
       <module>gushhinaProj</module>
       <module>martsekhovProj</module>
+      <module>jBehaveProject</module>
+      <module>cucumberProj</module>
     </modules>
 
     <name>G42Proj</name>
